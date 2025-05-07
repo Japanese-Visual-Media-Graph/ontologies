@@ -1,0 +1,1508 @@
+@prefix : <http://mediagraph.link/aclick/ont/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ns1: <http://mediagraph.link/jvmg/ont/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rfs: <http://mediagraph.link/aclick/ont/rfs:> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix aclick: <http://mediagraph.link/aclick/ont/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://mediagraph.link/aclick/ont/> .
+
+<http://mediagraph.link/aclick/ont/> rdf:type owl:Ontology ;
+                                      dc:creator "Japanese Visual Media Graph" ;
+                                      dc:description "A metadata vocabulary based on AnimeClick.it, with property names based primarily on the original data."@en ;
+                                      dc:title "AnimeClick.it Ontology"@en ;
+                                      dcterms:modified "2021-05-05" ;
+                                      vann:preferredNamespacePrefix "aclick" ;
+                                      vann:preferredNamespaceUri <http://mediagraph.link/aclick/ont> ;
+                                      rdfs:comment "Some modifications, such as the defining of class & sublcass relationships have been made from the original AnimeClick data model."@en ;
+                                      rdfs:label "AnimeClick Ontology"@en ;
+                                      owl:versionInfo "1.3"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://mediagraph.link/aclick/ont/rfs:type
+rfs:type rdf:type owl:AnnotationProperty .
+
+
+###  http://mediagraph.link/jvmg/ont/sourceGraph
+ns1:sourceGraph rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dcterms:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://mediagraph.link/aclick/ont/author
+aclick:author rdf:type owl:ObjectProperty ;
+              rdfs:domain aclick:Staff ;
+              rdfs:range aclick:Author ;
+              ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+              rdfs:label "Author"@en ;
+              skos:definition "Author or primary creator of a creative work"@en .
+
+
+###  http://mediagraph.link/aclick/ont/category
+aclick:category rdf:type owl:ObjectProperty ;
+                rdfs:domain aclick:Anime ,
+                            aclick:Manga ;
+                rdfs:range aclick:Category ;
+                ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                rdfs:label "Category"@en ;
+                skos:definition "Indicates an anime or manga category"@en .
+
+
+###  http://mediagraph.link/aclick/ont/character
+aclick:character rdf:type owl:ObjectProperty ;
+                 rdfs:domain aclick:CreativeWork ;
+                 rdfs:range aclick:Character ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                 rdfs:label "Character"@en ;
+                 skos:definition "Indicates characters who appears in an anime"@en .
+
+
+###  http://mediagraph.link/aclick/ont/episodes
+aclick:episodes rdf:type owl:ObjectProperty ;
+                rdfs:domain aclick:CreativeWork ;
+                rdfs:range aclick:Episode ;
+                ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                rdfs:label "Episodes"@en ;
+                skos:definition "Lists individual anime episodes"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre
+aclick:genre rdf:type owl:ObjectProperty ;
+             rdfs:domain aclick:Anime ,
+                         aclick:Manga ;
+             rdfs:range aclick:Genre ;
+             ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+             rdfs:label "Genre"@en ;
+             skos:definition "Indicates a genre of a creative work"@en .
+
+
+###  http://mediagraph.link/aclick/ont/related
+aclick:related rdf:type owl:ObjectProperty ;
+               rdfs:domain aclick:CreativeWork ;
+               rdfs:range aclick:CreativeWork ;
+               ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+               rdfs:label "Related"@en ;
+               skos:definition "Indicates a related work."@en .
+
+
+###  http://mediagraph.link/aclick/ont/tag
+aclick:tag rdf:type owl:ObjectProperty ;
+           rdfs:domain aclick:Anime ,
+                       aclick:Manga ;
+           rdfs:range aclick:Tag ;
+           ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+           rdfs:label "Tag"@en ;
+           skos:definition "A descriptive content tag for a creative work."@en .
+
+
+###  http://mediagraph.link/aclick/ont/type
+aclick:type rdf:type owl:ObjectProperty ;
+            rdfs:domain aclick:Anime ,
+                        aclick:Author ,
+                        aclick:Manga ,
+                        aclick:Volume ;
+            rdfs:range aclick:Type ;
+            ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+            rdfs:label "Type"@en ;
+            skos:definition "Indicates a media type or author type"@en .
+
+
+###  http://mediagraph.link/aclick/ont/voices
+aclick:voices rdf:type owl:ObjectProperty ;
+              rdfs:domain aclick:VoiceActor ;
+              rdfs:range aclick:Character ;
+              ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+              rdfs:label "Voices"@en ;
+              skos:definition "Indicates a voice actor of a creative work"@en .
+
+
+###  http://mediagraph.link/aclick/ont/volumes
+aclick:volumes rdf:type owl:ObjectProperty ;
+               rdfs:domain aclick:Manga ;
+               rdfs:range aclick:Volume ;
+               ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+               rdfs:label "volumes"@en ;
+               skos:definition "Lists individual manga volumes"@en .
+
+
+###  http://mediagraph.link/aclick/ont/work
+aclick:work rdf:type owl:ObjectProperty ;
+            rdfs:domain aclick:Staff ;
+            rdfs:range aclick:CreativeWork ;
+            ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+            rdfs:label "Work"@en ;
+            skos:definition "Indicates the staff of a creative work (e.g. manga, anime)"@en .
+
+
+###  http://www.w3.org/2002/07/owl#topObjectProperty
+owl:topObjectProperty rdfs:subPropertyOf aclick:episodes .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://mediagraph.link/aclick/ont/aclickLink
+aclick:aclickLink rdf:type owl:DatatypeProperty ;
+                  rdfs:domain aclick:Anime ,
+                              aclick:Author ,
+                              aclick:Episode ;
+                  rdfs:range xsd:anyURI ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                  rdfs:label "Aclick Link"@en ;
+                  skos:definition "Link to aclick website"@en .
+
+
+###  http://mediagraph.link/aclick/ont/blog
+aclick:blog rdf:type owl:DatatypeProperty ;
+            rdfs:domain aclick:Author ;
+            rdfs:range rdfs:Literal ,
+                       xsd:anyURI ;
+            ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+            rdfs:label "Blog"@en ;
+            skos:definition "Blog URL of a resource."@en .
+
+
+###  http://mediagraph.link/aclick/ont/dateOfBirth
+aclick:dateOfBirth rdf:type owl:DatatypeProperty ;
+                   rdfs:domain aclick:Author ;
+                   rdfs:range rdfs:Literal ,
+                              xsd:dateTime ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                   rdfs:label "Date of birth"@en ;
+                   skos:definition "Birthday of a character or staff member"@en .
+
+
+###  http://mediagraph.link/aclick/ont/dateOfDeath
+aclick:dateOfDeath rdf:type owl:DatatypeProperty ;
+                   rdfs:domain aclick:Author ;
+                   rdfs:range rdfs:Literal ,
+                              xsd:dateTime ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                   rdfs:label "Date of death"@en ;
+                   skos:definition "Date of death of a character or staff member"@en .
+
+
+###  http://mediagraph.link/aclick/ont/englishTitle
+aclick:englishTitle rdf:type owl:DatatypeProperty ;
+                    rdfs:domain aclick:Anime ,
+                                aclick:Episode ,
+                                aclick:Manga ;
+                    rdfs:range rdfs:Literal ;
+                    ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                    rdfs:label "English title"@en ;
+                    skos:definition "Resource title in English."@en .
+
+
+###  http://mediagraph.link/aclick/ont/episodesNumber
+aclick:episodesNumber rdf:type owl:DatatypeProperty ;
+                      rdfs:domain aclick:Anime ,
+                                  aclick:Episode ;
+                      rdfs:range rdfs:Literal ;
+                      ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                      rdfs:label "Episodes number"@en ;
+                      skos:definition "Number of episodes"@en .
+
+
+###  http://mediagraph.link/aclick/ont/id
+aclick:id rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:int ;
+          ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+          rdfs:label "ID"@en ;
+          skos:definition "indicates the Identifier of a media or a character"@en .
+
+
+###  http://mediagraph.link/aclick/ont/italian_title
+aclick:italian_title rdf:type owl:DatatypeProperty ;
+                     rdfs:domain aclick:Episode ;
+                     rdfs:range rdfs:Literal ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                     rdfs:label "Italian title"@en ;
+                     skos:definition "The italian title of a creative work"@en .
+
+
+###  http://mediagraph.link/aclick/ont/kanjiName
+aclick:kanjiName rdf:type owl:DatatypeProperty ;
+                 rdfs:domain aclick:Author ;
+                 rdfs:range rdfs:Literal ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                 rdfs:label "Kanji name"@en ;
+                 skos:definition "Kanji name of a media type or character"@en .
+
+
+###  http://mediagraph.link/aclick/ont/kanjiTitle
+aclick:kanjiTitle rdf:type owl:DatatypeProperty ;
+                  rdfs:domain aclick:Anime ,
+                              aclick:Episode ,
+                              aclick:Manga ;
+                  rdfs:range rdfs:Literal ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                  rdfs:label "Kanji title"@en ;
+                  skos:definition "Kanji title of a creative work"@en .
+
+
+###  http://mediagraph.link/aclick/ont/name
+aclick:name rdf:type owl:DatatypeProperty ;
+            rdfs:domain aclick:Author ,
+                        aclick:Character ,
+                        aclick:VoiceActor ;
+            rdfs:range rdfs:Literal ;
+            ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+            rdfs:label "Name"@en ;
+            skos:definition "Name of a creative work or character"@en .
+
+
+###  http://mediagraph.link/aclick/ont/nationality
+aclick:nationality rdf:type owl:DatatypeProperty ;
+                   rdfs:domain aclick:Anime ,
+                               aclick:Author ,
+                               aclick:Manga ,
+                               aclick:VoiceActor ,
+                               aclick:Volume ;
+                   rdfs:range rdfs:Literal ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                   rdfs:label "Nationality"@en ;
+                   skos:definition "Nation of origin, written in Italian."@en .
+
+
+###  http://mediagraph.link/aclick/ont/originalTitle
+aclick:originalTitle rdf:type owl:DatatypeProperty ;
+                     rdfs:domain aclick:Anime ,
+                                 aclick:Episode ,
+                                 aclick:Manga ;
+                     rdfs:range rdfs:Literal ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                     rdfs:label "Original title"@en ;
+                     skos:definition "Original title of a creative work"@en .
+
+
+###  http://mediagraph.link/aclick/ont/price
+aclick:price rdf:type owl:DatatypeProperty ;
+             rdfs:domain aclick:Volume ;
+             rdfs:range xsd:float ;
+             ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+             rdfs:label "Price"@en ;
+             skos:definition "Price of a manga volume"@en .
+
+
+###  http://mediagraph.link/aclick/ont/publicationDate
+aclick:publicationDate rdf:type owl:DatatypeProperty ;
+                       rdfs:domain aclick:Volume ;
+                       rdfs:range rdfs:Literal ;
+                       ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                       rdfs:label "Publication date"@en ;
+                       skos:definition "Publication date of a manga volume"@en .
+
+
+###  http://mediagraph.link/aclick/ont/publisher
+aclick:publisher rdf:type owl:DatatypeProperty ;
+                 rdfs:domain aclick:Volume ;
+                 rdfs:range rdfs:Literal ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                 rdfs:label "Publisher"@en ;
+                 skos:definition "Indicates a publisher of a creative work"@en .
+
+
+###  http://mediagraph.link/aclick/ont/rating
+aclick:rating rdf:type owl:DatatypeProperty ;
+              rdfs:domain aclick:Anime ,
+                          aclick:Manga ;
+              rdfs:range rdfs:Literal ;
+              ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+              rdfs:label "Rating"@en ;
+              skos:definition "AnimeClick user rating."@en .
+
+
+###  http://mediagraph.link/aclick/ont/reprintNumber
+aclick:reprintNumber rdf:type owl:DatatypeProperty ;
+                     rdfs:domain aclick:Volume ;
+                     rdfs:range xsd:integer ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                     rdfs:label "Reprint number"@en ;
+                     skos:definition "Indicates a reprint number of a manga volume"@en .
+
+
+###  http://mediagraph.link/aclick/ont/role
+aclick:role rdf:type owl:DatatypeProperty ;
+            rdfs:domain aclick:Staff ;
+            rdfs:range rdfs:Literal ;
+            ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+            rdfs:label "Role"@en ;
+            skos:definition "The role that a staff entity had in contribution to a work."@en .
+
+
+###  http://mediagraph.link/aclick/ont/seasons
+aclick:seasons rdf:type owl:DatatypeProperty ;
+               rdfs:domain aclick:CreativeWork ;
+               rdfs:range rdfs:Literal ;
+               ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+               rdfs:label "Seasons"@en ;
+               skos:definition "Indicates the season in which an anime was released"@en .
+
+
+###  http://mediagraph.link/aclick/ont/sex
+aclick:sex rdf:type owl:DatatypeProperty ;
+           rdfs:domain aclick:Author ;
+           rdfs:range rdfs:Literal ;
+           ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+           rdfs:label "Sex"@en ;
+           skos:definition "Sex of a staff member or character"@en .
+
+
+###  http://mediagraph.link/aclick/ont/statusInHomeCountry
+aclick:statusInHomeCountry rdf:type owl:DatatypeProperty ;
+                           rdfs:domain aclick:Anime ,
+                                       aclick:Manga ;
+                           rdfs:range rdfs:Literal ;
+                           ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                           rdfs:label "Status in home country"@en ;
+                           skos:definition "Broadcast or publication status in the work's home country."@en .
+
+
+###  http://mediagraph.link/aclick/ont/statusInItaly
+aclick:statusInItaly rdf:type owl:DatatypeProperty ;
+                     rdfs:domain aclick:Anime ,
+                                 aclick:Manga ;
+                     rdfs:range rdfs:Literal ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                     rdfs:label "Status in Italy"@en ;
+                     skos:definition "Broadcast or publication status in Italy."@en .
+
+
+###  http://mediagraph.link/aclick/ont/summery
+aclick:summery rdf:type owl:DatatypeProperty ;
+               rdfs:domain aclick:Volume ;
+               rdfs:range rdfs:Literal ;
+               ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+               rdfs:label "Summery"@en ;
+               skos:definition "Synopsis or description in Italian."@en .
+
+
+###  http://mediagraph.link/aclick/ont/tags
+aclick:tags rdf:type owl:DatatypeProperty ;
+            ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+            rdfs:label "Tags"@en ;
+            skos:definition "Tag for a media"@en .
+
+
+###  http://mediagraph.link/aclick/ont/title
+aclick:title rdf:type owl:DatatypeProperty ;
+             rdfs:domain aclick:Anime ,
+                         aclick:Manga ,
+                         aclick:Volume ;
+             rdfs:range rdfs:Literal ;
+             ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+             rdfs:label "Title"@en ;
+             skos:definition "The main title as used on AnimeClick."@en .
+
+
+###  http://mediagraph.link/aclick/ont/volumesNumber
+aclick:volumesNumber rdf:type owl:DatatypeProperty ;
+                     rdfs:domain aclick:Manga ;
+                     rdfs:range rdfs:Literal ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                     rdfs:label "Volumes number"@en ;
+                     skos:definition "Number of volumes of a manga"@en .
+
+
+###  http://mediagraph.link/aclick/ont/website
+aclick:website rdf:type owl:DatatypeProperty ;
+               rdfs:domain aclick:Author ;
+               rdfs:range rdfs:Literal ,
+                          xsd:anyURI ;
+               ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+               rdfs:label "Website"@en ;
+               skos:definition "Links to a specific website"@en .
+
+
+###  http://mediagraph.link/aclick/ont/year
+aclick:year rdf:type owl:DatatypeProperty ;
+            rdfs:domain aclick:Anime ,
+                        aclick:Manga ;
+            rdfs:range rdfs:Literal ;
+            ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+            rdfs:label "Year"@en ;
+            skos:definition "Indicate the release date of the media"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://mediagraph.link/aclick/ont/Anime
+aclick:Anime rdf:type owl:Class ;
+             rdfs:subClassOf aclick:CreativeWork ;
+             ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+             rdfs:label "Anime"@en ;
+             skos:definition "A specific Anime"@en .
+
+
+###  http://mediagraph.link/aclick/ont/Author
+aclick:Author rdf:type owl:Class ;
+              rdfs:subClassOf aclick:Contributor ;
+              ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+              rdfs:label "Author"@en ;
+              skos:definition "Author of an anime or manga"@en .
+
+
+###  http://mediagraph.link/aclick/ont/AuthorType
+aclick:AuthorType rdf:type owl:Class ;
+                  rdfs:subClassOf aclick:Contributor ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                  rdfs:label "Author type"@en ;
+                  skos:definition "The author type can take on in the production of an anime or manga. Types can be, for example, script writer or voice actors"@en .
+
+
+###  http://mediagraph.link/aclick/ont/Category
+aclick:Category rdf:type owl:Class ;
+                rdfs:subClassOf aclick:CreativeWorkContents ;
+                ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                rdfs:label "Category"@en ;
+                skos:definition "The category of a created work."@en .
+
+
+###  http://mediagraph.link/aclick/ont/Character
+aclick:Character rdf:type owl:Class ;
+                 rdfs:subClassOf aclick:CreativeWorkContents ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                 rdfs:label "Character"@en ;
+                 skos:definition "Character of a manga or anime"@en .
+
+
+###  http://mediagraph.link/aclick/ont/Contributor
+aclick:Contributor rdf:type owl:Class ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                   rdfs:label "Contributor"@en ;
+                   skos:definition "Contributor to a creative work."@en .
+
+
+###  http://mediagraph.link/aclick/ont/CreativeWork
+aclick:CreativeWork rdf:type owl:Class ;
+                    ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                    rdfs:label "Creative work"@en ;
+                    skos:definition "Creative work includes visual novels and animes"@en .
+
+
+###  http://mediagraph.link/aclick/ont/CreativeWorkContents
+aclick:CreativeWorkContents rdf:type owl:Class ;
+                            rdfs:subClassOf aclick:CreativeWork ;
+                            ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                            rdfs:label "Creative work contents"@en ;
+                            skos:definition "Includes the content of creative works, such as individual episodes or anime"@en .
+
+
+###  http://mediagraph.link/aclick/ont/Episode
+aclick:Episode rdf:type owl:Class ;
+               rdfs:subClassOf aclick:CreativeWorkContents ;
+               ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+               rdfs:label "Episode"@en ;
+               skos:definition "Single episode of an anime"@en .
+
+
+###  http://mediagraph.link/aclick/ont/Genre
+aclick:Genre rdf:type owl:Class ;
+             rdfs:subClassOf aclick:CreativeWorkContents ;
+             ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+             rdfs:label "Genre"@en ;
+             skos:definition "The genre of a created work."@en .
+
+
+###  http://mediagraph.link/aclick/ont/Manga
+aclick:Manga rdf:type owl:Class ;
+             rdfs:subClassOf aclick:CreativeWork ;
+             ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+             rdfs:label "Manga"@en ;
+             skos:definition "Specific manga"@en .
+
+
+###  http://mediagraph.link/aclick/ont/Staff
+aclick:Staff rdf:type owl:Class ;
+             rdfs:subClassOf aclick:Contributor ;
+             ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+             rdfs:label "Staff"@en ;
+             skos:definition "A person or group involved in the creation or publication of a creative work."@en .
+
+
+###  http://mediagraph.link/aclick/ont/StaffType
+aclick:StaffType rdf:type owl:Class ;
+                 rdfs:subClassOf aclick:Contributor ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                 rdfs:label "Staff type"@en ;
+                 skos:definition "The staff type can take on in the production of an anime or manga. Types can be, for example, script writer or voice actors"@en .
+
+
+###  http://mediagraph.link/aclick/ont/Tag
+aclick:Tag rdf:type owl:Class ;
+           rdfs:subClassOf aclick:CreativeWorkContents ;
+           ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+           rdfs:label "Tag"@en ;
+           skos:definition "A class for descriptive details about an anime or manga."@en .
+
+
+###  http://mediagraph.link/aclick/ont/Type
+aclick:Type rdf:type owl:Class ;
+            rdfs:subClassOf aclick:CreativeWorkContents ;
+            ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+            rdfs:label "Type"@en ;
+            skos:definition "The media type of a creative work."@en .
+
+
+###  http://mediagraph.link/aclick/ont/VoiceActor
+aclick:VoiceActor rdf:type owl:Class ;
+                  rdfs:subClassOf aclick:Contributor ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                  rdfs:label "Voice Actor"@en ;
+                  skos:definition "Voice actor of an anime"@en .
+
+
+###  http://mediagraph.link/aclick/ont/Volume
+aclick:Volume rdf:type owl:Class ;
+              rdfs:subClassOf aclick:CreativeWorkContents ;
+              ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+              rdfs:label "Volume"@en ;
+              skos:definition "Single volume of a manga"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://mediagraph.link/aclick/ont/Guro
+aclick:Guro rdf:type owl:NamedIndividual ,
+                     aclick:Genre ;
+            ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+            rdfs:label "Guro"@en ,
+                       "Guro"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Altro
+<http://mediagraph.link/aclick/ont/category/Altro> rdf:type owl:NamedIndividual ,
+                                                            aclick:Category ;
+                                                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                   rdfs:label "Altro"@it ,
+                                                              "Other"@en .
+
+
+###  http://mediagraph.link/aclick/ont/category/Anime_Comic
+<http://mediagraph.link/aclick/ont/category/Anime_Comic> rdf:type owl:NamedIndividual ,
+                                                                  aclick:Category ;
+                                                         ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                         rdfs:label "Anime Comic"@it ,
+                                                                    "Anime comic"@en .
+
+
+###  http://mediagraph.link/aclick/ont/category/Bara
+<http://mediagraph.link/aclick/ont/category/Bara> rdf:type owl:NamedIndividual ,
+                                                           aclick:Category ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:label "Bara"@en ,
+                                                             "Bara"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Boys_Love
+<http://mediagraph.link/aclick/ont/category/Boys_Love> rdf:type owl:NamedIndividual ,
+                                                                aclick:Category ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                       rdfs:label "Boys Love"@en ,
+                                                                  "Boys Love"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Caricaturale
+<http://mediagraph.link/aclick/ont/category/Caricaturale> rdf:type owl:NamedIndividual ,
+                                                                   aclick:Category ;
+                                                          ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                          rdfs:label "Caricaturale"@it ,
+                                                                     "Caricature"@en .
+
+
+###  http://mediagraph.link/aclick/ont/category/Comics_americano
+<http://mediagraph.link/aclick/ont/category/Comics_americano> rdf:type owl:NamedIndividual ,
+                                                                       aclick:Category ;
+                                                              ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                              rdfs:label "American comics"@en ,
+                                                                         "Comics Americano"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Corto
+<http://mediagraph.link/aclick/ont/category/Corto> rdf:type owl:NamedIndividual ,
+                                                            aclick:Category ;
+                                                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                   rdfs:label "Corto"@it ,
+                                                              "Short Episodes"@en .
+
+
+###  http://mediagraph.link/aclick/ont/category/Disney
+<http://mediagraph.link/aclick/ont/category/Disney> rdf:type owl:NamedIndividual ,
+                                                             aclick:Category ;
+                                                    ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                    rdfs:label "Disney"@en ,
+                                                               "Disney"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Doujinshi
+<http://mediagraph.link/aclick/ont/category/Doujinshi> rdf:type owl:NamedIndividual ,
+                                                                aclick:Category ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                       rdfs:label "Doujinshi"@en ,
+                                                                  "Doujinshi"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Europeo
+<http://mediagraph.link/aclick/ont/category/Europeo> rdf:type owl:NamedIndividual ,
+                                                              aclick:Category ;
+                                                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                     rdfs:label "European"@en ,
+                                                                "Europeo"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Extra
+<http://mediagraph.link/aclick/ont/category/Extra> rdf:type owl:NamedIndividual ,
+                                                            aclick:Category ;
+                                                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                   rdfs:label "Extra"@en ,
+                                                              "Extra"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Film
+<http://mediagraph.link/aclick/ont/category/Film> rdf:type owl:NamedIndividual ,
+                                                           aclick:Category ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:label "Film"@en ,
+                                                             "Film"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Franco-Belga_Moderno
+<http://mediagraph.link/aclick/ont/category/Franco-Belga_Moderno> rdf:type owl:NamedIndividual ,
+                                                                           aclick:Category ;
+                                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                                  rdfs:label "Franco-Belga Moderno"@it ,
+                                                                             "French-Belgian modern"@en .
+
+
+###  http://mediagraph.link/aclick/ont/category/Graphic_Novel
+<http://mediagraph.link/aclick/ont/category/Graphic_Novel> rdf:type owl:NamedIndividual ,
+                                                                    aclick:Category ;
+                                                           ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                           rdfs:label "Graphic Novel"@it ,
+                                                                      "Graphic novel"@en .
+
+
+###  http://mediagraph.link/aclick/ont/category/Hentai
+<http://mediagraph.link/aclick/ont/category/Hentai> rdf:type owl:NamedIndividual ,
+                                                             aclick:Genre ;
+                                                    ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                    rdfs:label "Hentai"@en ,
+                                                               "Hentai"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/JapStyle
+<http://mediagraph.link/aclick/ont/category/JapStyle> rdf:type owl:NamedIndividual ,
+                                                               aclick:Category ;
+                                                      ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                      rdfs:label "JapStyle"@it ,
+                                                                 "Japanese style comic"@en .
+
+
+###  http://mediagraph.link/aclick/ont/category/Josei
+<http://mediagraph.link/aclick/ont/category/Josei> rdf:type owl:NamedIndividual ,
+                                                            aclick:Category ;
+                                                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                   rdfs:label "Josei"@en ,
+                                                              "Josei"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Kodomo
+<http://mediagraph.link/aclick/ont/category/Kodomo> rdf:type owl:NamedIndividual ,
+                                                             aclick:Category ;
+                                                    ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                    rdfs:label "Kodomo"@en ,
+                                                               "Kodomo"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Manhua
+<http://mediagraph.link/aclick/ont/category/Manhua> rdf:type owl:NamedIndividual ,
+                                                             aclick:Category ;
+                                                    ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                    rdfs:label "Manhua"@en ,
+                                                               "Manhua"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Manhwa
+<http://mediagraph.link/aclick/ont/category/Manhwa> rdf:type owl:NamedIndividual ,
+                                                             aclick:Category ;
+                                                    ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                    rdfs:label "Manhwa"@en ,
+                                                               "Manhwa"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Per_ragazzi
+<http://mediagraph.link/aclick/ont/category/Per_ragazzi> rdf:type owl:NamedIndividual ,
+                                                                  aclick:Category ;
+                                                         ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                         rdfs:label "For boys"@en ,
+                                                                    "Per Ragazzi"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Pubblico_Adulto
+<http://mediagraph.link/aclick/ont/category/Pubblico_Adulto> rdf:type owl:NamedIndividual ,
+                                                                      aclick:Category ;
+                                                             ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                             rdfs:label "Adult"@en ,
+                                                                        "Pubblico Adulto"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Seinen
+<http://mediagraph.link/aclick/ont/category/Seinen> rdf:type owl:NamedIndividual ,
+                                                             aclick:Category ;
+                                                    ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                    rdfs:label "Seinen"@en ,
+                                                               "Seinen"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Serie_OAV
+<http://mediagraph.link/aclick/ont/category/Serie_OAV> rdf:type owl:NamedIndividual ,
+                                                                aclick:Category ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                       rdfs:label "OVA series"@en ,
+                                                                  "Serie OAV"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Serie_TV
+<http://mediagraph.link/aclick/ont/category/Serie_TV> rdf:type owl:NamedIndividual ,
+                                                               aclick:Category ;
+                                                      ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                      rdfs:label "Serie TV"@it ,
+                                                                 "TV series"@en .
+
+
+###  http://mediagraph.link/aclick/ont/category/Shoujo
+<http://mediagraph.link/aclick/ont/category/Shoujo> rdf:type owl:NamedIndividual ,
+                                                             aclick:Category ;
+                                                    ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                    rdfs:label "Shoujo"@en ,
+                                                               "Shoujo"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Shoujo-Ai
+<http://mediagraph.link/aclick/ont/category/Shoujo-Ai> rdf:type owl:NamedIndividual ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                       rdfs:label "Shoujo ai"@en ,
+                                                                  "Shoujo ai"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Shounen
+<http://mediagraph.link/aclick/ont/category/Shounen> rdf:type owl:NamedIndividual ,
+                                                              aclick:Category ;
+                                                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                     rdfs:label "Shounen"@en ,
+                                                                "Shounen"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Shounen-Ai
+<http://mediagraph.link/aclick/ont/category/Shounen-Ai> rdf:type owl:NamedIndividual ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                        rdfs:label "Shounen ai"@en ,
+                                                                   "Shounen ai"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Special
+<http://mediagraph.link/aclick/ont/category/Special> rdf:type owl:NamedIndividual ,
+                                                              aclick:Category ;
+                                                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                     rdfs:label "Special"@en ,
+                                                                "Sperimentale"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Spot
+<http://mediagraph.link/aclick/ont/category/Spot> rdf:type owl:NamedIndividual ,
+                                                           aclick:Category ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:label "Short"@en ,
+                                                             "Spot"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Stile_Italiano_Classico
+<http://mediagraph.link/aclick/ont/category/Stile_Italiano_Classico> rdf:type owl:NamedIndividual ,
+                                                                              aclick:Category ;
+                                                                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                                     rdfs:label "Italian classic style"@en ,
+                                                                                "Stile Italiano Classico"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Strisce
+<http://mediagraph.link/aclick/ont/category/Strisce> rdf:type owl:NamedIndividual ,
+                                                              aclick:Category ;
+                                                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                     rdfs:label "Strips"@en ,
+                                                                "Strisce"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Video_Musicale
+<http://mediagraph.link/aclick/ont/category/Video_Musicale> rdf:type owl:NamedIndividual ,
+                                                                     aclick:Category ;
+                                                            ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                            rdfs:label "Music video"@en ,
+                                                                       "Video Musicale"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Web
+<http://mediagraph.link/aclick/ont/category/Web> rdf:type owl:NamedIndividual ,
+                                                          aclick:Category ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                 rdfs:label "Web"@en ,
+                                                            "Web"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Web_series
+<http://mediagraph.link/aclick/ont/category/Web_series> rdf:type owl:NamedIndividual ,
+                                                                 aclick:Category ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                        rdfs:label "Web series"@en ,
+                                                                   "Web series"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Yaoi
+<http://mediagraph.link/aclick/ont/category/Yaoi> rdf:type owl:NamedIndividual ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:label "Yaoi"@en ,
+                                                             "Yaoi"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Yuri
+<http://mediagraph.link/aclick/ont/category/Yuri> rdf:type owl:NamedIndividual ,
+                                                           aclick:Genre ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:label "Yuri"@en ,
+                                                             "Yuri"@it .
+
+
+###  http://mediagraph.link/aclick/ont/category/Franco-Belga_(BD)
+<http://mediagraph.link/aclick/ont/category/Franco-Belga_(BD)> rdf:type owl:NamedIndividual ,
+                                                                        aclick:Category ;
+                                                               ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                               rdfs:label "Franco-Belga (BD)"@it ,
+                                                                          "French-Belgian classic bande dessine"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Adattamento_di_una_storia_classica
+<http://mediagraph.link/aclick/ont/genre/Adattamento_di_una_storia_classica> rdf:type owl:NamedIndividual ,
+                                                                                      aclick:Genre ;
+                                                                             ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                                             rdfs:label "Adaptation of a classic story"@en ,
+                                                                                        "Adattamento di una storia classica"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Antologia
+<http://mediagraph.link/aclick/ont/genre/Antologia> rdf:type owl:NamedIndividual ,
+                                                             aclick:Genre ;
+                                                    ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                    rdfs:label "Anthology"@en ,
+                                                               "Antologia"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Arti_Marziali
+<http://mediagraph.link/aclick/ont/genre/Arti_Marziali> rdf:type owl:NamedIndividual ,
+                                                                 aclick:Genre ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                        rdfs:label "Arti Marziali"@it ,
+                                                                   "Martial arts"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Automobilismo
+<http://mediagraph.link/aclick/ont/genre/Automobilismo> rdf:type owl:NamedIndividual ,
+                                                                 aclick:Genre ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                        rdfs:label "Auto racing"@en ,
+                                                                   "Automobilismo"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Avventura
+<http://mediagraph.link/aclick/ont/genre/Avventura> rdf:type owl:NamedIndividual ,
+                                                             aclick:Genre ;
+                                                    ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                    rdfs:label "Adventure"@en ,
+                                                               "Avventura"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Azione
+<http://mediagraph.link/aclick/ont/genre/Azione> rdf:type owl:NamedIndividual ,
+                                                          aclick:Genre ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                 rdfs:label "Action"@en ,
+                                                            "Azione"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Bambini
+<http://mediagraph.link/aclick/ont/genre/Bambini> rdf:type owl:NamedIndividual ,
+                                                           aclick:Genre ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:label "Bambini"@it ,
+                                                             "Children"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Combattimento
+<http://mediagraph.link/aclick/ont/genre/Combattimento> rdf:type owl:NamedIndividual ,
+                                                                 aclick:Genre ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                        rdfs:label "Combattimento"@it ,
+                                                                   "Fighting"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Commedia
+<http://mediagraph.link/aclick/ont/genre/Commedia> rdf:type owl:NamedIndividual ,
+                                                            aclick:Genre ;
+                                                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                   rdfs:label "Comedy"@en ,
+                                                              "Commedia"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Crimine
+<http://mediagraph.link/aclick/ont/genre/Crimine> rdf:type owl:NamedIndividual ,
+                                                           aclick:Genre ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:label "Crime"@en ,
+                                                             "Crimine"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Cucina
+<http://mediagraph.link/aclick/ont/genre/Cucina> rdf:type owl:NamedIndividual ,
+                                                          aclick:Genre ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                 rdfs:label "Cooking"@en ,
+                                                            "Cucina"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Demenziale
+<http://mediagraph.link/aclick/ont/genre/Demenziale> rdf:type owl:NamedIndividual ,
+                                                              aclick:Genre ;
+                                                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                     rdfs:label "Crazy"@en ,
+                                                                "Demenziale"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Documentario
+<http://mediagraph.link/aclick/ont/genre/Documentario> rdf:type owl:NamedIndividual ,
+                                                                aclick:Genre ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                       rdfs:label "Documentario"@it ,
+                                                                  "Documentary"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Drammatico
+<http://mediagraph.link/aclick/ont/genre/Drammatico> rdf:type owl:NamedIndividual ,
+                                                              aclick:Genre ;
+                                                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                     rdfs:label "Drama"@en ,
+                                                                "Drammatico"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Ecchi
+<http://mediagraph.link/aclick/ont/genre/Ecchi> rdf:type owl:NamedIndividual ,
+                                                         aclick:Genre ;
+                                                ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                rdfs:label "Ecchi"@en ,
+                                                           "Ecchi"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Erotico
+<http://mediagraph.link/aclick/ont/genre/Erotico> rdf:type owl:NamedIndividual ,
+                                                           aclick:Genre ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:label "Erotic"@en ,
+                                                             "Erotico"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Family_Drama
+<http://mediagraph.link/aclick/ont/genre/Family_Drama> rdf:type owl:NamedIndividual ,
+                                                                aclick:Genre ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                       rdfs:label "Family Drama"@it ,
+                                                                  "Family drama"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Fantascienza
+<http://mediagraph.link/aclick/ont/genre/Fantascienza> rdf:type owl:NamedIndividual ,
+                                                                aclick:Genre ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                       rdfs:label "Fantascienza"@it ,
+                                                                  "SciFi"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Fantastico
+<http://mediagraph.link/aclick/ont/genre/Fantastico> rdf:type owl:NamedIndividual ,
+                                                              aclick:Genre ;
+                                                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                     rdfs:label "Fantastic"@en ,
+                                                                "Fantastico"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Fantasy
+<http://mediagraph.link/aclick/ont/genre/Fantasy> rdf:type owl:NamedIndividual ,
+                                                           aclick:Genre ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:label "Fantasy"@en ,
+                                                             "Fantasy"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Fiaba
+<http://mediagraph.link/aclick/ont/genre/Fiaba> rdf:type owl:NamedIndividual ,
+                                                         aclick:Genre ;
+                                                ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                rdfs:label "Fable"@en ,
+                                                           "Fiaba"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Furry
+<http://mediagraph.link/aclick/ont/genre/Furry> rdf:type owl:NamedIndividual ,
+                                                         aclick:Genre ;
+                                                ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                rdfs:label "Furry"@en ,
+                                                           "Furry"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Gang_Giovanili
+<http://mediagraph.link/aclick/ont/genre/Gang_Giovanili> rdf:type owl:NamedIndividual ,
+                                                                  aclick:Genre ;
+                                                         ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                         rdfs:label "Gang Giovanili"@it ,
+                                                                    "Juvenile gangs"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Gender_Bender
+<http://mediagraph.link/aclick/ont/genre/Gender_Bender> rdf:type owl:NamedIndividual ,
+                                                                 aclick:Genre ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                        rdfs:label "Gender bender"@en ,
+                                                                   "Gender bender"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Giallo
+<http://mediagraph.link/aclick/ont/genre/Giallo> rdf:type owl:NamedIndividual ,
+                                                          aclick:Genre ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                 rdfs:label "Crime fiction"@en ,
+                                                            "Giallo"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Gioco
+<http://mediagraph.link/aclick/ont/genre/Gioco> rdf:type owl:NamedIndividual ,
+                                                         aclick:Genre ;
+                                                ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                rdfs:label "Games"@en ,
+                                                           "Gioco"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Guerra
+<http://mediagraph.link/aclick/ont/genre/Guerra> rdf:type owl:NamedIndividual ,
+                                                          aclick:Genre ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                 rdfs:label "Guerra"@it ,
+                                                            "War"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Harem
+<http://mediagraph.link/aclick/ont/genre/Harem> rdf:type owl:NamedIndividual ,
+                                                         aclick:Genre ;
+                                                ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                rdfs:label "Harem"@en ,
+                                                           "Harem"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Horror
+<http://mediagraph.link/aclick/ont/genre/Horror> rdf:type owl:NamedIndividual ,
+                                                          aclick:Genre ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                 rdfs:label "Horror"@en ,
+                                                            "Horror"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Legal_Drama
+<http://mediagraph.link/aclick/ont/genre/Legal_Drama> rdf:type owl:NamedIndividual ,
+                                                               aclick:Genre ;
+                                                      ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                      rdfs:label "Legal drama"@en ,
+                                                                 "Legal drama"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Lolicon
+<http://mediagraph.link/aclick/ont/genre/Lolicon> rdf:type owl:NamedIndividual ,
+                                                           aclick:Genre ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:label "Lolicon"@en ,
+                                                             "Lolicon"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Magia
+<http://mediagraph.link/aclick/ont/genre/Magia> rdf:type owl:NamedIndividual ,
+                                                         aclick:Genre ;
+                                                ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                rdfs:label "Magia"@it ,
+                                                           "Magic"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Maho_Shojo
+<http://mediagraph.link/aclick/ont/genre/Maho_Shojo> rdf:type owl:NamedIndividual ,
+                                                              aclick:Genre ;
+                                                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                     rdfs:label "Mahou shojou"@en ,
+                                                                "Mahou shoujou"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Mecha
+<http://mediagraph.link/aclick/ont/genre/Mecha> rdf:type owl:NamedIndividual ,
+                                                         aclick:Genre ;
+                                                ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                rdfs:label "Mecha"@en ,
+                                                           "Mecha"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Mistero
+<http://mediagraph.link/aclick/ont/genre/Mistero> rdf:type owl:NamedIndividual ,
+                                                           aclick:Genre ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:label "Mistero"@it ,
+                                                             "Mystery"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Musica
+<http://mediagraph.link/aclick/ont/genre/Musica> rdf:type owl:NamedIndividual ,
+                                                          aclick:Genre ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                 rdfs:label "Musica"@it ,
+                                                            "Musical"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Parodia
+<http://mediagraph.link/aclick/ont/genre/Parodia> rdf:type owl:NamedIndividual ,
+                                                           aclick:Genre ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:label "Parodia"@it ,
+                                                             "Parody"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Politica
+<http://mediagraph.link/aclick/ont/genre/Politica> rdf:type owl:NamedIndividual ,
+                                                            aclick:Genre ;
+                                                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                   rdfs:label "Politica"@it ,
+                                                              "Political"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Poliziesco
+<http://mediagraph.link/aclick/ont/genre/Poliziesco> rdf:type owl:NamedIndividual ,
+                                                              aclick:Genre ;
+                                                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                     rdfs:label "Police"@en ,
+                                                                "Poliziesco"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Psicologico
+<http://mediagraph.link/aclick/ont/genre/Psicologico> rdf:type owl:NamedIndividual ,
+                                                               aclick:Genre ;
+                                                      ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                      rdfs:label "Psicologico"@it ,
+                                                                 "Psychological"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Raccolta
+<http://mediagraph.link/aclick/ont/genre/Raccolta> rdf:type owl:NamedIndividual ,
+                                                            aclick:Genre ;
+                                                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                   rdfs:label "Collection"@en ,
+                                                              "Raccolta"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Reverse-harem
+<http://mediagraph.link/aclick/ont/genre/Reverse-harem> rdf:type owl:NamedIndividual ,
+                                                                 aclick:Genre ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                        rdfs:label "Reverse-harem"@en ,
+                                                                   "Reverse-harem"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Scolastico
+<http://mediagraph.link/aclick/ont/genre/Scolastico> rdf:type owl:NamedIndividual ,
+                                                              aclick:Genre ;
+                                                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                     rdfs:label "School"@en ,
+                                                                "Scolastico"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Sentimentale
+<http://mediagraph.link/aclick/ont/genre/Sentimentale> rdf:type owl:NamedIndividual ,
+                                                                aclick:Genre ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                       rdfs:label "Romance"@en ,
+                                                                  "Sentimentale"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Shotacon
+<http://mediagraph.link/aclick/ont/genre/Shotacon> rdf:type owl:NamedIndividual ,
+                                                            aclick:Genre ;
+                                                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                   rdfs:label "Shotacon"@en ,
+                                                              "Shotacon"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Sit-com
+<http://mediagraph.link/aclick/ont/genre/Sit-com> rdf:type owl:NamedIndividual ,
+                                                           aclick:Genre ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:comment "Sit com"@it ;
+                                                  rdfs:label "Sit com"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Sketch_Comedy_
+<http://mediagraph.link/aclick/ont/genre/Sketch_Comedy_> rdf:type owl:NamedIndividual ,
+                                                                  aclick:Genre ;
+                                                         ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                         rdfs:label "Sketch comedy"@en ,
+                                                                    "Sketch comedy"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Slice_of_Life
+<http://mediagraph.link/aclick/ont/genre/Slice_of_Life> rdf:type owl:NamedIndividual ,
+                                                                 aclick:Genre ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                        rdfs:label "Slice of life"@en ,
+                                                                   "Slice of life"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Smut
+<http://mediagraph.link/aclick/ont/genre/Smut> rdf:type owl:NamedIndividual ,
+                                                        aclick:Genre ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                               rdfs:label "Smut"@en ,
+                                                          "Smut"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Soprannaturale
+<http://mediagraph.link/aclick/ont/genre/Soprannaturale> rdf:type owl:NamedIndividual ,
+                                                                  aclick:Genre ;
+                                                         ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                         rdfs:label "Soprannaturale"@it ,
+                                                                    "Supernatural"@en .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Sperimentale
+<http://mediagraph.link/aclick/ont/genre/Sperimentale> rdf:type owl:NamedIndividual ,
+                                                                aclick:Genre ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                       rdfs:label "Experimental"@en ,
+                                                                  "Sperimentale"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Splatter
+<http://mediagraph.link/aclick/ont/genre/Splatter> rdf:type owl:NamedIndividual ,
+                                                            aclick:Genre ;
+                                                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                   rdfs:label "Splatter"@en ,
+                                                              "Splatter"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Sport
+<http://mediagraph.link/aclick/ont/genre/Sport> rdf:type owl:NamedIndividual ,
+                                                         aclick:Genre ;
+                                                ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                rdfs:label "Sport"@en ,
+                                                           "Sport"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Storico
+<http://mediagraph.link/aclick/ont/genre/Storico> rdf:type owl:NamedIndividual ,
+                                                           aclick:Genre ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:label "History"@en ,
+                                                             "Storico"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Supereroi
+<http://mediagraph.link/aclick/ont/genre/Supereroi> rdf:type owl:NamedIndividual ,
+                                                             aclick:Genre ;
+                                                    ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                    rdfs:label "Super heroes"@en ,
+                                                               "Supereroi"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Tamarro
+<http://mediagraph.link/aclick/ont/genre/Tamarro> rdf:type owl:NamedIndividual ,
+                                                           aclick:Genre ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:label "Boorish"@en ,
+                                                             "Tamarro"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Thriller
+<http://mediagraph.link/aclick/ont/genre/Thriller> rdf:type owl:NamedIndividual ,
+                                                            aclick:Genre ;
+                                                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                   rdfs:label "Thriller"@en ,
+                                                              "Thriller"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Umorismo
+<http://mediagraph.link/aclick/ont/genre/Umorismo> rdf:type owl:NamedIndividual ,
+                                                            aclick:Genre ;
+                                                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                   rdfs:label "Humor"@en ,
+                                                              "Umorismo"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Visual_Novel
+<http://mediagraph.link/aclick/ont/genre/Visual_Novel> rdf:type owl:NamedIndividual ,
+                                                                aclick:Genre ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                       rdfs:label "Visual novel"@en ,
+                                                                  "Visual novel"@it .
+
+
+###  http://mediagraph.link/aclick/ont/genre/Western
+<http://mediagraph.link/aclick/ont/genre/Western> rdf:type owl:NamedIndividual ,
+                                                           aclick:Genre ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                  rdfs:label "Western"@en ,
+                                                             "Western"@it .
+
+
+###  http://mediagraph.link/aclick/ont/type/Animazione
+<http://mediagraph.link/aclick/ont/type/Animazione> rdf:type owl:NamedIndividual ,
+                                                             aclick:Type ;
+                                                    ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                    rdfs:label "Animazione"@it ,
+                                                               "Anime"@en .
+
+
+###  http://mediagraph.link/aclick/ont/type/COMPAGNIA
+<http://mediagraph.link/aclick/ont/type/COMPAGNIA> rdf:type owl:NamedIndividual ,
+                                                            aclick:Type ;
+                                                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                   rdfs:label "Compagnia"@it ,
+                                                              "Company"@en .
+
+
+###  http://mediagraph.link/aclick/ont/type/Fumetto
+<http://mediagraph.link/aclick/ont/type/Fumetto> rdf:type owl:NamedIndividual ,
+                                                          aclick:Type ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                 rdfs:label "Comic"@en ,
+                                                            "Fumetto"@it .
+
+
+###  http://mediagraph.link/aclick/ont/type/GRUPPO
+<http://mediagraph.link/aclick/ont/type/GRUPPO> rdf:type owl:NamedIndividual ,
+                                                         aclick:Type ;
+                                                ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                rdfs:label "Group"@en ,
+                                                           "Gruppo"@it .
+
+
+###  http://mediagraph.link/aclick/ont/type/Live_Action
+<http://mediagraph.link/aclick/ont/type/Live_Action> rdf:type owl:NamedIndividual ,
+                                                              aclick:Type ;
+                                                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                     rdfs:label "Live action"@en ,
+                                                                "Live action"@it .
+
+
+###  http://mediagraph.link/aclick/ont/type/PERSONA
+<http://mediagraph.link/aclick/ont/type/PERSONA> rdf:type owl:NamedIndividual ,
+                                                          aclick:Type ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                 rdfs:label "Person"@en ,
+                                                            "Persona"@it .
+
+
+###  http://mediagraph.link/aclick/ont/type/UNKNOWN
+<http://mediagraph.link/aclick/ont/type/UNKNOWN> rdf:type owl:NamedIndividual ,
+                                                          aclick:Type ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                 rdfs:comment "Unkown"@en ,
+                                                              "Unkown"@it .
+
+
+###  http://mediagraph.link/aclick/ont/type/Videogame
+<http://mediagraph.link/aclick/ont/type/Videogame> rdf:type owl:NamedIndividual ,
+                                                            aclick:Type ;
+                                                   ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                   rdfs:label "Videogame"@en ,
+                                                              "Videogame"@it .
+
+
+###  http://mediagraph.link/aclick/ont/type/artbook
+<http://mediagraph.link/aclick/ont/type/artbook> rdf:type owl:NamedIndividual ,
+                                                          aclick:Type ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                 rdfs:label "Artbook"@en ,
+                                                            "Artbook"@it .
+
+
+###  http://mediagraph.link/aclick/ont/type/light_novel
+<http://mediagraph.link/aclick/ont/type/light_novel> rdf:type owl:NamedIndividual ;
+                                                     ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                     rdfs:label "Light Novel"@en ,
+                                                                "Light Novel"@it .
+
+
+###  http://mediagraph.link/aclick/ont/type/manga
+<http://mediagraph.link/aclick/ont/type/manga> rdf:type owl:NamedIndividual ,
+                                                        aclick:Type ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                               rdfs:label "Manga"@en ,
+                                                          "Manga"@it .
+
+
+###  http://mediagraph.link/aclick/ont/type/romanzo
+<http://mediagraph.link/aclick/ont/type/romanzo> rdf:type owl:NamedIndividual ,
+                                                          aclick:Type ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/aclick> ;
+                                                 rdfs:label "Novel"@en ,
+                                                            "Romanzo"@it .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+owl:Thing rdfs:label "Thing"@en .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

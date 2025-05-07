@@ -1,0 +1,40 @@
+@prefix jvmg: <http://mediagraph.link/jvmg/ont/> .
+
+<http://mediagraph.link/vndb/ont/Anime> jvmg:order 1 .
+<http://mediagraph.link/vndb/ont/VisualNovel> jvmg:order 2 .
+<http://mediagraph.link/vndb/ont/Character> jvmg:order 3 .
+<http://mediagraph.link/vndb/ont/Staff> jvmg:order 4 .
+<http://mediagraph.link/vndb/ont/VisualNovelRelease> jvmg:order 5 .
+<http://mediagraph.link/vndb/ont/Trait> jvmg:order 6 .
+<http://mediagraph.link/vndb/ont/Role> jvmg:order 7 .
+
+<http://mediagraph.link/acdb/ont/Character> jvmg:order 1 .
+<http://mediagraph.link/acdb/ont/Publisher> jvmg:order 2 .
+<http://mediagraph.link/acdb/ont/Tag> jvmg:order 3 .
+<http://mediagraph.link/acdb/ont/CharacterTag> jvmg:order 4 .
+<http://mediagraph.link/acdb/ont/Individual> jvmg:order 5 .
+
+<http://mediagraph.link/aclick/ont/Character> jvmg:order 1 .
+<http://mediagraph.link/aclick/ont/Author> jvmg:order 2 .
+<http://mediagraph.link/aclick/ont/Staff> jvmg:order 3 .
+<http://mediagraph.link/aclick/ont/Episode> jvmg:order 4 .
+<http://mediagraph.link/aclick/ont/CreativeWork> jvmg:order 5 .
+<http://mediagraph.link/aclick/ont/Tag> jvmg:order 6 .
+<http://mediagraph.link/aclick/ont/Genre> jvmg:order 7 .
+<http://mediagraph.link/aclick/ont/Category> jvmg:order 8 .
+
+<http://mediagraph.link/madb/ont/Agent> jvmg:order 1 .
+<http://mediagraph.link/madb/ont/AnimationTVProgram>  jvmg:order 2.
+# <http://mediagraph.link/madb/ont/AnimationOther> jvmg:order 3 .
+# <http://mediagraph.link/madb/ont/AnimationRelatedItem> jvmg:order 4 .
+# <http://mediagraph.link/madb/ont/AnimationTheatricalRelease> jvmg:order 5 .
+<http://mediagraph.link/madb/ont/AnimationVideoPackage> jvmg:order 6 .
+<http://mediagraph.link/madb/ont/GamePackage> jvmg:order 7 .
+# <http://mediagraph.link/madb/ont/GameRelatedItem> jvmg:order 8 . 
+<http://mediagraph.link/madb/ont/MangaBook> jvmg:order 9 .
+# <http://mediagraph.link/madb/ont/MangaMagazineVolume> jvmg:order 10 .
+<http://mediagraph.link/madb/ont/MangaOther> jvmg:order 11 .
+# <http://mediagraph.link/madb/ont/MangaRelatedItem> jvmg:order 12 .
+<http://mediagraph.link/madb/ont/MediaArtExhibitionOrPerformance> jvmg:order 13 .
+# <http://mediagraph.link/madb/ont/MediaArtOther> jvmg:order 14 .
+# <http://mediagraph.link/madb/ont/MediaArtRelatedItem> jvmg:order 15 . 

@@ -1,0 +1,1570 @@
+@prefix : <http://mediagraph.link/madb/ont/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ns1: <http://mediagraph.link/jvmg/ont/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix madb: <http://mediagraph.link/madb/ont/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://mediagraph.link/madb/ont/> .
+
+<http://mediagraph.link/madb/ont/> rdf:type owl:Ontology ;
+                                    dc:creator "Senan Kiryakos" ;
+                                    dc:description "The Media Arts Database ontology."@en ;
+                                    dc:title "Media Arts Database Ontology"@en ;
+                                    dcterms:modified "2021-04-15"@en ;
+                                    vann:preferredNamespacePrefix "madb"@en ;
+                                    vann:preferredNamespaceUri "http://mediagraph.link/madb/ont/"@en ;
+                                    rdfs:label "Media Arts Database Ontology"@en ;
+                                    owl:versionInfo "1.1"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://mediagraph.link/jvmg/ont/sourceGraph
+ns1:sourceGraph rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dcterms:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#sameAs
+owl:sameAs rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://mediagraph.link/madb/ont/abbreviatedTitle
+madb:abbreviatedTitle rdf:type owl:DatatypeProperty ;
+                      ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                      rdfs:label "abbreviated title"@en ,
+                                 "省略タイトル"@ja ;
+                      skos:definition "表題や名称の省略形"@ja .
+
+
+###  http://mediagraph.link/madb/ont/activityPeriod
+madb:activityPeriod rdf:type owl:DatatypeProperty ;
+                    ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                    rdfs:comment "ISO8601 形式での記録が推奨される"@ja ;
+                    rdfs:label "activity period"@en ,
+                               "期間"@ja ;
+                    skos:definition "活動期間"@ja .
+
+
+###  http://mediagraph.link/madb/ont/additionalGenre
+madb:additionalGenre rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "additional genre"@en ,
+                                "サブジャンル"@ja .
+
+
+###  http://mediagraph.link/madb/ont/aggregatedBy
+madb:aggregatedBy rdf:type owl:DatatypeProperty ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                  rdfs:label "aggregated by"@en ,
+                             "集約元のバリエーション"@ja .
+
+
+###  http://mediagraph.link/madb/ont/aggregates
+madb:aggregates rdf:type owl:DatatypeProperty ;
+                ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                rdfs:label "aggregates"@en ,
+                           "集約されたバリエーション"@ja .
+
+
+###  http://mediagraph.link/madb/ont/aspectRatio
+madb:aspectRatio rdf:type owl:DatatypeProperty ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                 rdfs:label "aspect ratio"@en ,
+                            "アスペクト比"@ja .
+
+
+###  http://mediagraph.link/madb/ont/binder
+madb:binder rdf:type owl:DatatypeProperty ;
+            ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+            rdfs:label "binder"@en ,
+                       "製本・造本形態"@ja .
+
+
+###  http://mediagraph.link/madb/ont/bugfix
+madb:bugfix rdf:type owl:DatatypeProperty ;
+            ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+            rdfs:label "bugfix"@en ,
+                       "バグフィックスされたバリエーション"@ja .
+
+
+###  http://mediagraph.link/madb/ont/carrierType
+madb:carrierType rdf:type owl:DatatypeProperty ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                 rdfs:label "carrier type"@en ,
+                            "メインユニット形式-キャリア種別"@ja .
+
+
+###  http://mediagraph.link/madb/ont/carrierTypeOfSubunit
+madb:carrierTypeOfSubunit rdf:type owl:DatatypeProperty ;
+                          ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                          rdfs:label "carrier type of subunit"@en .
+
+
+###  http://mediagraph.link/madb/ont/combinedIssue
+madb:combinedIssue rdf:type owl:DatatypeProperty ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                   rdfs:label "combined issue"@en ,
+                              "合併"@ja ;
+                   skos:definition "マンガ雑誌の号次の単数・複数の分類"@ja .
+
+
+###  http://mediagraph.link/madb/ont/complements
+madb:complements rdf:type owl:DatatypeProperty ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                 rdfs:label "complements"@en ,
+                            "補完された作品"@ja .
+
+
+###  http://mediagraph.link/madb/ont/contentRatingDescriptor
+madb:contentRatingDescriptor rdf:type owl:DatatypeProperty ;
+                             ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                             rdfs:label "content rating descriptor"@en ,
+                                        "レーティング内容記述子"@ja ;
+                             skos:definition "年齢レーティングの要因を示す内容の種別の分類"@ja .
+
+
+###  http://mediagraph.link/madb/ont/contributor
+madb:contributor rdf:type owl:DatatypeProperty ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                 rdfs:label "contributor"@en ,
+                            "パッケージスタッフ表記"@ja .
+
+
+###  http://mediagraph.link/madb/ont/creator
+madb:creator rdf:type owl:DatatypeProperty ;
+             ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+             rdfs:label "creator"@en .
+
+
+###  http://mediagraph.link/madb/ont/crossPlay
+madb:crossPlay rdf:type owl:DatatypeProperty ;
+               ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+               rdfs:label "cross play"@en ,
+                          "クロスプレイ可能なバリエーション"@ja .
+
+
+###  http://mediagraph.link/madb/ont/dataProvider
+madb:dataProvider rdf:type owl:DatatypeProperty ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                  rdfs:label "data provider"@en ,
+                             "データ提供者"@ja .
+
+
+###  http://mediagraph.link/madb/ont/dateDistributed
+madb:dateDistributed rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "date distributed"@en ,
+                                "頒布日"@ja .
+
+
+###  http://mediagraph.link/madb/ont/dateManufactured
+madb:dateManufactured rdf:type owl:DatatypeProperty ;
+                      ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                      rdfs:label "date manufactured"@en ,
+                                 "製造日"@ja .
+
+
+###  http://mediagraph.link/madb/ont/dateProduced
+madb:dateProduced rdf:type owl:DatatypeProperty ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                  rdfs:label "date produced"@en ,
+                             "制作日"@ja .
+
+
+###  http://mediagraph.link/madb/ont/datePublished
+madb:datePublished rdf:type owl:DatatypeProperty ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                   rdfs:label "date published"@en ,
+                              "出版日"@ja .
+
+
+###  http://mediagraph.link/madb/ont/datePublishedFinal
+madb:datePublishedFinal rdf:type owl:DatatypeProperty ;
+                        ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                        rdfs:label "date published final"@en ,
+                                   "最終巻発行日"@ja .
+
+
+###  http://mediagraph.link/madb/ont/dateReleased
+madb:dateReleased rdf:type owl:DatatypeProperty ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                  rdfs:label "date released"@en ,
+                             "発売年月日"@ja .
+
+
+###  http://mediagraph.link/madb/ont/dateReleasedNote
+madb:dateReleasedNote rdf:type owl:DatatypeProperty ;
+                      ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                      rdfs:label "date released note"@en ,
+                                 "発行日備考"@ja .
+
+
+###  http://mediagraph.link/madb/ont/dayCombined
+madb:dayCombined rdf:type owl:DatatypeProperty ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                 rdfs:label "day combined"@en ,
+                            "発行合併日"@ja .
+
+
+###  http://mediagraph.link/madb/ont/dayDisplayed
+madb:dayDisplayed rdf:type owl:DatatypeProperty ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                  rdfs:label "day displayed"@en ,
+                             "表示日"@ja .
+
+
+###  http://mediagraph.link/madb/ont/dayPublishedCombined
+madb:dayPublishedCombined rdf:type owl:DatatypeProperty ;
+                          ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                          rdfs:label "day published combined"@en ,
+                                     "表示合併日"@ja .
+
+
+###  http://mediagraph.link/madb/ont/dayPublishedFinal
+madb:dayPublishedFinal rdf:type owl:DatatypeProperty ;
+                       ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                       rdfs:label "day published final"@en ,
+                                  "終刊日"@ja .
+
+
+###  http://mediagraph.link/madb/ont/distributionNote
+madb:distributionNote rdf:type owl:DatatypeProperty ;
+                      ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                      rdfs:label "distribution note"@en ,
+                                 "頒布注記"@ja .
+
+
+###  http://mediagraph.link/madb/ont/distributor
+madb:distributor rdf:type owl:DatatypeProperty ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                 rdfs:label "distributor"@en ,
+                            "頒布者"@ja .
+
+
+###  http://mediagraph.link/madb/ont/distributorName
+madb:distributorName rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "distributor name"@en ,
+                                "頒布者名"@ja .
+
+
+###  http://mediagraph.link/madb/ont/donor
+madb:donor rdf:type owl:DatatypeProperty ;
+           ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+           rdfs:label "donor"@en ,
+                      "寄贈者"@ja .
+
+
+###  http://mediagraph.link/madb/ont/duplicationType
+madb:duplicationType rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "duplication type"@en ,
+                                "複製種類"@ja .
+
+
+###  http://mediagraph.link/madb/ont/eirin
+madb:eirin rdf:type owl:DatatypeProperty ;
+           ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+           rdfs:label "eirin"@en ,
+                      "映倫 NO"@ja .
+
+
+###  http://mediagraph.link/madb/ont/embodiment
+madb:embodiment rdf:type owl:DatatypeProperty ;
+                ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                rdfs:label "embodiment"@en ,
+                           "収録されたパッケージ"@ja .
+
+
+###  http://mediagraph.link/madb/ont/embodimentOf
+madb:embodimentOf rdf:type owl:DatatypeProperty ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                  rdfs:label "embodiment of"@en ,
+                             "ゲームバリエーション"@ja .
+
+
+###  http://mediagraph.link/madb/ont/endDateCreated
+madb:endDateCreated rdf:type owl:DatatypeProperty ;
+                    ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                    rdfs:label "end date created"@en ,
+                               "制作終了年月日"@ja .
+
+
+###  http://mediagraph.link/madb/ont/endDateReleased
+madb:endDateReleased rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "End date released"@en ,
+                                "発売終了年月日"@ja .
+
+
+###  http://mediagraph.link/madb/ont/entryIdentifier
+madb:entryIdentifier rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "entry ID"@en ,
+                                "資料 ID"@ja .
+
+
+###  http://mediagraph.link/madb/ont/eventNumber
+madb:eventNumber rdf:type owl:DatatypeProperty ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                 rdfs:label "event number"@en ,
+                            "回次"@ja .
+
+
+###  http://mediagraph.link/madb/ont/expandedAs
+madb:expandedAs rdf:type owl:DatatypeProperty ;
+                ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                rdfs:label "expanded as"@en ,
+                           "増補された作品"@ja .
+
+
+###  http://mediagraph.link/madb/ont/externalIdentifier
+madb:externalIdentifier rdf:type owl:DatatypeProperty ;
+                        ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                        rdfs:label "external ID"@en ,
+                                   "外部 ID"@ja .
+
+
+###  http://mediagraph.link/madb/ont/fileSizeOfSubunit
+madb:fileSizeOfSubunit rdf:type owl:DatatypeProperty ;
+                       ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                       rdfs:label "file size of subunit"@en ,
+                                  "サブユニット形式-ファイルサイズ"@ja .
+
+
+###  http://mediagraph.link/madb/ont/fileType
+madb:fileType rdf:type owl:DatatypeProperty ;
+              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "file type"@en ,
+                         "デジタルファイル種別"@ja .
+
+
+###  http://mediagraph.link/madb/ont/format
+madb:format rdf:type owl:DatatypeProperty ;
+            ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+            rdfs:label "format"@en ,
+                       "フォーマット"@ja .
+
+
+###  http://mediagraph.link/madb/ont/freebase
+madb:freebase rdf:type owl:DatatypeProperty ;
+              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "Freebase ID"@ja ,
+                         "freebase ID"@en .
+
+
+###  http://mediagraph.link/madb/ont/fullName
+madb:fullName rdf:type owl:DatatypeProperty ;
+              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "full name"@en ,
+                         "フルネーム"@ja .
+
+
+###  http://mediagraph.link/madb/ont/hardwareManufacturer
+madb:hardwareManufacturer rdf:type owl:DatatypeProperty ;
+                          ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                          rdfs:label "hardware manufacturer"@en ,
+                                     "ハードウェアメーカ名"@ja .
+
+
+###  http://mediagraph.link/madb/ont/holdingAgent
+madb:holdingAgent rdf:type owl:DatatypeProperty ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                  rdfs:label "holding agent"@en ,
+                             "保管者"@ja .
+
+
+###  http://mediagraph.link/madb/ont/imdb
+madb:imdb rdf:type owl:DatatypeProperty ;
+          ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+          rdfs:label "IMDb ID"@en ,
+                     "Imdb ID"@ja .
+
+
+###  http://mediagraph.link/madb/ont/inScheme
+madb:inScheme rdf:type owl:DatatypeProperty ;
+              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "in scheme"@en ,
+                         "概念体系"@ja .
+
+
+###  http://mediagraph.link/madb/ont/issueNumberDisplayed
+madb:issueNumberDisplayed rdf:type owl:DatatypeProperty ;
+                          ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                          rdfs:label "issue number displayed"@en ,
+                                     "表示号数"@ja .
+
+
+###  http://mediagraph.link/madb/ont/issueNumberDisplayedCombined
+madb:issueNumberDisplayedCombined rdf:type owl:DatatypeProperty ;
+                                  ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                                  rdfs:label "issue number displayed combined"@en ,
+                                             "表示合併号数"@ja .
+
+
+###  http://mediagraph.link/madb/ont/issueNumberDisplayedFinal
+madb:issueNumberDisplayedFinal rdf:type owl:DatatypeProperty ;
+                               ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                               rdfs:label "issue number displayed final"@en ,
+                                          "終刊表示号数"@ja .
+
+
+###  http://mediagraph.link/madb/ont/issueNumberPublished
+madb:issueNumberPublished rdf:type owl:DatatypeProperty ;
+                          ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                          rdfs:label "issue number published"@en ,
+                                     "終刊号"@ja .
+
+
+###  http://mediagraph.link/madb/ont/jpno
+madb:jpno rdf:type owl:DatatypeProperty ;
+          ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+          rdfs:label "JPNO"@en ,
+                     "全国書誌番号"@ja .
+
+
+###  http://mediagraph.link/madb/ont/locaionManufactured
+madb:locaionManufactured rdf:type owl:DatatypeProperty ;
+                         ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                         rdfs:label "location manufactured"@en ,
+                                    "製造地"@ja .
+
+
+###  http://mediagraph.link/madb/ont/localizedAs
+madb:localizedAs rdf:type owl:DatatypeProperty ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                 rdfs:label "localized as"@en ,
+                            "ローカライズされたバリエーション"@ja .
+
+
+###  http://mediagraph.link/madb/ont/locationDistributed
+madb:locationDistributed rdf:type owl:DatatypeProperty ;
+                         ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                         rdfs:label "location distributed"@en ,
+                                    "頒布地"@ja .
+
+
+###  http://mediagraph.link/madb/ont/locationProduced
+madb:locationProduced rdf:type owl:DatatypeProperty ;
+                      ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                      rdfs:label "location produced"@en ,
+                                 "制作地"@ja .
+
+
+###  http://mediagraph.link/madb/ont/locationPublished
+madb:locationPublished rdf:type owl:DatatypeProperty ;
+                       ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                       rdfs:label "location published"@en ,
+                                  "出版地"@ja .
+
+
+###  http://mediagraph.link/madb/ont/manufactureNote
+madb:manufactureNote rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "manufacture note"@en ,
+                                "製造注記"@ja .
+
+
+###  http://mediagraph.link/madb/ont/manufacturer
+madb:manufacturer rdf:type owl:DatatypeProperty ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                  rdfs:label "manufacturer"@en ,
+                             "製造者"@ja .
+
+
+###  http://mediagraph.link/madb/ont/manufacturerName
+madb:manufacturerName rdf:type owl:DatatypeProperty ;
+                      ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                      rdfs:label "manufacturer name"@en ,
+                                 "製造者名"@ja .
+
+
+###  http://mediagraph.link/madb/ont/materialExtentOfSubunit
+madb:materialExtentOfSubunit rdf:type owl:DatatypeProperty ;
+                             ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                             rdfs:label "material extent of subunit"@en ,
+                                        "サブユニット形式-数量"@ja .
+
+
+###  http://mediagraph.link/madb/ont/materialIdentifier
+madb:materialIdentifier rdf:type owl:DatatypeProperty ;
+                        ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                        rdfs:label "material ID"@en ,
+                                   "資料 ID"@ja .
+
+
+###  http://mediagraph.link/madb/ont/mediaFormat
+madb:mediaFormat rdf:type owl:DatatypeProperty ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                 rdfs:label "media format"@en ,
+                            "メインユニット形式-メディアフォーマット"@ja .
+
+
+###  http://mediagraph.link/madb/ont/mediaFormatOfSubunit
+madb:mediaFormatOfSubunit rdf:type owl:DatatypeProperty ;
+                          ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                          rdfs:label "media format of subunit"@en ,
+                                     "サブユニット形式-メディアフォーマット"@ja .
+
+
+###  http://mediagraph.link/madb/ont/metacritic
+madb:metacritic rdf:type owl:DatatypeProperty ;
+                ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                rdfs:label "Metacritic ID"@ja ,
+                           "metacritic ID"@en .
+
+
+###  http://mediagraph.link/madb/ont/mobyGames
+madb:mobyGames rdf:type owl:DatatypeProperty ;
+               ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+               rdfs:label "MobyGames ID"@ja ,
+                          "mobyGames ID"@en .
+
+
+###  http://mediagraph.link/madb/ont/modeIssue
+madb:modeIssue rdf:type owl:DatatypeProperty ;
+               ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+               rdfs:label "model issue"@en ,
+                          "刊行方式"@ja .
+
+
+###  http://mediagraph.link/madb/ont/monthCombined
+madb:monthCombined rdf:type owl:DatatypeProperty ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                   rdfs:label "month combined"@en ,
+                              "発行合併月"@ja .
+
+
+###  http://mediagraph.link/madb/ont/monthDisplayed
+madb:monthDisplayed rdf:type owl:DatatypeProperty ;
+                    ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                    rdfs:label "month displayed"@en ,
+                               "表示月"@ja .
+
+
+###  http://mediagraph.link/madb/ont/monthPublished
+madb:monthPublished rdf:type owl:DatatypeProperty ;
+                    ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                    rdfs:label "month published"@en ,
+                               "表示合併月"@ja .
+
+
+###  http://mediagraph.link/madb/ont/natureOfContent
+madb:natureOfContent rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "nature of content"@en ,
+                                "内容の性質"@ja .
+
+
+###  http://mediagraph.link/madb/ont/ndc
+madb:ndc rdf:type owl:DatatypeProperty ;
+         ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+         rdfs:label "NDC"@en ,
+                    "分類"@ja .
+
+
+###  http://mediagraph.link/madb/ont/ndlBibID
+madb:ndlBibID rdf:type owl:DatatypeProperty ;
+              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "NDL bibliographic ID"@en ,
+                         "国会図書館書誌 ID"@ja .
+
+
+###  http://mediagraph.link/madb/ont/ndla
+madb:ndla rdf:type owl:DatatypeProperty ;
+          ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+          rdfs:label "NDLA"@en ,
+                     "国立国会図書館典拠 ID"@ja .
+
+
+###  http://mediagraph.link/madb/ont/notation
+madb:notation rdf:type owl:DatatypeProperty ;
+              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "notation"@en ,
+                         "素材話数(小数、飛び番あり)"@ja .
+
+
+###  http://mediagraph.link/madb/ont/note
+madb:note rdf:type owl:DatatypeProperty ;
+          ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+          rdfs:label "note"@en ,
+                     "備考"@ja .
+
+
+###  http://mediagraph.link/madb/ont/numberOfPrograms
+madb:numberOfPrograms rdf:type owl:DatatypeProperty ;
+                      ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                      rdfs:label "number of programs"@en ,
+                                 "放送回数(数値)"@ja .
+
+
+###  http://mediagraph.link/madb/ont/oclcnum
+madb:oclcnum rdf:type owl:DatatypeProperty ;
+             ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+             rdfs:label "OCLC number"@en ,
+                        "OCLC ナンバー"@ja .
+
+
+###  http://mediagraph.link/madb/ont/originalTitle
+madb:originalTitle rdf:type owl:DatatypeProperty ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                   rdfs:label "original title"@en ,
+                              "原タイトル"@ja .
+
+
+###  http://mediagraph.link/madb/ont/originalWorkCreator
+madb:originalWorkCreator rdf:type owl:DatatypeProperty ;
+                         ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                         rdfs:label "original work creator"@en ,
+                                    "原作者名"@ja .
+
+
+###  http://mediagraph.link/madb/ont/originalWorkMedia
+madb:originalWorkMedia rdf:type owl:DatatypeProperty ;
+                       ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                       rdfs:label "original work media"@en ,
+                                  "原作のメディア"@ja .
+
+
+###  http://mediagraph.link/madb/ont/originalWorkName
+madb:originalWorkName rdf:type owl:DatatypeProperty ;
+                      ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                      rdfs:label "original work name"@en ,
+                                 "原作名"@ja .
+
+
+###  http://mediagraph.link/madb/ont/ownerIdentifier
+madb:ownerIdentifier rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "owner ID"@en ,
+                                "所蔵館 ID"@ja .
+
+
+###  http://mediagraph.link/madb/ont/packageDescription
+madb:packageDescription rdf:type owl:DatatypeProperty ;
+                        ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                        rdfs:label "package description"@en ,
+                                   "収録内容(パッケージ紹介文)"@ja .
+
+
+###  http://mediagraph.link/madb/ont/pageExclude
+madb:pageExclude rdf:type owl:DatatypeProperty ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                 rdfs:label "page exclude"@en ,
+                            "除ページ数"@ja .
+
+
+###  http://mediagraph.link/madb/ont/periodDisplayed
+madb:periodDisplayed rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "period displayed"@en ,
+                                "放送期間"@ja .
+
+
+###  http://mediagraph.link/madb/ont/porting
+madb:porting rdf:type owl:DatatypeProperty ;
+             ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+             rdfs:label "porting"@en ,
+                        "移植されたバリエーション"@ja .
+
+
+###  http://mediagraph.link/madb/ont/precedes
+madb:precedes rdf:type owl:DatatypeProperty ;
+              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "precedes"@en ,
+                         "後続の作品"@ja .
+
+
+###  http://mediagraph.link/madb/ont/producer
+madb:producer rdf:type owl:DatatypeProperty ;
+              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "producer"@en ,
+                         "制作者"@ja .
+
+
+###  http://mediagraph.link/madb/ont/producerName
+madb:producerName rdf:type owl:DatatypeProperty ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                  rdfs:label "producer name"@en ,
+                             "制作者名"@ja .
+
+
+###  http://mediagraph.link/madb/ont/productionNote
+madb:productionNote rdf:type owl:DatatypeProperty ;
+                    ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                    rdfs:label "production note"@en ,
+                               "制作注記"@ja .
+
+
+###  http://mediagraph.link/madb/ont/programDuration
+madb:programDuration rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "program duration"@en ,
+                                "放送枠時間"@ja .
+
+
+###  http://mediagraph.link/madb/ont/provenance
+madb:provenance rdf:type owl:DatatypeProperty ;
+                ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                rdfs:label "provenance"@en ,
+                           "所有・管理履歴"@ja .
+
+
+###  http://mediagraph.link/madb/ont/providerIdentifier
+madb:providerIdentifier rdf:type owl:DatatypeProperty ;
+                        ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                        rdfs:label "provider ID"@en ,
+                                   "所蔵館 ID"@ja .
+
+
+###  http://mediagraph.link/madb/ont/providerUrl
+madb:providerUrl rdf:type owl:DatatypeProperty ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                 rdfs:label "provider URL"@en ,
+                            "所蔵 DB リンク"@ja .
+
+
+###  http://mediagraph.link/madb/ont/publicationNote
+madb:publicationNote rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "publication note"@en ,
+                                "出版注記"@ja .
+
+
+###  http://mediagraph.link/madb/ont/publicationPeriodicity
+madb:publicationPeriodicity rdf:type owl:DatatypeProperty ;
+                            ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                            rdfs:label "publication periodicity"@en ,
+                                       "発行頻度"@ja .
+
+
+###  http://mediagraph.link/madb/ont/publisher
+madb:publisher rdf:type owl:DatatypeProperty ;
+               ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+               rdfs:label "publisher"@en ,
+                          "発行人"@ja .
+
+
+###  http://mediagraph.link/madb/ont/relatedCollection
+madb:relatedCollection rdf:type owl:DatatypeProperty ;
+                       ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                       rdfs:label "related collection"@en ,
+                                  "関連マンガ作品"@ja .
+
+
+###  http://mediagraph.link/madb/ont/relatedItem
+madb:relatedItem rdf:type owl:DatatypeProperty ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                 rdfs:label "related item"@en ,
+                            "関連アニメ作品へのリンク"@ja .
+
+
+###  http://mediagraph.link/madb/ont/relatedItemName
+madb:relatedItemName rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "related item name"@en ,
+                                "関連作品"@ja .
+
+
+###  http://mediagraph.link/madb/ont/releasedTitle
+madb:releasedTitle rdf:type owl:DatatypeProperty ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                   rdfs:label "released title"@en ,
+                              "発売名称"@ja .
+
+
+###  http://mediagraph.link/madb/ont/remadeAs
+madb:remadeAs rdf:type owl:DatatypeProperty ;
+              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "remade as"@en ,
+                         "リメイクされた作品"@ja .
+
+
+###  http://mediagraph.link/madb/ont/sequel
+madb:sequel rdf:type owl:DatatypeProperty ;
+            ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+            rdfs:label "sequel"@en ,
+                       "物語上の後続の作品"@ja .
+
+
+###  http://mediagraph.link/madb/ont/sequelTo
+madb:sequelTo rdf:type owl:DatatypeProperty ;
+              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "sequel to"@en ,
+                         "物語上の先行の作品"@ja .
+
+
+###  http://mediagraph.link/madb/ont/seriesName
+madb:seriesName rdf:type owl:DatatypeProperty ;
+                ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                rdfs:label "series name"@en ,
+                           "シリーズ名"@ja .
+
+
+###  http://mediagraph.link/madb/ont/seriesNumber
+madb:seriesNumber rdf:type owl:DatatypeProperty ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                  rdfs:label "series number"@en ,
+                             "シリーズ番号"@ja .
+
+
+###  http://mediagraph.link/madb/ont/sizeOfContainer
+madb:sizeOfContainer rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "size of container"@en ,
+                                "コンテナ大きさ"@ja .
+
+
+###  http://mediagraph.link/madb/ont/sizeOfSubunit
+madb:sizeOfSubunit rdf:type owl:DatatypeProperty ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                   rdfs:label "size of subunit"@en ,
+                              "サブユニット形式-大きさ"@ja .
+
+
+###  http://mediagraph.link/madb/ont/source
+madb:source rdf:type owl:DatatypeProperty ;
+            ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+            rdfs:label "source"@en ,
+                       "データ出典"@ja .
+
+
+###  http://mediagraph.link/madb/ont/spaceSize
+madb:spaceSize rdf:type owl:DatatypeProperty ;
+               ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+               rdfs:label "space size"@en ,
+                          "実施空間サイズ"@ja .
+
+
+###  http://mediagraph.link/madb/ont/spinOff
+madb:spinOff rdf:type owl:DatatypeProperty ;
+             ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+             rdfs:label "spin off"@en ,
+                        "スピンオフされた作品"@ja .
+
+
+###  http://mediagraph.link/madb/ont/startDateCreated
+madb:startDateCreated rdf:type owl:DatatypeProperty ;
+                      ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                      rdfs:label "start date created"@en ,
+                                 "制作開始年月日"@ja .
+
+
+###  http://mediagraph.link/madb/ont/startDateRelesed
+madb:startDateRelesed rdf:type owl:DatatypeProperty ;
+                      ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                      rdfs:label "start date released"@en ,
+                                 "発売年月日"@ja .
+
+
+###  http://mediagraph.link/madb/ont/stateOfPreservation
+madb:stateOfPreservation rdf:type owl:DatatypeProperty ;
+                         ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                         rdfs:label "state of preservation"@en ,
+                                    "保存状態"@ja .
+
+
+###  http://mediagraph.link/madb/ont/statusDocuments
+madb:statusDocuments rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "status documents"@en ,
+                                "資料現況"@ja .
+
+
+###  http://mediagraph.link/madb/ont/statusKept
+madb:statusKept rdf:type owl:DatatypeProperty ;
+                ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                rdfs:label "status kept"@en ,
+                           "所蔵状況"@ja .
+
+
+###  http://mediagraph.link/madb/ont/subIssueNumber
+madb:subIssueNumber rdf:type owl:DatatypeProperty ;
+                    ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                    rdfs:label "sub issue number"@en ,
+                               "補助号数"@ja .
+
+
+###  http://mediagraph.link/madb/ont/subMaterialIdentifier
+madb:subMaterialIdentifier rdf:type owl:DatatypeProperty ;
+                           ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                           rdfs:label "sub material identifier"@en ,
+                                      "枝番"@ja .
+
+
+###  http://mediagraph.link/madb/ont/subseriesStatement
+madb:subseriesStatement rdf:type owl:DatatypeProperty ;
+                        ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                        rdfs:label "subseries statement"@en ,
+                                   "サブシリーズ表示"@ja .
+
+
+###  http://mediagraph.link/madb/ont/succeeds
+madb:succeeds rdf:type owl:DatatypeProperty ;
+              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "succeeds"@en ,
+                         "先行の作品"@ja .
+
+
+###  http://mediagraph.link/madb/ont/supplement
+madb:supplement rdf:type owl:DatatypeProperty ;
+                ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                rdfs:label "supplement"@en ,
+                           "付属資料"@ja .
+
+
+###  http://mediagraph.link/madb/ont/tableOfContents
+madb:tableOfContents rdf:type owl:DatatypeProperty ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "table of contents"@en ,
+                                "サブユニットリスト"@ja .
+
+
+###  http://mediagraph.link/madb/ont/tag
+madb:tag rdf:type owl:DatatypeProperty ;
+         ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+         rdfs:label "tag"@en ,
+                    "キーワード"@ja .
+
+
+###  http://mediagraph.link/madb/ont/techniques
+madb:techniques rdf:type owl:DatatypeProperty ;
+                ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                rdfs:label "techniques"@en ,
+                           "技法"@ja .
+
+
+###  http://mediagraph.link/madb/ont/titleDescription
+madb:titleDescription rdf:type owl:DatatypeProperty ;
+                      ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                      rdfs:label "title description"@en ,
+                                 "収録内容(収録各話タイトル)"@ja .
+
+
+###  http://mediagraph.link/madb/ont/tool
+madb:tool rdf:type owl:DatatypeProperty ;
+          ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+          rdfs:label "tool"@en ,
+                     "ツール名"@ja .
+
+
+###  http://mediagraph.link/madb/ont/totalVolumeNumber
+madb:totalVolumeNumber rdf:type owl:DatatypeProperty ;
+                       ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                       rdfs:label "total volume number"@en ,
+                                  "通巻"@ja .
+
+
+###  http://mediagraph.link/madb/ont/totalVolumeNumberFinal
+madb:totalVolumeNumberFinal rdf:type owl:DatatypeProperty ;
+                            ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                            rdfs:label "total volume number final"@en ,
+                                       "終刊通巻号"@ja .
+
+
+###  http://mediagraph.link/madb/ont/trial
+madb:trial rdf:type owl:DatatypeProperty ;
+           ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+           rdfs:label "trial"@en ,
+                      "体験版のバリエーション"@ja .
+
+
+###  http://mediagraph.link/madb/ont/twitch
+madb:twitch rdf:type owl:DatatypeProperty ;
+            ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+            rdfs:label "Twitch game ID"@ja ,
+                       "twitch game ID"@en .
+
+
+###  http://mediagraph.link/madb/ont/twitter
+madb:twitter rdf:type owl:DatatypeProperty ;
+             ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+             rdfs:label "Twitter ID"@ja ,
+                        "twitter ID"@en .
+
+
+###  http://mediagraph.link/madb/ont/variantTitle
+madb:variantTitle rdf:type owl:DatatypeProperty ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                  rdfs:label "variant title"@en ,
+                             "その他のタイトル"@ja .
+
+
+###  http://mediagraph.link/madb/ont/variation
+madb:variation rdf:type owl:DatatypeProperty ;
+               ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+               rdfs:label "variation"@en ,
+                          "作品のバリエーション"@ja .
+
+
+###  http://mediagraph.link/madb/ont/variationOf
+madb:variationOf rdf:type owl:DatatypeProperty ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                 rdfs:label "variation of"@en ,
+                            "ゲーム作品"@ja .
+
+
+###  http://mediagraph.link/madb/ont/viaf
+madb:viaf rdf:type owl:DatatypeProperty ;
+          ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+          rdfs:label "VIAF ID"@en ,
+                     "バーチャル国際典拠ファイル ID"@ja .
+
+
+###  http://mediagraph.link/madb/ont/volumeNumberFinal
+madb:volumeNumberFinal rdf:type owl:DatatypeProperty ;
+                       ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                       rdfs:label "volume number final"@en ,
+                                  "終刊通巻号"@jp .
+
+
+###  http://mediagraph.link/madb/ont/wakuTitle
+madb:wakuTitle rdf:type owl:DatatypeProperty ;
+               ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+               rdfs:label "waku title"@en ,
+                          "枠タイトル"@ja .
+
+
+###  http://mediagraph.link/madb/ont/wikidata
+madb:wikidata rdf:type owl:DatatypeProperty ;
+              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "Wikidata ID"@en ,
+                         "Wikidata ID"@ja .
+
+
+###  http://mediagraph.link/madb/ont/workEmbodimentOf
+madb:workEmbodimentOf rdf:type owl:DatatypeProperty ;
+                      ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                      rdfs:label "work embodiment of"@en ,
+                                 "ゲーム作品"@ja .
+
+
+###  http://mediagraph.link/madb/ont/yearDisplayed
+madb:yearDisplayed rdf:type owl:DatatypeProperty ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                   rdfs:label "year displayed"@en ,
+                              "表示年"@ja .
+
+
+###  http://mediagraph.link/madb/ont/youtubeGaming
+madb:youtubeGaming rdf:type owl:DatatypeProperty ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                   rdfs:label "Youtube gaming ID"@ja ,
+                              "youtube gaming ID"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://mediagraph.link/madb/ont/AN
+madb:AN rdf:type owl:Class .
+
+
+###  http://mediagraph.link/madb/ont/Agent
+madb:Agent rdf:type owl:Class ;
+           rdfs:subClassOf madb:Collection ,
+                           madb:Curation ;
+           ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+           rdfs:label "Agent"@en ,
+                      "責任主体"@ja .
+
+
+###  http://mediagraph.link/madb/ont/Animation
+madb:Animation rdf:type owl:Class .
+
+
+###  http://mediagraph.link/madb/ont/AnimationHoldings
+madb:AnimationHoldings rdf:type owl:Class ;
+                       rdfs:subClassOf madb:Animation ,
+                                       madb:Supplement ;
+                       ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                       rdfs:label "Animation holdings"@en ,
+                                  "アニメ所蔵"@ja .
+
+
+###  http://mediagraph.link/madb/ont/AnimationOther
+madb:AnimationOther rdf:type owl:Class ;
+                    rdfs:subClassOf madb:Animation ,
+                                    madb:Item ;
+                    ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                    rdfs:label "Animation other"@en ,
+                               "アニメその他"@ja .
+
+
+###  http://mediagraph.link/madb/ont/AnimationRelatedItem
+madb:AnimationRelatedItem rdf:type owl:Class ;
+                          rdfs:subClassOf madb:Animation ,
+                                          madb:Item ;
+                          ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                          rdfs:label "Animation related item"@en ,
+                                     "アニメ関連資料"@ja .
+
+
+###  http://mediagraph.link/madb/ont/AnimationTVProgram
+madb:AnimationTVProgram rdf:type owl:Class ;
+                        rdfs:subClassOf madb:Animation ,
+                                        madb:Item ;
+                        ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                        rdfs:label "Animation TV program"@en ,
+                                   "アニメテレビ番組"@ja .
+
+
+###  http://mediagraph.link/madb/ont/AnimationTVRegularSeries
+madb:AnimationTVRegularSeries rdf:type owl:Class ;
+                              rdfs:subClassOf madb:Animation ,
+                                              madb:Collection ;
+                              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                              rdfs:label "Animation TV regular series"@en ,
+                                         "アニメテレビレギュラーシリーズ"@ja .
+
+
+###  http://mediagraph.link/madb/ont/AnimationTVSpecialSeries
+madb:AnimationTVSpecialSeries rdf:type owl:Class ;
+                              rdfs:subClassOf madb:Animation ,
+                                              madb:Collection ;
+                              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                              rdfs:label "Animation TV special series"@en ,
+                                         "アニメテレビ単発（スペシャル）シリーズ"@ja .
+
+
+###  http://mediagraph.link/madb/ont/AnimationTheatricalRelease
+madb:AnimationTheatricalRelease rdf:type owl:Class ;
+                                rdfs:subClassOf madb:Animation ,
+                                                madb:Item ;
+                                ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                                rdfs:label "Animation theatrical release"@en ,
+                                           "アニメ劇場上映"@ja .
+
+
+###  http://mediagraph.link/madb/ont/AnimationTheatricalSeries
+madb:AnimationTheatricalSeries rdf:type owl:Class ;
+                               rdfs:subClassOf madb:Animation ,
+                                               madb:Collection ;
+                               ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                               rdfs:label "Animation theatrical series"@en ,
+                                          "アニメ劇場上映シリーズ"@ja .
+
+
+###  http://mediagraph.link/madb/ont/AnimationVideoPackage
+madb:AnimationVideoPackage rdf:type owl:Class ;
+                           rdfs:subClassOf madb:Animation ,
+                                           madb:Item ;
+                           ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                           rdfs:label "Animation video package"@en ,
+                                      "アニメビデオパッケージ"@ja .
+
+
+###  http://mediagraph.link/madb/ont/AnimationVideoPackageSeries
+madb:AnimationVideoPackageSeries rdf:type owl:Class ;
+                                 rdfs:subClassOf madb:Animation ,
+                                                 madb:Collection ;
+                                 ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                                 rdfs:label "Animation video package series"@en ,
+                                            "アニメビデオパッケージシリーズ"@ja .
+
+
+###  http://mediagraph.link/madb/ont/AnimationWork
+madb:AnimationWork rdf:type owl:Class ;
+                   rdfs:subClassOf madb:Animation ,
+                                   madb:Collection ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                   rdfs:label "Animation work"@en ,
+                              "アニメ作品"@ja .
+
+
+###  http://mediagraph.link/madb/ont/CM
+madb:CM rdf:type owl:Class .
+
+
+###  http://mediagraph.link/madb/ont/CO
+madb:CO rdf:type owl:Class .
+
+
+###  http://mediagraph.link/madb/ont/Collection
+madb:Collection rdf:type owl:Class ;
+                ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                rdfs:label "Collection"@en .
+
+
+###  http://mediagraph.link/madb/ont/Curation
+madb:Curation rdf:type owl:Class .
+
+
+###  http://mediagraph.link/madb/ont/Event
+madb:Event rdf:type owl:Class ;
+           rdfs:subClassOf madb:Collection ,
+                           madb:Curation ;
+           ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+           rdfs:label "Event"@en ,
+                      "催事"@ja .
+
+
+###  http://mediagraph.link/madb/ont/GM
+madb:GM rdf:type owl:Class .
+
+
+###  http://mediagraph.link/madb/ont/Game
+madb:Game rdf:type owl:Class .
+
+
+###  http://mediagraph.link/madb/ont/GameItem
+madb:GameItem rdf:type owl:Class ;
+              rdfs:subClassOf madb:Game ,
+                              madb:Supplement ;
+              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "Game item"@en ,
+                         "ゲーム個別資料"@ja .
+
+
+###  http://mediagraph.link/madb/ont/GamePackage
+madb:GamePackage rdf:type owl:Class ;
+                 rdfs:subClassOf madb:Game ,
+                                 madb:Item ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                 rdfs:label "Game package"@en ,
+                            "ゲームパッケージ"@ja .
+
+
+###  http://mediagraph.link/madb/ont/GameRelatedItem
+madb:GameRelatedItem rdf:type owl:Class ;
+                     rdfs:subClassOf madb:Game ,
+                                     madb:Item ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "Game related item"@en ,
+                                "ゲーム関連資料"@ja .
+
+
+###  http://mediagraph.link/madb/ont/GameVariation
+madb:GameVariation rdf:type owl:Class ;
+                   rdfs:subClassOf madb:Collection ,
+                                   madb:Game ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                   rdfs:label "Game variation"@en ,
+                              "ゲームバリエーション"@ja .
+
+
+###  http://mediagraph.link/madb/ont/GameWork
+madb:GameWork rdf:type owl:Class ;
+              rdfs:subClassOf madb:Collection ,
+                              madb:Game ;
+              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "Game work"@en ,
+                         "ゲーム作品"@ja .
+
+
+###  http://mediagraph.link/madb/ont/Item
+madb:Item rdf:type owl:Class ;
+          ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+          rdfs:label "Item"@en .
+
+
+###  http://mediagraph.link/madb/ont/MA
+madb:MA rdf:type owl:Class .
+
+
+###  http://mediagraph.link/madb/ont/Manga
+madb:Manga rdf:type owl:Class .
+
+
+###  http://mediagraph.link/madb/ont/MangaBook
+madb:MangaBook rdf:type owl:Class ;
+               rdfs:subClassOf madb:Item ,
+                               madb:Manga ;
+               ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+               rdfs:label "Manga book"@en ,
+                          "マンガ単行本"@ja .
+
+
+###  http://mediagraph.link/madb/ont/MangaBookSeries
+madb:MangaBookSeries rdf:type owl:Class ;
+                     rdfs:subClassOf madb:Collection ,
+                                     madb:Manga ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                     rdfs:label "Manga book series"@en ,
+                                "マンガ単行本シリーズ"@ja .
+
+
+###  http://mediagraph.link/madb/ont/MangaHoldings
+madb:MangaHoldings rdf:type owl:Class ;
+                   rdfs:subClassOf madb:Manga ,
+                                   madb:Supplement ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                   rdfs:label "Manga holdings"@en ,
+                              "マンガ所蔵"@ja .
+
+
+###  http://mediagraph.link/madb/ont/MangaMagazine
+madb:MangaMagazine rdf:type owl:Class ;
+                   rdfs:subClassOf madb:Collection ,
+                                   madb:Manga ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                   rdfs:label "Manga magazine"@en ,
+                              "マンガ雑誌"@ja .
+
+
+###  http://mediagraph.link/madb/ont/MangaMagazinePublication
+madb:MangaMagazinePublication rdf:type owl:Class ;
+                              rdfs:subClassOf madb:Collection ,
+                                              madb:Manga ;
+                              ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                              rdfs:label "Manga magazine publication"@en ,
+                                         "マンガ雑誌掲載履歴"@ja .
+
+
+###  http://mediagraph.link/madb/ont/MangaMagazineVolume
+madb:MangaMagazineVolume rdf:type owl:Class ;
+                         rdfs:subClassOf madb:Item ,
+                                         madb:Manga ;
+                         ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                         rdfs:label "Manga magazine volume"@en ,
+                                    "マンガ雑誌各号"@ja .
+
+
+###  http://mediagraph.link/madb/ont/MangaMagazineVolumeContent
+madb:MangaMagazineVolumeContent rdf:type owl:Class ;
+                                rdfs:subClassOf madb:Manga ,
+                                                madb:Supplement ;
+                                ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                                rdfs:label "Manga magazine volume content"@en ,
+                                           "マンガ雑誌内容細目"@ja .
+
+
+###  http://mediagraph.link/madb/ont/MangaOther
+madb:MangaOther rdf:type owl:Class ;
+                rdfs:subClassOf madb:Item ,
+                                madb:Manga ;
+                ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                rdfs:label "Manga other"@en ,
+                           "マンガその他"@ja .
+
+
+###  http://mediagraph.link/madb/ont/MangaRelatedItem
+madb:MangaRelatedItem rdf:type owl:Class ;
+                      rdfs:subClassOf madb:Item ,
+                                      madb:Manga ;
+                      ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                      rdfs:label "Manga related item"@en ,
+                                 "マンガ関連資料"@ja .
+
+
+###  http://mediagraph.link/madb/ont/MangaWork
+madb:MangaWork rdf:type owl:Class ;
+               rdfs:subClassOf madb:Collection ,
+                               madb:Manga ;
+               ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+               rdfs:label "Manga work"@en ,
+                          "マンガ作品"@ja ;
+               skos:definition "マンガとみなされる表現および体現の内容の共通・共有性に基づいて識別される個別の知的創作、著作"@ja .
+
+
+###  http://mediagraph.link/madb/ont/MediaArt
+madb:MediaArt rdf:type owl:Class .
+
+
+###  http://mediagraph.link/madb/ont/MediaArtEvent
+madb:MediaArtEvent rdf:type owl:Class ;
+                   rdfs:subClassOf madb:Collection ,
+                                   madb:MediaArt ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                   rdfs:label "Media Art event"@en ,
+                              "メディアアート催事"@ja .
+
+
+###  http://mediagraph.link/madb/ont/MediaArtExhibitionOrPerformance
+madb:MediaArtExhibitionOrPerformance rdf:type owl:Class ;
+                                     rdfs:subClassOf madb:Item ,
+                                                     madb:MediaArt ;
+                                     ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                                     rdfs:label "Media Art exhibition or performance"@en ,
+                                                "メディアアート展示・実演"@ja .
+
+
+###  http://mediagraph.link/madb/ont/MediaArtOther
+madb:MediaArtOther rdf:type owl:Class ;
+                   rdfs:subClassOf madb:Item ,
+                                   madb:MediaArt ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                   rdfs:label "Media Art other"@en ,
+                              "メディアアートその他"@ja .
+
+
+###  http://mediagraph.link/madb/ont/MediaArtRelatedItem
+madb:MediaArtRelatedItem rdf:type owl:Class ;
+                         rdfs:subClassOf madb:Item ,
+                                         madb:MediaArt ;
+                         ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                         rdfs:label "Media Art related item"@en ,
+                                    "メディアアート関連資料"@ja .
+
+
+###  http://mediagraph.link/madb/ont/MediaArtWork
+madb:MediaArtWork rdf:type owl:Class ;
+                  rdfs:subClassOf madb:Collection ,
+                                  madb:MediaArt ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                  rdfs:label "Media Art work"@en ,
+                             "メディアアート作品"@ja .
+
+
+###  http://mediagraph.link/madb/ont/Supplement
+madb:Supplement rdf:type owl:Class ;
+                ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+                rdfs:label "Supplement"@en .
+
+
+###  http://mediagraph.link/madb/ont/Topic
+madb:Topic rdf:type owl:Class ;
+           rdfs:subClassOf madb:Collection ,
+                           madb:Curation ;
+           ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+           rdfs:label "Topic"@en ,
+                      "トピック"@ja .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://mediagraph.link/madb/ont/AN
+madb:AN rdf:type owl:NamedIndividual ;
+        owl:sameAs madb:Animation .
+
+
+###  http://mediagraph.link/madb/ont/Animation
+
+###  http://mediagraph.link/madb/ont/Animation
+madb:Animation rdf:type owl:NamedIndividual .
+
+
+###  http://mediagraph.link/madb/ont/CM
+madb:CM rdf:type owl:NamedIndividual ;
+        owl:sameAs madb:Manga .
+
+
+###  http://mediagraph.link/madb/ont/Manga
+
+###  http://mediagraph.link/madb/ont/CO
+madb:CO rdf:type owl:NamedIndividual ;
+        owl:sameAs madb:Curation .
+
+
+###  http://mediagraph.link/madb/ont/Curation
+
+###  http://mediagraph.link/madb/ont/Curation
+madb:Curation rdf:type owl:NamedIndividual .
+
+
+###  http://mediagraph.link/madb/ont/GM
+madb:GM rdf:type owl:NamedIndividual ;
+        owl:sameAs madb:Game .
+
+
+###  http://mediagraph.link/madb/ont/Game
+
+###  http://mediagraph.link/madb/ont/Game
+madb:Game rdf:type owl:NamedIndividual .
+
+
+###  http://mediagraph.link/madb/ont/MA
+madb:MA rdf:type owl:NamedIndividual ;
+        owl:sameAs madb:MediaArt .
+
+
+###  http://mediagraph.link/madb/ont/MediaArt
+
+###  http://mediagraph.link/madb/ont/Manga
+madb:Manga rdf:type owl:NamedIndividual .
+
+
+###  http://mediagraph.link/madb/ont/MediaArt
+madb:MediaArt rdf:type owl:NamedIndividual .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+madb:AN ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+        rdfs:label "AN" .
+
+
+madb:Animation ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+               rdfs:label "Animation"@en ,
+                          "アニメ"@ja .
+
+
+madb:CM ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+        rdfs:label "CM" .
+
+
+madb:CO ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+        rdfs:label "CO" .
+
+
+madb:Curation ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "Curation"@en .
+
+
+madb:GM ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+        rdfs:label "GM" .
+
+
+madb:Game ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+          rdfs:label "Game"@en ,
+                     "ゲーム"@ja .
+
+
+madb:MA ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+        rdfs:label "MA" .
+
+
+madb:Manga ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+           rdfs:label "Manga"@en ,
+                      "マンガ"@ja .
+
+
+madb:MediaArt ns1:sourceGraph <http://mediagraph.link/graph/madb> ;
+              rdfs:label "Media Art"@en ,
+                         "メディアアート"@ja .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

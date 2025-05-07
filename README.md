@@ -1,0 +1,47 @@
+Jvmg ontolgy, 07.05.2025:
+# Done:
+- Core Entities
+- Core data properties -> based on the data properties for which there is definitely data
+# Missing:
+- Relationships/object properties
+- Japanese label (unsure about the Japanese name)
+Contributor
+- Individual
+  - Preferred name
+  - Preferred name romaji
+  - Alias
+  - Gender
+  - Date of birth
+  - Date of death
+  - Role
+- Company
+  - Current name
+  - Alternative name
+- Creative Work
+  - Media Work
+    - Manga
+      - Title Original
+      - Title translated
+      - Title variant
+      - Start Year
+      - End Year
+      - Volume number
+      - Genre
+    - Anime
+      - Title Original
+      - Title translated
+      - Title variant
+      - Start Year
+      - End Year
+      - Episodes
+      - Genre
+    - Game
+      - Title Original
+      - Title translated
+      - Title variant
+      - Year
+  - Character
+    - Main Name Japanese
+    - Main Name translated
+    - Other names
+    - Gender

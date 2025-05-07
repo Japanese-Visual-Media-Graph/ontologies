@@ -1,0 +1,44 @@
+@prefix : <http://mediagraph.link/graph/acdb/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix jvmg: <http://mediagraph.link/jvmg/ont/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfg: <http://www.w3.org/2004/03/trix/rdfg-1/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@base <http://mediagraph.link/graph/acdb/> .
+
+<http://mediagraph.link/graph/acdb> rdf:type dctype:Dataset  ;
+                                    dc:creator "Japanese Visual Media Graph" ;
+                                    dc:description "An RDF graph representation of data from the Visual Novel Database"@en ;
+                                    dc:title "Anime Characters Database Graph"@en ;
+                                    dcterms:modified "2020-02-26" ;
+                                    jvmg:shortLabel "acdb" ;
+                                    vann:preferredNamespaceUri "http://mediagraph.link/graph/acdb"^^xsd:string ;
+                                    rdfs:comment "This is a test file describing the RDF graph for the ACDB created by the JVMG group."@en ;
+                                    owl:versionInfo "0.0.1"^^xsd:string ;
+                                    rdfs:label "ACDB Graph Description"@en .
+
+:acdb_dataset
+   a prov:Entity;
+   dcterms:title "ACDB Dataset"^^xsd:string ;
+   prov:wasAttributedTo :jvmggroup ;
+   prov:wasDerivedFrom :acdbOrg .
+
+:acdbOrg
+   a prov:Agent, prov:Organization;
+   foaf:givenName      "https://www.animecharactersdatabase.com/"^^xsd:string ;
+   foaf:homePage       <https://www.animecharactersdatabase.com/> .
+
+:jvmggroup
+   a prov:Agent, prov:Organization;
+   foaf:givenName      "JVMG Group"^^xsd:string ;
+   foaf:homePage       <http://mediagraph.link/> .

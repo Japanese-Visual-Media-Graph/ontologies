@@ -1,0 +1,1986 @@
+@prefix : <http://mediagraph.link/acdb/ont/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ns1: <http://mediagraph.link/jvmg/ont/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix acdb: <http://mediagraph.link/acdb/ont/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://mediagraph.link/acdb/ont/> .
+
+<http://mediagraph.link/acdb/ont/> rdf:type owl:Ontology ;
+                                    dc:creator "Senan Kiryakos"@en ;
+                                    dc:description "A metadata vocabulary based on the Anime Characters Database with property names based primarily on the original ACDB exported data tables."@en ;
+                                    dc:title "ACDB Ontology"@en ;
+                                    dcterms:modified "2023-11-25"@en ;
+                                    vann:preferredNamespacePrefix "acdb" ;
+                                    vann:preferredNamespaceUri "http://mediagraph.link/acdb/ont/"@en ;
+                                    rdfs:comment "Some information on the tables used to make this ontology can be found at http://wiki.animecharactersdatabase.com/index.php?title=Table_Numbers ."@en ,
+                                                 "Some modifications, such as the claiming of class & sublcass relationships have been made from the original ACDB data model."@en ;
+                                    rdfs:label "ACDB Ontology"@en ;
+                                    owl:versionInfo "1.1"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://mediagraph.link/jvmg/ont/sourceGraph
+ns1:sourceGraph rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dcterms:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://mediagraph.link/acdb/ont/age
+acdb:age rdf:type owl:ObjectProperty ;
+         rdfs:domain acdb:Character ;
+         rdfs:range acdb:CharacterAge ;
+         ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+         rdfs:label "Age"@en ;
+         skos:definition "Indicates the age of a character"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterTag
+acdb:characterTag rdf:type owl:ObjectProperty ;
+                  rdfs:domain acdb:Character ;
+                  rdfs:range acdb:CharacterTag ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                  rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+                  rdfs:label "Character  tag"@en ;
+                  skos:definition "Indicates a trait possessed by a character."@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing
+acdb:clothing rdf:type owl:ObjectProperty ;
+              rdfs:domain acdb:Character ;
+              rdfs:range acdb:Clothing ;
+              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+              rdfs:label "Clothing"@en ;
+              skos:definition "Indicates the clothing of a character"@en .
+
+
+###  http://mediagraph.link/acdb/ont/contentRating
+acdb:contentRating rdf:type owl:ObjectProperty ;
+                   rdfs:domain acdb:Publisher ;
+                   rdfs:range acdb:ContentRating ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                   rdfs:label "Content rating"@en ;
+                   skos:definition "Rating of the title contents using ACDB's internal rating system. 0 is undefined, 1 is E (Everyone), 2 is E10+ (Everyone age 10 and up), 3 is T (Teen), 4 is M (mature), and 5 is A (Adult)."@en .
+
+
+###  http://mediagraph.link/acdb/ont/eechi
+acdb:eechi rdf:type owl:ObjectProperty ;
+           rdfs:domain acdb:Publisher ;
+           rdfs:range acdb:Eechi ;
+           ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+           rdfs:label "Eechi"@en ;
+           skos:definition "Indicates whether or not a content is Eechi"@en .
+
+
+###  http://mediagraph.link/acdb/ont/eyeColor
+acdb:eyeColor rdf:type owl:ObjectProperty ;
+              rdfs:domain acdb:Character ;
+              rdfs:range acdb:CharacterEyeColor ;
+              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+              rdfs:label "Eye color"@en ;
+              skos:definition "Indicates the eye color of a character"@en .
+
+
+###  http://mediagraph.link/acdb/ont/hairColor
+acdb:hairColor rdf:type owl:ObjectProperty ;
+               rdfs:domain acdb:Character ;
+               rdfs:range acdb:CharacterHairColor ;
+               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+               rdfs:label "Hair color"@en ;
+               skos:definition "Indicates the hair color of a character"@en .
+
+
+###  http://mediagraph.link/acdb/ont/hairLength
+acdb:hairLength rdf:type owl:ObjectProperty ;
+                rdfs:domain acdb:Character ;
+                rdfs:range acdb:CharacterHairLength ;
+                ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                rdfs:label "Hair length"@en ;
+                skos:definition "Indicates the hair length  of a character"@en .
+
+
+###  http://mediagraph.link/acdb/ont/left
+acdb:left rdf:type owl:ObjectProperty ;
+          rdfs:domain acdb:Relation ;
+          rdfs:range acdb:Character ;
+          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+          rdfs:label "Left"@en ;
+          skos:definition "Indicates one side of a relation between characters"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediaType
+acdb:mediaType rdf:type owl:ObjectProperty ;
+               rdfs:domain acdb:Publisher ;
+               rdfs:range acdb:MediaType ;
+               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+               rdfs:label "Media type"@en ;
+               skos:definition "Indicates a specific type of media"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mimikko
+acdb:mimikko rdf:type owl:ObjectProperty ;
+             rdfs:domain acdb:Character ;
+             rdfs:range acdb:Mimikko ;
+             ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+             rdfs:label "Mimikko"@en ;
+             skos:definition "Indicates whether or not a character has animal ears"@en .
+
+
+###  http://mediagraph.link/acdb/ont/parent
+acdb:parent rdf:type owl:ObjectProperty ;
+            rdfs:domain acdb:Publisher ;
+            rdfs:range acdb:Publisher ;
+            ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+            rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+            rdfs:label "Parent"@en ;
+            skos:definition "Indicates a related parent entity, such as a series or franchise to which the resource belongs."@en .
+
+
+###  http://mediagraph.link/acdb/ont/publisher
+acdb:publisher rdf:type owl:ObjectProperty ;
+               rdfs:domain acdb:Character ;
+               rdfs:range acdb:Publisher ;
+               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+               rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+               rdfs:label "Publisher"@en ;
+               skos:definition "Indicates the source material the character appears in."@en .
+
+
+###  http://mediagraph.link/acdb/ont/realAge
+acdb:realAge rdf:type owl:ObjectProperty ;
+             rdfs:domain acdb:Character ;
+             rdfs:range acdb:CharacterAge ;
+             ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+             rdfs:label "Real age"@en ;
+             skos:definition "Indicates the real age of a character. This may differ from the apparent age based on some canonical information or creator statement."@en .
+
+
+###  http://mediagraph.link/acdb/ont/realEyeColor
+acdb:realEyeColor rdf:type owl:ObjectProperty ;
+                  rdfs:domain acdb:Character ;
+                  rdfs:range acdb:CharacterEyeColor ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                  rdfs:label "Real eye color"@en ;
+                  skos:definition "Indicates the real eye color of a character. This may differ from the apparent eye color based on some canonical information or creator statement. This may also differ from the apparent eye color based on the character having multiple eye colors."@en .
+
+
+###  http://mediagraph.link/acdb/ont/realHairColor
+acdb:realHairColor rdf:type owl:ObjectProperty ;
+                   rdfs:domain acdb:Character ;
+                   rdfs:range acdb:CharacterHairColor ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                   rdfs:label "Real hair color"@en ;
+                   skos:definition "Indicates the real hair color of a character. This may differ from the apparent hair color based on some canonical information or creator statement."@en .
+
+
+###  http://mediagraph.link/acdb/ont/realHairLength
+acdb:realHairLength rdf:type owl:ObjectProperty ;
+                    rdfs:domain acdb:Character ;
+                    rdfs:range acdb:CharacterHairLength ;
+                    ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                    rdfs:label "Real hair length"@en ;
+                    skos:definition "Indicates the real hair length of a character. This may differ from the apparent hair length based on some canonical information or creator statement."@en .
+
+
+###  http://mediagraph.link/acdb/ont/realMimikko
+acdb:realMimikko rdf:type owl:ObjectProperty ;
+                 rdfs:domain acdb:Character ;
+                 rdfs:range acdb:Mimikko ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                 rdfs:label "Real mimikko"@en ;
+                 skos:definition "Indicates the real mimikko status of a character. This may differ from the apparent mimikko status based on some canonical information or creator statement."@en .
+
+
+###  http://mediagraph.link/acdb/ont/realSex
+acdb:realSex rdf:type owl:ObjectProperty ;
+             rdfs:domain acdb:Character ;
+             rdfs:range acdb:CharacterSex ;
+             ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+             rdfs:label "Real sex"@en ;
+             skos:definition "Indicates the real sex of a character. This may differ from the apparent sex based on some canonical information or creator statement."@en .
+
+
+###  http://mediagraph.link/acdb/ont/right
+acdb:right rdf:type owl:ObjectProperty ;
+           rdfs:domain acdb:Relation ;
+           rdfs:range acdb:Character ;
+           ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+           rdfs:label "Right"@en ;
+           skos:definition "Indicates one side of a relation between characters"@en .
+
+
+###  http://mediagraph.link/acdb/ont/role
+acdb:role rdf:type owl:ObjectProperty ;
+          rdfs:domain acdb:Character ;
+          rdfs:range acdb:CharacterRole ;
+          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+          rdfs:label "Role"@en ;
+          skos:definition "Indicates the role of a character"@en .
+
+
+###  http://mediagraph.link/acdb/ont/sex
+acdb:sex rdf:type owl:ObjectProperty ;
+         rdfs:domain acdb:Character ;
+         rdfs:range acdb:CharacterSex ;
+         ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+         rdfs:label "Sex"@en ;
+         skos:definition "Indicates the sex of a character"@en .
+
+
+###  http://mediagraph.link/acdb/ont/tag
+acdb:tag rdf:type owl:ObjectProperty ;
+         rdfs:domain acdb:Character ,
+                     acdb:Publisher ;
+         rdfs:range acdb:Tag ;
+         ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+         rdfs:label "Tag"@en ;
+         skos:definition "A descriptive content tag a for non-character entity."@en .
+
+
+###  http://mediagraph.link/acdb/ont/voices
+acdb:voices rdf:type owl:ObjectProperty ;
+            owl:inverseOf acdb:voices ;
+            rdfs:domain acdb:Individual ;
+            rdfs:range acdb:Character ;
+            ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+            rdfs:label "Voices"@en ;
+            skos:definition "Voice actor of a character"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://mediagraph.link/acdb/ont/acdbLink
+acdb:acdbLink rdf:type owl:DatatypeProperty ;
+              rdfs:domain acdb:Character ,
+                          acdb:CharacterTag ,
+                          acdb:Individual ,
+                          acdb:Publisher ,
+                          acdb:Tag ;
+              rdfs:range xsd:anyURI ;
+              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+              rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+              rdfs:label "ACDB Link"@en ;
+              skos:definition "Link for the resource at ACDB."@en .
+
+
+###  http://mediagraph.link/acdb/ont/author
+acdb:author rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf acdb:characterData ;
+            rdfs:domain acdb:Character ,
+                        acdb:Contributor ;
+            rdfs:range rdfs:Literal ;
+            ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+            rdfs:label "Author"@en ;
+            skos:definition "An author of a work."@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterData
+acdb:characterData rdf:type owl:DatatypeProperty ;
+                   rdfs:domain acdb:Character ,
+                               acdb:CharacterTraits ;
+                   rdfs:range rdfs:Literal ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                   rdfs:label "Character data"@en ;
+                   skos:definition "Character date like eye color or hair lenght"@en .
+
+
+###  http://mediagraph.link/acdb/ont/chinese
+acdb:chinese rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf acdb:characterData ;
+             rdfs:domain acdb:Character ,
+                         acdb:Publisher ;
+             rdfs:range rdfs:Literal ;
+             ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+             rdfs:label "Chinese"@en ;
+             skos:definition "Resource name in Chinese."@en .
+
+
+###  http://mediagraph.link/acdb/ont/clone
+acdb:clone rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf acdb:characterData ;
+           rdfs:domain acdb:Character ;
+           rdfs:range rdfs:Literal ;
+           ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+           rdfs:label "Clone"@en ;
+           skos:definition "Indicates a clone of a character"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clonetype
+acdb:clonetype rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf acdb:characterData ;
+               rdfs:domain acdb:Character ;
+               rdfs:range rdfs:Literal ;
+               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+               rdfs:label "Clone type"@en ;
+               skos:definition "Indicates the clone type"@en .
+
+
+###  http://mediagraph.link/acdb/ont/cv
+acdb:cv rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf acdb:characterData ;
+        rdfs:domain acdb:Character ;
+        rdfs:range rdfs:Literal ;
+        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+        rdfs:label "Seiyuu"@en ;
+        skos:definition "Indicates a voice actor of a character"@en .
+
+
+###  http://mediagraph.link/acdb/ont/date
+acdb:date rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf acdb:publisherData ;
+          rdfs:domain acdb:CreativeWork ;
+          rdfs:range rdfs:Literal ,
+                     xsd:dateTime ;
+          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+          rdfs:label "Date"@en ;
+          skos:definition "Release date of a creative work"@en .
+
+
+###  http://mediagraph.link/acdb/ont/dateCreated
+acdb:dateCreated rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf acdb:characterData ;
+                 rdfs:domain acdb:Character ,
+                             acdb:CreativeWork ;
+                 rdfs:range xsd:dateTime ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                 rdfs:label "Date created"@en ;
+                 skos:definition "Indicates the creation date of the fan article for a character or creative work"@en .
+
+
+###  http://mediagraph.link/acdb/ont/dateModified
+acdb:dateModified rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf acdb:characterData ;
+                  rdfs:domain acdb:Character ,
+                              acdb:CreativeWork ;
+                  rdfs:range xsd:dateTime ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                  rdfs:label "Date modified"@en ;
+                  skos:definition "Indicates the modification date of the fan article for a character or creative work"@en .
+
+
+###  http://mediagraph.link/acdb/ont/english
+acdb:english rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf acdb:publisherData ;
+             rdfs:domain acdb:Publisher ;
+             rdfs:range rdfs:Literal ;
+             ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+             rdfs:label "English title"@en ;
+             skos:definition "English title of a creative work"@en .
+
+
+###  http://mediagraph.link/acdb/ont/esbr
+acdb:esbr rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf acdb:characterData ;
+          rdfs:domain acdb:Character ;
+          rdfs:range rdfs:Literal ;
+          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+          rdfs:label "ESBR"@en .
+
+
+###  http://mediagraph.link/acdb/ont/extraDetails
+acdb:extraDetails rdf:type owl:DatatypeProperty ;
+                  rdfs:domain acdb:Character ,
+                              acdb:Publisher ;
+                  rdfs:range rdfs:Literal ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                  rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+                  rdfs:label "Extra details"@en ;
+                  skos:definition "Lists additional characters or source material details that do not have dedicated fields in ACDB."@en .
+
+
+###  http://mediagraph.link/acdb/ont/furigana
+acdb:furigana rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain acdb:CreativeWork ,
+                          acdb:Publisher ;
+              rdfs:range rdfs:Literal ;
+              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+              rdfs:label "Furigana"@en ;
+              skos:definition "Indicates if there are  furigana for a name or not"@en .
+
+
+###  http://mediagraph.link/acdb/ont/getchuid
+acdb:getchuid rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf acdb:publisherData ;
+              rdfs:domain acdb:CreativeWork ,
+                          acdb:Publisher ;
+              rdfs:range rdfs:Literal ;
+              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+              rdfs:label "Getchu ID"@en .
+
+
+###  http://mediagraph.link/acdb/ont/id
+acdb:id rdf:type owl:DatatypeProperty ;
+        rdfs:domain acdb:Contributor ,
+                    acdb:CreativeWork ;
+        rdfs:range rdfs:Literal ;
+        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+        rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+        rdfs:label "ID"@en ;
+        skos:definition "The ID value of a given resource as indicated in ACDB's data tables."@en .
+
+
+###  http://mediagraph.link/acdb/ont/image
+acdb:image rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf acdb:characterData ;
+           rdfs:domain acdb:CreativeWork ;
+           rdfs:range rdfs:Literal ;
+           ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+           rdfs:label "Image"@en .
+
+
+###  http://mediagraph.link/acdb/ont/img1
+acdb:img1 rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf acdb:publisherData ;
+          rdfs:domain acdb:CreativeWork ;
+          rdfs:range rdfs:Literal ;
+          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+          rdfs:label "Image 1"@en .
+
+
+###  http://mediagraph.link/acdb/ont/img2
+acdb:img2 rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf acdb:publisherData ;
+          rdfs:domain acdb:CreativeWork ;
+          rdfs:range rdfs:Literal ;
+          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+          rdfs:label "Image 2"@en .
+
+
+###  http://mediagraph.link/acdb/ont/img3
+acdb:img3 rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf acdb:publisherData ;
+          rdfs:domain acdb:CreativeWork ;
+          rdfs:range rdfs:Literal ;
+          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+          rdfs:label "Image 3"@en .
+
+
+###  http://mediagraph.link/acdb/ont/japanese
+acdb:japanese rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain acdb:CreativeWork ,
+                          acdb:Publisher ;
+              rdfs:range rdfs:Literal ;
+              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+              rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+              rdfs:label "Japanese"@en ;
+              skos:definition "Japanese name or title."@en .
+
+
+###  http://mediagraph.link/acdb/ont/language
+acdb:language rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain acdb:Individual ;
+              rdfs:range rdfs:Literal ;
+              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+              rdfs:label "Language"@en ;
+              skos:definition "Original language of the voice actor"@en .
+
+
+###  http://mediagraph.link/acdb/ont/lightdark
+acdb:lightdark rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf acdb:characterData ;
+               rdfs:domain acdb:Contributor ,
+                           acdb:CreativeWork ;
+               rdfs:range rdfs:Literal ;
+               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+               rdfs:label "Lightdark"@en .
+
+
+###  http://mediagraph.link/acdb/ont/nameEnglish
+acdb:nameEnglish rdf:type owl:DatatypeProperty ;
+                 rdfs:domain acdb:Individual ;
+                 rdfs:range rdfs:Literal ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                 rdfs:label "Name english"@en ;
+                 skos:definition "English name of an individual"@en .
+
+
+###  http://mediagraph.link/acdb/ont/nameHiragana
+acdb:nameHiragana rdf:type owl:DatatypeProperty ;
+                  rdfs:domain acdb:Individual ;
+                  rdfs:range rdfs:Literal ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                  rdfs:label "Name hiragana"@en ;
+                  skos:definition "Name of a person with Hiragana"@en .
+
+
+###  http://mediagraph.link/acdb/ont/nameOriginal
+acdb:nameOriginal rdf:type owl:DatatypeProperty ;
+                  rdfs:domain acdb:Individual ;
+                  rdfs:range rdfs:Literal ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                  rdfs:label "Name original"@en ;
+                  skos:definition "Japanese Name of an individual"@en .
+
+
+###  http://mediagraph.link/acdb/ont/names
+acdb:names rdf:type owl:DatatypeProperty ;
+           rdfs:domain acdb:Individual ;
+           rdfs:range rdfs:Literal ;
+           ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+           rdfs:label "Names"@en ;
+           skos:definition "Names of staff member for an anime production"@en .
+
+
+###  http://mediagraph.link/acdb/ont/otherchar
+acdb:otherchar rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf acdb:characterData ;
+               rdfs:domain acdb:Character ;
+               rdfs:range rdfs:Literal ;
+               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+               rdfs:label "Other character"@en .
+
+
+###  http://mediagraph.link/acdb/ont/pagerank
+acdb:pagerank rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf acdb:characterData ;
+              rdfs:domain acdb:Contributor ,
+                          acdb:CreativeWork ;
+              rdfs:range xsd:integer ;
+              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+              rdfs:label "Page rank"@en .
+
+
+###  http://mediagraph.link/acdb/ont/pid2
+acdb:pid2 rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf acdb:characterData ;
+          rdfs:domain acdb:Contributor ,
+                      acdb:CreativeWork ;
+          rdfs:range rdfs:Literal ;
+          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+          rdfs:label "PID2"@en .
+
+
+###  http://mediagraph.link/acdb/ont/pub_date_added
+acdb:pub_date_added rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf acdb:publisherData ;
+                    rdfs:domain acdb:CreativeWork ;
+                    rdfs:range rdfs:Literal ;
+                    ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                    rdfs:label "pub date added"@en .
+
+
+###  http://mediagraph.link/acdb/ont/pub_date_updated
+acdb:pub_date_updated rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf acdb:publisherData ;
+                      rdfs:domain acdb:CreativeWork ;
+                      rdfs:range rdfs:Literal ;
+                      ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                      rdfs:label "pub date updated"@en .
+
+
+###  http://mediagraph.link/acdb/ont/pub_status1
+acdb:pub_status1 rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf acdb:publisherData ;
+                 rdfs:domain acdb:CreativeWork ;
+                 rdfs:range rdfs:Literal ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                 rdfs:label "Pub Status 1"@en .
+
+
+###  http://mediagraph.link/acdb/ont/pub_status2
+acdb:pub_status2 rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf acdb:publisherData ;
+                 rdfs:domain acdb:CreativeWork ;
+                 rdfs:range rdfs:Literal ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                 rdfs:label "Pub Status 2"@en .
+
+
+###  http://mediagraph.link/acdb/ont/pub_status3
+acdb:pub_status3 rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf acdb:publisherData ;
+                 rdfs:domain acdb:CreativeWork ;
+                 rdfs:range rdfs:Literal ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                 rdfs:label "Pub Status 3"@en .
+
+
+###  http://mediagraph.link/acdb/ont/publisherData
+acdb:publisherData rdf:type owl:DatatypeProperty ;
+                   rdfs:domain acdb:Contributor ;
+                   rdfs:range rdfs:Literal ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                   rdfs:label "Publisher data"@en ;
+                   skos:definition "Specific publisher data like different URLs"@en .
+
+
+###  http://mediagraph.link/acdb/ont/refs
+acdb:refs rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf acdb:characterData ;
+          rdfs:domain acdb:Character ;
+          rdfs:range rdfs:Literal ;
+          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+          rdfs:label "Refs"@en .
+
+
+###  http://mediagraph.link/acdb/ont/relationType
+acdb:relationType rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf acdb:characterData ;
+                  rdfs:domain acdb:Relation ;
+                  rdfs:range rdfs:Literal ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                  rdfs:label "Relation type"@en .
+
+
+###  http://mediagraph.link/acdb/ont/romji
+acdb:romji rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf acdb:characterData ;
+           rdfs:domain acdb:Character ;
+           rdfs:range rdfs:Literal ;
+           ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+           rdfs:label "Romaji character name"@en ;
+           skos:definition "Indicates the romaji  name of a character"@en .
+
+
+###  http://mediagraph.link/acdb/ont/romjiStudio
+acdb:romjiStudio rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf acdb:publisherData ;
+                 rdfs:domain acdb:Contributor ;
+                 rdfs:range rdfs:Literal ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                 rdfs:label "Romaji studio"@ja ;
+                 skos:definition "Indicates the romji name of an animation studio"@en .
+
+
+###  http://mediagraph.link/acdb/ont/romjiTitle
+acdb:romjiTitle rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf acdb:publisherData ;
+                rdfs:domain acdb:CreativeWork ;
+                rdfs:range rdfs:Literal ;
+                ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                rdfs:label "Romaji title"@en ;
+                skos:definition "Indicates a romaji title of a creative work"@en .
+
+
+###  http://mediagraph.link/acdb/ont/staffData
+acdb:staffData rdf:type owl:DatatypeProperty ;
+               rdfs:domain acdb:Contributor ;
+               rdfs:range rdfs:Literal ;
+               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+               rdfs:label "Staff data"@en .
+
+
+###  http://mediagraph.link/acdb/ont/studio
+acdb:studio rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf acdb:publisherData ;
+            rdfs:domain acdb:Contributor ;
+            rdfs:range rdfs:Literal ;
+            ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+            rdfs:label "Studio"@en ;
+            skos:definition "English name of an animation studio"@en .
+
+
+###  http://mediagraph.link/acdb/ont/tag_status
+acdb:tag_status rdf:type owl:DatatypeProperty ;
+                rdfs:domain acdb:CreativeWork ;
+                rdfs:range rdfs:Literal ;
+                ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                rdfs:label "Tag status"@en .
+
+
+###  http://mediagraph.link/acdb/ont/thumb
+acdb:thumb rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf acdb:characterData ;
+           rdfs:domain acdb:Character ;
+           rdfs:range rdfs:Literal ;
+           ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+           rdfs:label "Thumbnail"@en .
+
+
+###  http://mediagraph.link/acdb/ont/today
+acdb:today rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain acdb:Contributor ,
+                       acdb:CreativeWork ;
+           rdfs:range rdfs:Literal ;
+           ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+           rdfs:label "Today"@en .
+
+
+###  http://mediagraph.link/acdb/ont/uid
+acdb:uid rdf:type owl:DatatypeProperty ;
+         rdfs:domain acdb:Contributor ,
+                     acdb:CreativeWork ;
+         rdfs:range rdfs:Literal ;
+         ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+         rdfs:label "UID"@en .
+
+
+###  http://mediagraph.link/acdb/ont/url1
+acdb:url1 rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf acdb:publisherData ;
+          rdfs:domain acdb:Contributor ,
+                      acdb:CreativeWork ;
+          rdfs:range xsd:anyURI ;
+          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+          rdfs:label "URL 1"@en .
+
+
+###  http://mediagraph.link/acdb/ont/url2
+acdb:url2 rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf acdb:publisherData ;
+          rdfs:domain acdb:CreativeWork ,
+                      acdb:Publisher ;
+          rdfs:range xsd:anyURI ;
+          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+          rdfs:label "URL 2"@en .
+
+
+###  http://mediagraph.link/acdb/ont/url3
+acdb:url3 rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf acdb:publisherData ;
+          rdfs:domain acdb:Contributor ,
+                      acdb:CreativeWork ;
+          rdfs:range xsd:anyURI ;
+          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+          rdfs:label "URL 3"@en .
+
+
+###  http://mediagraph.link/acdb/ont/url4
+acdb:url4 rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf acdb:publisherData ;
+          rdfs:domain acdb:Contributor ,
+                      acdb:CreativeWork ;
+          rdfs:range xsd:anyURI ;
+          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+          rdfs:label "URL 4"@en .
+
+
+###  http://mediagraph.link/acdb/ont/url5
+acdb:url5 rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf acdb:publisherData ;
+          rdfs:domain acdb:Contributor ,
+                      acdb:CreativeWork ;
+          rdfs:range xsd:anyURI ;
+          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+          rdfs:label "URL 5"@en .
+
+
+###  http://mediagraph.link/acdb/ont/url6
+acdb:url6 rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf acdb:publisherData ;
+          rdfs:domain acdb:Contributor ,
+                      acdb:CreativeWork ;
+          rdfs:range xsd:anyURI ;
+          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+          rdfs:label "URL 6"@en .
+
+
+###  http://mediagraph.link/acdb/ont/video
+acdb:video rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf acdb:publisherData ;
+           rdfs:domain acdb:Contributor ,
+                       acdb:CreativeWork ;
+           rdfs:range rdfs:Literal ;
+           ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+           rdfs:label "video"@en .
+
+
+###  http://mediagraph.link/acdb/ont/yesterday
+acdb:yesterday rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain acdb:Contributor ,
+                           acdb:CreativeWork ;
+               rdfs:range rdfs:Literal ;
+               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+               rdfs:label "Yesterday"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://mediagraph.link/acdb/ont/Character
+acdb:Character rdf:type owl:Class ;
+               rdfs:subClassOf acdb:CreativeWorkContents ;
+               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+               rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+               rdfs:label "Character"@en ;
+               skos:definition "A character found in ACDB."@en .
+
+
+###  http://mediagraph.link/acdb/ont/CharacterAge
+acdb:CharacterAge rdf:type owl:Class ;
+                  rdfs:subClassOf acdb:CharacterTraits ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                  rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+                  rdfs:label "Age"@en ;
+                  skos:definition "The age of a character."@en .
+
+
+###  http://mediagraph.link/acdb/ont/CharacterEyeColor
+acdb:CharacterEyeColor rdf:type owl:Class ;
+                       rdfs:subClassOf acdb:CharacterTraits ;
+                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                       rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+                       rdfs:label "Eye Color"@en ;
+                       skos:definition "The eye color of a character."@en .
+
+
+###  http://mediagraph.link/acdb/ont/CharacterHairColor
+acdb:CharacterHairColor rdf:type owl:Class ;
+                        rdfs:subClassOf acdb:CharacterTraits ;
+                        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                        rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+                        rdfs:label "Hair Color"@en ;
+                        skos:definition "The hair color of a character."@en .
+
+
+###  http://mediagraph.link/acdb/ont/CharacterHairLength
+acdb:CharacterHairLength rdf:type owl:Class ;
+                         rdfs:subClassOf acdb:CharacterTraits ;
+                         ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                         rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+                         rdfs:label "Hair Length"@en ;
+                         skos:definition "The hair length of a character."@en .
+
+
+###  http://mediagraph.link/acdb/ont/CharacterRole
+acdb:CharacterRole rdf:type owl:Class ;
+                   rdfs:subClassOf acdb:CharacterTraits ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                   rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+                   rdfs:label "Character Role"@en ;
+                   skos:definition "The role of a character in the work or works in which they appear."@en .
+
+
+###  http://mediagraph.link/acdb/ont/CharacterSex
+acdb:CharacterSex rdf:type owl:Class ;
+                  rdfs:subClassOf acdb:CharacterTraits ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                  rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+                  rdfs:label "Sex"@en ;
+                  skos:definition "The sex of a character."@en .
+
+
+###  http://mediagraph.link/acdb/ont/CharacterTag
+acdb:CharacterTag rdf:type owl:Class ;
+                  rdfs:subClassOf acdb:CharacterTraits ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                  rdfs:label "Character Tag"@en ;
+                  skos:definition "A class for descriptive details about a character"@en .
+
+
+###  http://mediagraph.link/acdb/ont/CharacterTraits
+acdb:CharacterTraits rdf:type owl:Class ;
+                     rdfs:subClassOf acdb:CreativeWorkContents ;
+                     ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                     rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+                     rdfs:label "Character Traits"@en ;
+                     skos:definition "A class for descriptive details about a character."@en .
+
+
+###  http://mediagraph.link/acdb/ont/Clothing
+acdb:Clothing rdf:type owl:Class ;
+              rdfs:subClassOf acdb:CharacterTraits ;
+              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+              rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+              rdfs:label "Clothing"@en ;
+              skos:definition "The type of clothing worn by a character."@en .
+
+
+###  http://mediagraph.link/acdb/ont/ContentRating
+acdb:ContentRating rdf:type owl:Class ;
+                   rdfs:subClassOf acdb:CreativeWorkContents ;
+                   ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                   rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+                   rdfs:label "Content Rating"@en ;
+                   skos:definition "ACDB internal content rating system."@en .
+
+
+###  http://mediagraph.link/acdb/ont/Contributor
+acdb:Contributor rdf:type owl:Class ;
+                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                 rdfs:label "Contributor"@en ;
+                 skos:definition "A creative or contributor role."@en .
+
+
+###  http://mediagraph.link/acdb/ont/CreativeWork
+acdb:CreativeWork rdf:type owl:Class ;
+                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                  rdfs:label "Creative Work"@en ;
+                  skos:definition "A class representing creative works and their contents."@en .
+
+
+###  http://mediagraph.link/acdb/ont/CreativeWorkContents
+acdb:CreativeWorkContents rdf:type owl:Class ;
+                          rdfs:subClassOf acdb:CreativeWork ;
+                          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                          rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+                          rdfs:label "Creative Work Contents"@en ;
+                          skos:definition "A class representing the contents of a creative work."@en .
+
+
+###  http://mediagraph.link/acdb/ont/Eechi
+acdb:Eechi rdf:type owl:Class ;
+           rdfs:subClassOf acdb:CreativeWorkContents ;
+           ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+           rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+           rdfs:label "Eechi"@en ;
+           skos:definition "Defines the sexual content of a given resource. Note this is separate from the Content Rating property."@en .
+
+
+###  http://mediagraph.link/acdb/ont/Group
+acdb:Group rdf:type owl:Class ;
+           rdfs:subClassOf acdb:Contributor ;
+           ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+           rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+           rdfs:label "Group"@en ;
+           skos:definition "A real-world group associated with a character."@en .
+
+
+###  http://mediagraph.link/acdb/ont/Individual
+acdb:Individual rdf:type owl:Class ;
+                rdfs:subClassOf acdb:Contributor ;
+                ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+                rdfs:label "Individual"@en ;
+                skos:definition "A real-world individual associated with a character."@en .
+
+
+###  http://mediagraph.link/acdb/ont/MediaType
+acdb:MediaType rdf:type owl:Class ;
+               rdfs:subClassOf acdb:CreativeWorkContents ;
+               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+               rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+               rdfs:label "Media Type"@en ;
+               skos:definition "A class for descriptive details about a media type"@en .
+
+
+###  http://mediagraph.link/acdb/ont/Mimikko
+acdb:Mimikko rdf:type owl:Class ;
+             rdfs:subClassOf acdb:CharacterTraits ;
+             ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+             rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+             rdfs:label "Animal Ears"@en ;
+             skos:definition "Defines whether or not the character has animal ears."@en .
+
+
+###  http://mediagraph.link/acdb/ont/Publisher
+acdb:Publisher rdf:type owl:Class ;
+               rdfs:subClassOf acdb:CreativeWork ;
+               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+               rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+               rdfs:label "Publisher"@en ;
+               skos:definition "Within ACDB, Publisher refers to a title or series to which a character belongs, and not an entity that is engaged in a publishing role."@en .
+
+
+###  http://mediagraph.link/acdb/ont/Relation
+acdb:Relation rdf:type owl:Class ;
+              rdfs:subClassOf acdb:CreativeWorkContents ;
+              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+              rdfs:label "Relation"@en ;
+              skos:definition "Indicates relationships between characters"@en .
+
+
+###  http://mediagraph.link/acdb/ont/Tag
+acdb:Tag rdf:type owl:Class ;
+         rdfs:subClassOf acdb:CreativeWorkContents ;
+         ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+         rdfs:label "Tag"@en ;
+         skos:definition "A class for descriptive details about an anime or manga."@en .
+
+
+###  http://mediagraph.link/acdb/ont/titleTag
+acdb:titleTag rdf:type owl:Class ;
+              rdfs:subClassOf acdb:Publisher ;
+              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+              rdfs:label "Title Tag"@en ;
+              skos:definition "Indicates the title of a tag"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://mediagraph.link/acdb/ont/characterage/0
+<http://mediagraph.link/acdb/ont/characterage/0> rdf:type owl:NamedIndividual ,
+                                                          acdb:CharacterAge ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                 rdfs:label "Not Applicable"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterage/1
+<http://mediagraph.link/acdb/ont/characterage/1> rdf:type owl:NamedIndividual ,
+                                                          acdb:CharacterAge ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                 rdfs:label "Child"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterage/3
+<http://mediagraph.link/acdb/ont/characterage/3> rdf:type owl:NamedIndividual ,
+                                                          acdb:CharacterAge ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                 rdfs:label "Teen"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterage/4
+<http://mediagraph.link/acdb/ont/characterage/4> rdf:type owl:NamedIndividual ,
+                                                          acdb:CharacterAge ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                 rdfs:label "Adult"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterage/5
+<http://mediagraph.link/acdb/ont/characterage/5> rdf:type owl:NamedIndividual ,
+                                                          acdb:CharacterAge ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                 rdfs:label "Senior"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterage/6
+<http://mediagraph.link/acdb/ont/characterage/6> rdf:type owl:NamedIndividual ,
+                                                          acdb:CharacterAge ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                 rdfs:label "Ageless"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactereyecolor/0
+<http://mediagraph.link/acdb/ont/charactereyecolor/0> rdf:type owl:NamedIndividual ,
+                                                               acdb:CharacterEyeColor ;
+                                                      ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                      rdfs:label "Not Applicable"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactereyecolor/1
+<http://mediagraph.link/acdb/ont/charactereyecolor/1> rdf:type owl:NamedIndividual ,
+                                                               acdb:CharacterEyeColor ;
+                                                      ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                      rdfs:label "Black"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactereyecolor/10
+<http://mediagraph.link/acdb/ont/charactereyecolor/10> rdf:type owl:NamedIndividual ,
+                                                                acdb:CharacterEyeColor ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                       rdfs:label "White"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactereyecolor/11
+<http://mediagraph.link/acdb/ont/charactereyecolor/11> rdf:type owl:NamedIndividual ,
+                                                                acdb:CharacterEyeColor ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                       rdfs:label "Yellow"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactereyecolor/12
+<http://mediagraph.link/acdb/ont/charactereyecolor/12> rdf:type owl:NamedIndividual ,
+                                                                acdb:CharacterEyeColor ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                       rdfs:label "Pink"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactereyecolor/14
+<http://mediagraph.link/acdb/ont/charactereyecolor/14> rdf:type owl:NamedIndividual ,
+                                                                acdb:CharacterEyeColor ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                       rdfs:label "Blue / Green"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactereyecolor/20
+<http://mediagraph.link/acdb/ont/charactereyecolor/20> rdf:type owl:NamedIndividual ,
+                                                                acdb:CharacterEyeColor ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                       rdfs:label "Not Visible"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactereyecolor/3
+<http://mediagraph.link/acdb/ont/charactereyecolor/3> rdf:type owl:NamedIndividual ,
+                                                               acdb:CharacterEyeColor ;
+                                                      ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                      rdfs:label "Blue"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactereyecolor/4
+<http://mediagraph.link/acdb/ont/charactereyecolor/4> rdf:type owl:NamedIndividual ,
+                                                               acdb:CharacterEyeColor ;
+                                                      ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                      rdfs:label "Brown"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactereyecolor/5
+<http://mediagraph.link/acdb/ont/charactereyecolor/5> rdf:type owl:NamedIndividual ,
+                                                               acdb:CharacterEyeColor ;
+                                                      ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                      rdfs:label "Green"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactereyecolor/6
+<http://mediagraph.link/acdb/ont/charactereyecolor/6> rdf:type owl:NamedIndividual ,
+                                                               acdb:CharacterEyeColor ;
+                                                      ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                      rdfs:label "Gray"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactereyecolor/7
+<http://mediagraph.link/acdb/ont/charactereyecolor/7> rdf:type owl:NamedIndividual ,
+                                                               acdb:CharacterEyeColor ;
+                                                      ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                      rdfs:label "Orange"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactereyecolor/8
+<http://mediagraph.link/acdb/ont/charactereyecolor/8> rdf:type owl:NamedIndividual ,
+                                                               acdb:CharacterEyeColor ;
+                                                      ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                      rdfs:label "Purple"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactereyecolor/9
+<http://mediagraph.link/acdb/ont/charactereyecolor/9> rdf:type owl:NamedIndividual ,
+                                                               acdb:CharacterEyeColor ;
+                                                      ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                      rdfs:label "Red"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhaircolor/0
+<http://mediagraph.link/acdb/ont/characterhaircolor/0> rdf:type owl:NamedIndividual ,
+                                                                acdb:CharacterHairColor ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                       rdfs:label "Not Applicable"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhaircolor/1
+<http://mediagraph.link/acdb/ont/characterhaircolor/1> rdf:type owl:NamedIndividual ,
+                                                                acdb:CharacterHairColor ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                       rdfs:label "Black"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhaircolor/10
+<http://mediagraph.link/acdb/ont/characterhaircolor/10> rdf:type owl:NamedIndividual ,
+                                                                 acdb:CharacterHairColor ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                        rdfs:label "White"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhaircolor/12
+<http://mediagraph.link/acdb/ont/characterhaircolor/12> rdf:type owl:NamedIndividual ,
+                                                                 acdb:CharacterHairColor ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                        rdfs:label "Pink"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhaircolor/13
+<http://mediagraph.link/acdb/ont/characterhaircolor/13> rdf:type owl:NamedIndividual ,
+                                                                 acdb:CharacterHairColor ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                        rdfs:label "Maroon"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhaircolor/14
+<http://mediagraph.link/acdb/ont/characterhaircolor/14> rdf:type owl:NamedIndividual ,
+                                                                 acdb:CharacterHairColor ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                        rdfs:label "Blue / Green"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhaircolor/2
+<http://mediagraph.link/acdb/ont/characterhaircolor/2> rdf:type owl:NamedIndividual ,
+                                                                acdb:CharacterHairColor ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                       rdfs:label "Blonde / Yellow"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhaircolor/20
+<http://mediagraph.link/acdb/ont/characterhaircolor/20> rdf:type owl:NamedIndividual ,
+                                                                 acdb:CharacterHairColor ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                        rdfs:label "Not Visible"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhaircolor/3
+<http://mediagraph.link/acdb/ont/characterhaircolor/3> rdf:type owl:NamedIndividual ,
+                                                                acdb:CharacterHairColor ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                       rdfs:label "Blue"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhaircolor/4
+<http://mediagraph.link/acdb/ont/characterhaircolor/4> rdf:type owl:NamedIndividual ,
+                                                                acdb:CharacterHairColor ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                       rdfs:label "Brown"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhaircolor/5
+<http://mediagraph.link/acdb/ont/characterhaircolor/5> rdf:type owl:NamedIndividual ,
+                                                                acdb:CharacterHairColor ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                       rdfs:label "Green"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhaircolor/6
+<http://mediagraph.link/acdb/ont/characterhaircolor/6> rdf:type owl:NamedIndividual ,
+                                                                acdb:CharacterHairColor ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                       rdfs:label "Gray"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhaircolor/7
+<http://mediagraph.link/acdb/ont/characterhaircolor/7> rdf:type owl:NamedIndividual ,
+                                                                acdb:CharacterHairColor ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                       rdfs:label "Orange"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhaircolor/8
+<http://mediagraph.link/acdb/ont/characterhaircolor/8> rdf:type owl:NamedIndividual ,
+                                                                acdb:CharacterHairColor ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                       rdfs:label "Purple"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhaircolor/9
+<http://mediagraph.link/acdb/ont/characterhaircolor/9> rdf:type owl:NamedIndividual ,
+                                                                acdb:CharacterHairColor ;
+                                                       ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                       rdfs:label "Red"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhairlength/0
+<http://mediagraph.link/acdb/ont/characterhairlength/0> rdf:type owl:NamedIndividual ,
+                                                                 acdb:CharacterHairLength ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                        rdfs:label "Not Applicable"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhairlength/1
+<http://mediagraph.link/acdb/ont/characterhairlength/1> rdf:type owl:NamedIndividual ,
+                                                                 acdb:CharacterHairLength ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                        rdfs:label "No Hair"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhairlength/2
+<http://mediagraph.link/acdb/ont/characterhairlength/2> rdf:type owl:NamedIndividual ,
+                                                                 acdb:CharacterHairLength ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                        rdfs:label "To Ears"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhairlength/3
+<http://mediagraph.link/acdb/ont/characterhairlength/3> rdf:type owl:NamedIndividual ,
+                                                                 acdb:CharacterHairLength ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                        rdfs:label "To Neck"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhairlength/4
+<http://mediagraph.link/acdb/ont/characterhairlength/4> rdf:type owl:NamedIndividual ,
+                                                                 acdb:CharacterHairLength ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                        rdfs:label "To Shoulders"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhairlength/5
+<http://mediagraph.link/acdb/ont/characterhairlength/5> rdf:type owl:NamedIndividual ,
+                                                                 acdb:CharacterHairLength ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                        rdfs:label "To Chest"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhairlength/6
+<http://mediagraph.link/acdb/ont/characterhairlength/6> rdf:type owl:NamedIndividual ,
+                                                                 acdb:CharacterHairLength ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                        rdfs:label "To Waist"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhairlength/7
+<http://mediagraph.link/acdb/ont/characterhairlength/7> rdf:type owl:NamedIndividual ,
+                                                                 acdb:CharacterHairLength ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                        rdfs:label "Past Waist"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterhairlength/8
+<http://mediagraph.link/acdb/ont/characterhairlength/8> rdf:type owl:NamedIndividual ,
+                                                                 acdb:CharacterHairLength ;
+                                                        ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                        rdfs:label "Hair Up / Indeterminate"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterrole/0
+<http://mediagraph.link/acdb/ont/characterrole/0> rdf:type owl:NamedIndividual ,
+                                                           acdb:CharacterRole ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                  rdfs:label "Unset"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterrole/1
+<http://mediagraph.link/acdb/ont/characterrole/1> rdf:type owl:NamedIndividual ,
+                                                           acdb:CharacterRole ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                  rdfs:label "Extra"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterrole/10
+<http://mediagraph.link/acdb/ont/characterrole/10> rdf:type owl:NamedIndividual ,
+                                                            acdb:CharacterRole ;
+                                                   ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                   rdfs:label "Protagonist"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterrole/2
+<http://mediagraph.link/acdb/ont/characterrole/2> rdf:type owl:NamedIndividual ,
+                                                           acdb:CharacterRole ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                  rdfs:label "Sub"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterrole/5
+<http://mediagraph.link/acdb/ont/characterrole/5> rdf:type owl:NamedIndividual ,
+                                                           acdb:CharacterRole ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                  rdfs:label "Supporting"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterrole/7
+<http://mediagraph.link/acdb/ont/characterrole/7> rdf:type owl:NamedIndividual ,
+                                                           acdb:CharacterRole ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                  rdfs:label "Main"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterrole/8
+<http://mediagraph.link/acdb/ont/characterrole/8> rdf:type owl:NamedIndividual ,
+                                                           acdb:CharacterRole ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                  rdfs:label "Deuteragonist"@en .
+
+
+###  http://mediagraph.link/acdb/ont/characterrole/9
+<http://mediagraph.link/acdb/ont/characterrole/9> rdf:type owl:NamedIndividual ,
+                                                           acdb:CharacterRole ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                  rdfs:label "Antagonist"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactersex/0
+<http://mediagraph.link/acdb/ont/charactersex/0> rdf:type owl:NamedIndividual ,
+                                                          acdb:CharacterSex ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                 rdfs:label "Not Applicable"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactersex/1
+<http://mediagraph.link/acdb/ont/charactersex/1> rdf:type owl:NamedIndividual ,
+                                                          acdb:CharacterSex ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                 rdfs:label "Male"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactersex/2
+<http://mediagraph.link/acdb/ont/charactersex/2> rdf:type owl:NamedIndividual ,
+                                                          acdb:CharacterSex ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                 rdfs:label "Female"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactersex/3
+<http://mediagraph.link/acdb/ont/charactersex/3> rdf:type owl:NamedIndividual ,
+                                                          acdb:CharacterSex ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                 rdfs:label "Unknown / Ambiguous"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactersex/4
+<http://mediagraph.link/acdb/ont/charactersex/4> rdf:type owl:NamedIndividual ,
+                                                          acdb:CharacterSex ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                 rdfs:comment "A character labeled with the Androgynous sex type."@en ;
+                                                 rdfs:isDefinedBy <http://mediagraph.link/acdb/ont/> ;
+                                                 rdfs:label "Androgynous"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactersex/5
+<http://mediagraph.link/acdb/ont/charactersex/5> rdf:type owl:NamedIndividual ,
+                                                          acdb:CharacterSex ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                 rdfs:label "None"@en .
+
+
+###  http://mediagraph.link/acdb/ont/charactersex/6
+<http://mediagraph.link/acdb/ont/charactersex/6> rdf:type owl:NamedIndividual ,
+                                                          acdb:CharacterSex ;
+                                                 ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                 rdfs:label "Many"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/1
+<http://mediagraph.link/acdb/ont/clothing/1> rdf:type owl:NamedIndividual ,
+                                                      acdb:Clothing ;
+                                             ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                             rdfs:label "Maid"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/10
+<http://mediagraph.link/acdb/ont/clothing/10> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Armor"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/11
+<http://mediagraph.link/acdb/ont/clothing/11> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Suit and Tie"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/12
+<http://mediagraph.link/acdb/ont/clothing/12> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Shrine Maiden"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/13
+<http://mediagraph.link/acdb/ont/clothing/13> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Chinese Dress"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/14
+<http://mediagraph.link/acdb/ont/clothing/14> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Martial Arts Uniform"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/15
+<http://mediagraph.link/acdb/ont/clothing/15> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Mage Clothing"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/16
+<http://mediagraph.link/acdb/ont/clothing/16> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Mechanic Clothes"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/17
+<http://mediagraph.link/acdb/ont/clothing/17> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Military Uniform"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/18
+<http://mediagraph.link/acdb/ont/clothing/18> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Pilot Suit"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/19
+<http://mediagraph.link/acdb/ont/clothing/19> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Dress"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/2
+<http://mediagraph.link/acdb/ont/clothing/2> rdf:type owl:NamedIndividual ,
+                                                      acdb:Clothing ;
+                                             ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                             rdfs:label "School Uniform"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/20
+<http://mediagraph.link/acdb/ont/clothing/20> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Jacket"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/21
+<http://mediagraph.link/acdb/ont/clothing/21> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Winter Jacket"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/22
+<http://mediagraph.link/acdb/ont/clothing/22> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Skirt"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/23
+<http://mediagraph.link/acdb/ont/clothing/23> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Other"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/24
+<http://mediagraph.link/acdb/ont/clothing/24> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Lab Coat"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/25
+<http://mediagraph.link/acdb/ont/clothing/25> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Bikini"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/26
+<http://mediagraph.link/acdb/ont/clothing/26> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Shorts and T-Shirt"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/27
+<http://mediagraph.link/acdb/ont/clothing/27> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Pants and T-Shirt"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/28
+<http://mediagraph.link/acdb/ont/clothing/28> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Pants and Dress Shirt"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/29
+<http://mediagraph.link/acdb/ont/clothing/29> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Nurse"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/3
+<http://mediagraph.link/acdb/ont/clothing/3> rdf:type owl:NamedIndividual ,
+                                                      acdb:Clothing ;
+                                             ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                             rdfs:label "Casual Clothes"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/30
+<http://mediagraph.link/acdb/ont/clothing/30> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Priest"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/31
+<http://mediagraph.link/acdb/ont/clothing/31> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Nun"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/32
+<http://mediagraph.link/acdb/ont/clothing/32> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Jeans and T-Shirt"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/33
+<http://mediagraph.link/acdb/ont/clothing/33> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Waitress"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/34
+<http://mediagraph.link/acdb/ont/clothing/34> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Suit and no Tie"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/35
+<http://mediagraph.link/acdb/ont/clothing/35> rdf:type owl:NamedIndividual ,
+                                                       acdb:Clothing ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Pants and Long Sleeve Shirt"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/4
+<http://mediagraph.link/acdb/ont/clothing/4> rdf:type owl:NamedIndividual ,
+                                                      acdb:Clothing ;
+                                             ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                             rdfs:label "Swimsuit"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/5
+<http://mediagraph.link/acdb/ont/clothing/5> rdf:type owl:NamedIndividual ,
+                                                      acdb:Clothing ;
+                                             ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                             rdfs:label "Mini Skirt"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/6
+<http://mediagraph.link/acdb/ont/clothing/6> rdf:type owl:NamedIndividual ,
+                                                      acdb:Clothing ;
+                                             ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                             rdfs:label "Gothic / Black / Dark"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/7
+<http://mediagraph.link/acdb/ont/clothing/7> rdf:type owl:NamedIndividual ,
+                                                      acdb:Clothing ;
+                                             ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                             rdfs:label "Traditional"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/8
+<http://mediagraph.link/acdb/ont/clothing/8> rdf:type owl:NamedIndividual ,
+                                                      acdb:Clothing ;
+                                             ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                             rdfs:label "Japanese Kimono"@en .
+
+
+###  http://mediagraph.link/acdb/ont/clothing/9
+<http://mediagraph.link/acdb/ont/clothing/9> rdf:type owl:NamedIndividual ,
+                                                      acdb:Clothing ;
+                                             ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                             rdfs:label "Fantasy"@en .
+
+
+###  http://mediagraph.link/acdb/ont/contentrating/0
+<http://mediagraph.link/acdb/ont/contentrating/0> rdf:type owl:NamedIndividual ,
+                                                           acdb:ContentRating ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                  rdfs:label "N/A"@en .
+
+
+###  http://mediagraph.link/acdb/ont/contentrating/1
+<http://mediagraph.link/acdb/ont/contentrating/1> rdf:type owl:NamedIndividual ,
+                                                           acdb:ContentRating ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                  rdfs:label "E / Everyone"@en .
+
+
+###  http://mediagraph.link/acdb/ont/contentrating/2
+<http://mediagraph.link/acdb/ont/contentrating/2> rdf:type owl:NamedIndividual ,
+                                                           acdb:ContentRating ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                  rdfs:label "E10+"@en .
+
+
+###  http://mediagraph.link/acdb/ont/contentrating/3
+<http://mediagraph.link/acdb/ont/contentrating/3> rdf:type owl:NamedIndividual ,
+                                                           acdb:ContentRating ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                  rdfs:label "T / Teen"@en .
+
+
+###  http://mediagraph.link/acdb/ont/contentrating/4
+<http://mediagraph.link/acdb/ont/contentrating/4> rdf:type owl:NamedIndividual ,
+                                                           acdb:ContentRating ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                  rdfs:label "M / Mature"@en .
+
+
+###  http://mediagraph.link/acdb/ont/contentrating/5
+<http://mediagraph.link/acdb/ont/contentrating/5> rdf:type owl:NamedIndividual ,
+                                                           acdb:ContentRating ;
+                                                  ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                                  rdfs:label "A / Adult"@en .
+
+
+###  http://mediagraph.link/acdb/ont/eechi/0
+<http://mediagraph.link/acdb/ont/eechi/0> rdf:type owl:NamedIndividual ,
+                                                   acdb:Eechi ;
+                                          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                          rdfs:label "Safe"@en .
+
+
+###  http://mediagraph.link/acdb/ont/eechi/1
+<http://mediagraph.link/acdb/ont/eechi/1> rdf:type owl:NamedIndividual ,
+                                                   acdb:Eechi ;
+                                          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                          rdfs:label "Questionable"@en .
+
+
+###  http://mediagraph.link/acdb/ont/eechi/2
+<http://mediagraph.link/acdb/ont/eechi/2> rdf:type owl:NamedIndividual ,
+                                                   acdb:Eechi ;
+                                          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                          rdfs:label "Adults Only"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/1
+<http://mediagraph.link/acdb/ont/mediatype/1> rdf:type owl:NamedIndividual ,
+                                                       acdb:MediaType ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "H-Game"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/10
+<http://mediagraph.link/acdb/ont/mediatype/10> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "Franchise"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/11
+<http://mediagraph.link/acdb/ont/mediatype/11> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "Drama CD"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/12
+<http://mediagraph.link/acdb/ont/mediatype/12> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "ONA - Original Net Animation"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/13
+<http://mediagraph.link/acdb/ont/mediatype/13> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "Light Novel"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/14
+<http://mediagraph.link/acdb/ont/mediatype/14> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "Western Animation"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/15
+<http://mediagraph.link/acdb/ont/mediatype/15> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "Cartoon"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/16
+<http://mediagraph.link/acdb/ont/mediatype/16> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "Web Toon"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/17
+<http://mediagraph.link/acdb/ont/mediatype/17> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "Fusion (Live Action + CGI)"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/18
+<http://mediagraph.link/acdb/ont/mediatype/18> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "Live Action + CGI"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/19
+<http://mediagraph.link/acdb/ont/mediatype/19> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "Web Comic"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/2
+<http://mediagraph.link/acdb/ont/mediatype/2> rdf:type owl:NamedIndividual ,
+                                                       acdb:MediaType ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Anime"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/20
+<http://mediagraph.link/acdb/ont/mediatype/20> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "Blended (Cell and; Live Action)"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/21
+<http://mediagraph.link/acdb/ont/mediatype/21> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "CGI"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/22
+<http://mediagraph.link/acdb/ont/mediatype/22> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "Animated TV Series"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/23
+<http://mediagraph.link/acdb/ont/mediatype/23> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "Animated Movie"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/24
+<http://mediagraph.link/acdb/ont/mediatype/24> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "Artist CG"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/25
+<http://mediagraph.link/acdb/ont/mediatype/25> rdf:type owl:NamedIndividual ,
+                                                        acdb:MediaType ;
+                                               ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                               rdfs:label "Mobile Game"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/3
+<http://mediagraph.link/acdb/ont/mediatype/3> rdf:type owl:NamedIndividual ,
+                                                       acdb:MediaType ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Video Game"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/4
+<http://mediagraph.link/acdb/ont/mediatype/4> rdf:type owl:NamedIndividual ,
+                                                       acdb:MediaType ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Visual Novel"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/5
+<http://mediagraph.link/acdb/ont/mediatype/5> rdf:type owl:NamedIndividual ,
+                                                       acdb:MediaType ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Manga"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/6
+<http://mediagraph.link/acdb/ont/mediatype/6> rdf:type owl:NamedIndividual ,
+                                                       acdb:MediaType ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Artist Original"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/7
+<http://mediagraph.link/acdb/ont/mediatype/7> rdf:type owl:NamedIndividual ,
+                                                       acdb:MediaType ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Movie"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/8
+<http://mediagraph.link/acdb/ont/mediatype/8> rdf:type owl:NamedIndividual ,
+                                                       acdb:MediaType ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "OVA"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mediatype/9
+<http://mediagraph.link/acdb/ont/mediatype/9> rdf:type owl:NamedIndividual ,
+                                                       acdb:MediaType ;
+                                              ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                              rdfs:label "Other"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mimikko/0
+<http://mediagraph.link/acdb/ont/mimikko/0> rdf:type owl:NamedIndividual ,
+                                                     acdb:Mimikko ;
+                                            ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                            rdfs:label "Unknown"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mimikko/1
+<http://mediagraph.link/acdb/ont/mimikko/1> rdf:type owl:NamedIndividual ,
+                                                     acdb:Mimikko ;
+                                            ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                            rdfs:label "No"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mimikko/2
+<http://mediagraph.link/acdb/ont/mimikko/2> rdf:type owl:NamedIndividual ,
+                                                     acdb:Mimikko ;
+                                            ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                            rdfs:label "Yes"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mimikko/3
+<http://mediagraph.link/acdb/ont/mimikko/3> rdf:type owl:NamedIndividual ,
+                                                     acdb:Mimikko ;
+                                            ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                            rdfs:label "Elf"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mimikko/4
+<http://mediagraph.link/acdb/ont/mimikko/4> rdf:type owl:NamedIndividual ,
+                                                     acdb:Mimikko ;
+                                            ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                            rdfs:label "Animal"@en .
+
+
+###  http://mediagraph.link/acdb/ont/mimikko/5
+<http://mediagraph.link/acdb/ont/mimikko/5> rdf:type owl:NamedIndividual ,
+                                                     acdb:Mimikko ;
+                                            ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                            rdfs:label "Horns"@en .
+
+
+###  http://mediagraph.link/acdb/ont/role/23
+<http://mediagraph.link/acdb/ont/role/23> rdf:type owl:NamedIndividual ,
+                                                   acdb:Clothing ;
+                                          ns1:sourceGraph <http://mediagraph.link/graph/acdb> ;
+                                          rdfs:label "Other"@en .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

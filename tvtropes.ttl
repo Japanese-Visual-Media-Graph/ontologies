@@ -1,0 +1,120 @@
+@prefix : <http://mediagraph.link/tvtropes/ont/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obda: <https://w3id.org/obda/vocabulary#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix tvtropes: <http://mediagraph.link/tvtropes/ont/> .
+@base <http://mediagraph.link/tvtropes/ont/> .
+
+<http://mediagraph.link/tvtropes/ont/> rdf:type owl:Ontology ;
+                                        tvtropes:preferredNamespacePrefix "tvtropes"@en ;
+                                        tvtropes:preferredNamespaceUri "http://mediagraph.link/tvtropes/ont/"@en ;
+                                        dc:creator "Japanese Visual Media Graph"@en ;
+                                        dc:title "TV Tropes Ontology"@en ;
+                                        dcterms:description "A metadata vocabulary based on the TV Tropes Database with property names based primarily on the original TV Trope exported data."@en ;
+                                        dcterms:modified "2025-01-28"@en ;
+                                        rdfs:comment "Information regarding some guidelines used to create this ontology can be found at various Editing Guidelines sections which can be found gathered at https://tvtropes.org/"@en ,
+                                                     "Some modifications, such as the defining of class & sublcass relationships have been made from the original TV trope data model."@en ;
+                                        rdfs:label "TV Trope Ontology"@en ;
+                                        owl:versionInfo "1.2"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://mediagraph.link/tvtropes/ont/preferredNamespacePrefix
+tvtropes:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://mediagraph.link/tvtropes/ont/preferredNamespaceUri
+tvtropes:preferredNamespaceUri rdf:type owl:AnnotationProperty ;
+                               rdfs:label "CreativeWork"@en .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dcterms:modified rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://mediagraph.link/tvtropes/ont/links
+tvtropes:links rdf:type owl:ObjectProperty ;
+               rdfs:domain <http://mediagraph.link/tvtropes/ont/type/Index> ;
+               rdfs:range <http://mediagraph.link/tvtropes/ont/type/Index> ,
+                          <http://mediagraph.link/tvtropes/ont/type/Trope> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://mediagraph.link/tvtropes/ont/title
+tvtropes:title rdf:type owl:DatatypeProperty ;
+               rdfs:domain <http://mediagraph.link/tvtropes/ont/type/Index> ,
+                           <http://mediagraph.link/tvtropes/ont/type/Trope> ;
+               rdfs:range rdfs:Literal ;
+               rdfs:label "title"@en .
+
+
+###  http://mediagraph.link/tvtropes/ont/tvtropesLink
+tvtropes:tvtropesLink rdf:type owl:DatatypeProperty ;
+                      rdfs:domain <http://mediagraph.link/tvtropes/ont/type/Index> ,
+                                  <http://mediagraph.link/tvtropes/ont/type/Trope> ;
+                      rdfs:range xsd:anyURI ;
+                      rdfs:label "tvtropesLink"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://mediagraph.link/tvtropes/ont/Tropes
+tvtropes:Tropes rdf:type owl:Class ;
+                rdfs:label "CreativeWork"@en .
+
+
+###  http://mediagraph.link/tvtropes/ont/type
+tvtropes:type rdf:type owl:Class ;
+              rdfs:subClassOf tvtropes:Tropes ;
+              rdfs:label "Type"@en .
+
+
+###  http://mediagraph.link/tvtropes/ont/type/Index
+<http://mediagraph.link/tvtropes/ont/type/Index> rdf:type owl:Class ;
+                                                 rdfs:subClassOf tvtropes:type ;
+                                                 rdfs:label "Index"@en .
+
+
+###  http://mediagraph.link/tvtropes/ont/type/Trope
+<http://mediagraph.link/tvtropes/ont/type/Trope> rdf:type owl:Class ;
+                                                 rdfs:subClassOf tvtropes:type ;
+                                                 rdfs:label "Trope"@en .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

@@ -1,0 +1,1447 @@
+@prefix : <http://mediagraph.link/vndb/ont/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix jvmg: <http://mediagraph.link/jvmg/ont/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vndb: <http://mediagraph.link/vndb/ont/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://mediagraph.link/vndb/ont/> .
+
+<http://mediagraph.link/vndb/ont/> rdf:type owl:Ontology ;
+                                    dc:creator "Japanese Visual Media Graph" ;
+                                    dc:title "VNDB Ontology"@en ;
+                                    dcterms:description "A metadata vocabulary based on the Visual Novel Database with property names based primarily on the original VNDB exported data."@en ;
+                                    dcterms:modified "2023-11-23" ;
+                                    vann:preferredNamespacePrefix "vndb" ;
+                                    vann:preferredNamespaceUri <http://mediagraph.link/vndb/ont/> ;
+                                    rdfs:comment "Information regarding some guidelines used to create this ontology can be found at various Editing Guidelines sections which can be found gathered at https://vndb.org/d6 ."@en ,
+                                                 "Some modifications, such as the defining of class & sublcass relationships have been made from the original VNDB data model."@en ;
+                                    rdfs:label "VNDB Ontology"@en ;
+                                    owl:versionInfo "1.2"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://mediagraph.link/jvmg/ont/sourceGraph
+jvmg:sourceGraph rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dcterms:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2000/01/rdf-schema#resources
+rdfs:resources rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://mediagraph.link/vndb/ont/anime
+vndb:anime rdf:type owl:ObjectProperty ;
+           rdfs:domain vndb:VisualNovel ;
+           rdfs:range vndb:Anime ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "Anime"@en ;
+           skos:definition "Anime release of a visual novel"@en .
+
+
+###  http://mediagraph.link/vndb/ont/appearsIn
+vndb:appearsIn rdf:type owl:ObjectProperty ;
+               owl:inverseOf vndb:appearsIn ;
+               rdfs:domain vndb:Character ;
+               rdfs:range vndb:VisualNovel ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:label "Appears in"@en ;
+               skos:definition "Visual novel featuring the character in an appearance role."@en .
+
+
+###  http://mediagraph.link/vndb/ont/character
+vndb:character rdf:type owl:ObjectProperty ;
+               owl:inverseOf vndb:character ;
+               rdfs:domain vndb:Role ;
+               rdfs:range vndb:Character ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:label "Character"@en ;
+               skos:definition "The character of a certain visual novel."@en .
+
+
+###  http://mediagraph.link/vndb/ont/developed
+vndb:developed rdf:type owl:ObjectProperty ;
+               rdfs:domain vndb:Producer ;
+               rdfs:range vndb:VisualNovelRelease ;
+               rdfs:label "Developed"@en ;
+               skos:definition "Indicates which producer developed a visual novel."@en .
+
+
+###  http://mediagraph.link/vndb/ont/group
+vndb:group rdf:type owl:ObjectProperty ;
+           rdfs:domain vndb:Trait ;
+           rdfs:range vndb:Trait ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "Group"@en ;
+           skos:definition "Indicates groups of traits"@en .
+
+
+###  http://mediagraph.link/vndb/ont/main
+vndb:main rdf:type owl:ObjectProperty ;
+          owl:inverseOf vndb:main ;
+          rdfs:domain vndb:Character ;
+          rdfs:range vndb:Character ;
+          jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+          rdfs:label "Other instance"@en ;
+          skos:definition "Another instance of the character."@en .
+
+
+###  http://mediagraph.link/vndb/ont/mainIn
+vndb:mainIn rdf:type owl:ObjectProperty ;
+            owl:inverseOf vndb:mainIn ;
+            rdfs:domain vndb:Character ;
+            rdfs:range vndb:VisualNovel ;
+            jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+            rdfs:label "Main role"@en ;
+            skos:definition "Visual novel featuring the character in a main role."@en .
+
+
+###  http://mediagraph.link/vndb/ont/primaryIn
+vndb:primaryIn rdf:type owl:ObjectProperty ;
+               owl:inverseOf vndb:primaryIn ;
+               rdfs:domain vndb:Character ;
+               rdfs:range vndb:VisualNovel ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:label "Primary role"@en ;
+               skos:definition "Visual novel featuring the character in a primary or protagonist role."@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerImp
+vndb:producerImp rdf:type owl:ObjectProperty ;
+                 owl:inverseOf vndb:producerIpa ;
+                 rdfs:domain vndb:Producer ;
+                 rdfs:range vndb:Producer ;
+                 jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                 rdfs:label "Imprint"@en ;
+                 skos:definition "Identifies an imprint of a producer."@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerIpa
+vndb:producerIpa rdf:type owl:ObjectProperty ;
+                 rdfs:domain vndb:Producer ;
+                 rdfs:range vndb:Producer ;
+                 jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                 rdfs:label "Parent brand"@en ;
+                 skos:definition "Identifies the parent brand of a producer."@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerNew
+vndb:producerNew rdf:type owl:ObjectProperty ;
+                 owl:inverseOf vndb:producerOld ;
+                 rdfs:domain vndb:Producer ;
+                 rdfs:range vndb:Producer ;
+                 jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                 rdfs:label "Succeeded"@en ;
+                 skos:definition "Indicates a succession relationship between producers."@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerOld
+vndb:producerOld rdf:type owl:ObjectProperty ;
+                 rdfs:domain vndb:Producer ;
+                 rdfs:range vndb:Producer ;
+                 jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                 rdfs:label "Formerly"@en ;
+                 skos:definition "Indicates the name that the producer was previously known as."@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerOri
+vndb:producerOri rdf:type owl:ObjectProperty ;
+                 owl:inverseOf vndb:producerSpa ;
+                 rdfs:domain vndb:Producer ;
+                 rdfs:range vndb:Producer ;
+                 jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                 rdfs:label "Originated"@en ;
+                 skos:definition "Identifies another producer from which the select producer originated from."@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerPar
+vndb:producerPar rdf:type owl:ObjectProperty ;
+                 owl:inverseOf vndb:producerSub ;
+                 rdfs:domain vndb:Producer ;
+                 rdfs:range vndb:Producer ;
+                 jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                 rdfs:label "Parent producer"@en ;
+                 skos:definition "Identifies the parent producer of a producer."@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerSpa
+vndb:producerSpa rdf:type owl:ObjectProperty ;
+                 rdfs:domain vndb:Producer ;
+                 rdfs:range vndb:Producer ;
+                 jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                 rdfs:label "Spawned"@en ;
+                 skos:definition "Identifies another producer which spawned the select producer."@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerSub
+vndb:producerSub rdf:type owl:ObjectProperty ;
+                 rdfs:domain vndb:Producer ;
+                 rdfs:range vndb:Producer ;
+                 jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                 rdfs:label "Subsidiary"@en ;
+                 skos:definition "Indicates a subsidiary of the select producer."@en .
+
+
+###  http://mediagraph.link/vndb/ont/published
+vndb:published rdf:type owl:ObjectProperty ;
+               rdfs:domain vndb:Producer ;
+               rdfs:range vndb:VisualNovelRelease ;
+               rdfs:label "Published"@en ;
+               skos:definition "Indicates which producer published a visual novel."@en .
+
+
+###  http://mediagraph.link/vndb/ont/related
+vndb:related rdf:type owl:ObjectProperty ;
+             owl:inverseOf vndb:related ,
+                           vndb:sideIn ;
+             rdfs:domain vndb:VisualNovel ;
+             rdfs:range vndb:VisualNovel ;
+             jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+             rdfs:label "Related"@en ;
+             skos:definition "Indicates a relationship between different visual novels."@en .
+
+
+###  http://mediagraph.link/vndb/ont/release
+vndb:release rdf:type owl:ObjectProperty ;
+             rdfs:domain vndb:VisualNovel ;
+             rdfs:range vndb:VisualNovelRelease ;
+             jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+             rdfs:label "Release"@en ;
+             skos:definition "A single release of a visual novel."@en .
+
+
+###  http://mediagraph.link/vndb/ont/released
+vndb:released rdf:type owl:ObjectProperty ;
+              rdfs:domain vndb:Producer ;
+              rdfs:range vndb:VisualNovel ;
+              jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+              rdfs:label "Released"@en ;
+              skos:definition "Indicates the release of a visual novel by a producer"@en .
+
+
+###  http://mediagraph.link/vndb/ont/sideIn
+vndb:sideIn rdf:type owl:ObjectProperty ;
+            rdfs:domain vndb:Character ;
+            rdfs:range vndb:VisualNovel ;
+            jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+            rdfs:label "Side role"@en ;
+            skos:definition "Visual novel featuring the character in a side role."@en .
+
+
+###  http://mediagraph.link/vndb/ont/staff
+vndb:staff rdf:type owl:ObjectProperty ;
+           owl:inverseOf vndb:staff ;
+           rdfs:domain vndb:Role ;
+           rdfs:range vndb:Staff ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "Staff"@en ;
+           skos:definition "A resource which the staff contributed to."@en .
+
+
+###  http://mediagraph.link/vndb/ont/staffAlias
+vndb:staffAlias rdf:type owl:ObjectProperty ;
+                owl:inverseOf vndb:staffAlias ;
+                rdfs:domain vndb:Role ,
+                            vndb:Staff ;
+                rdfs:range vndb:Staff ;
+                jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                rdfs:label "Staff alias"@en ;
+                skos:definition "An alias name or title of a given resource."@en .
+
+
+###  http://mediagraph.link/vndb/ont/tag
+vndb:tag rdf:type owl:ObjectProperty ;
+         owl:inverseOf vndb:tag ;
+         rdfs:domain vndb:VisualNovel ;
+         rdfs:range vndb:Tag ;
+         jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+         rdfs:label "Tag"@en ;
+         skos:definition "A descriptive content tag for a visual novel."@en .
+
+
+###  http://mediagraph.link/vndb/ont/tagParent
+vndb:tagParent rdf:type owl:ObjectProperty ;
+               owl:inverseOf vndb:tagParent ;
+               rdfs:domain vndb:Tag ;
+               rdfs:range vndb:Tag ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:label "Tag parent"@en ;
+               skos:definition "The hierarchical parent tag."@en .
+
+
+###  http://mediagraph.link/vndb/ont/trait
+vndb:trait rdf:type owl:ObjectProperty ;
+           owl:inverseOf vndb:trait ;
+           rdfs:domain vndb:Character ;
+           rdfs:range vndb:Trait ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "Trait"@en ;
+           skos:definition "A descriptive content trait for a visual novel character."@en .
+
+
+###  http://mediagraph.link/vndb/ont/traitParent
+vndb:traitParent rdf:type owl:ObjectProperty ;
+                 owl:inverseOf vndb:traitParent ;
+                 rdfs:domain vndb:Trait ;
+                 rdfs:range vndb:Trait ;
+                 jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                 rdfs:label "Trait parent"@en ;
+                 skos:definition "The hierarchical parent trait."@en .
+
+
+###  http://mediagraph.link/vndb/ont/visualNovelLength
+vndb:visualNovelLength rdf:type owl:ObjectProperty ;
+                       rdfs:domain vndb:VisualNovel ;
+                       rdfs:range vndb:VisualNovelLength ;
+                       jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                       rdfs:label "Visual novel length"@en ;
+                       skos:definition "Indicates the lenght of a visual novel"@en .
+
+
+###  http://mediagraph.link/vndb/ont/vn
+vndb:vn rdf:type owl:ObjectProperty ;
+        owl:inverseOf vndb:vn ;
+        rdfs:domain vndb:Role ;
+        rdfs:range vndb:VisualNovel ;
+        jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+        rdfs:label "Visual novel"@en ;
+        skos:definition "Character appears in a certain visual novel"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://mediagraph.link/jvmg/ont/count
+jvmg:count rdf:type owl:DatatypeProperty ;
+           rdfs:domain owl:Thing ;
+           rdfs:range rdfs:resources ,
+                      xsd:integer ;
+           rdfs:label "Count"@en ;
+           skos:definition "Indicates how often a property exists"@en .
+
+
+###  http://mediagraph.link/jvmg/ont/order
+jvmg:order rdf:type owl:DatatypeProperty ;
+           rdfs:domain owl:Thing ;
+           rdfs:range rdfs:resources ,
+                      xsd:integer ;
+           rdfs:label "Order"@en ;
+           skos:definition "order of display in the search overview"@en .
+
+
+###  http://mediagraph.link/vndb/ont/age
+vndb:age rdf:type owl:DatatypeProperty ;
+         rdfs:domain vndb:Character ;
+         rdfs:range xsd:integer ;
+         jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+         rdfs:label "Age"@en ;
+         skos:definition "Age of a character"@en .
+
+
+###  http://mediagraph.link/vndb/ont/aid
+vndb:aid rdf:type owl:DatatypeProperty ;
+         rdfs:range rdfs:Literal ;
+         jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+         rdfs:label "internal AID"@en .
+
+
+###  http://mediagraph.link/vndb/ont/alias
+vndb:alias rdf:type owl:DatatypeProperty ;
+           rdfs:domain vndb:Character ,
+                       vndb:Producer ,
+                       vndb:Staff ,
+                       vndb:Tag ,
+                       vndb:Trait ,
+                       vndb:VisualNovel ;
+           rdfs:range rdfs:Literal ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "Alias"@en ;
+           skos:definition "An alias name or title of a given resource."@en .
+
+
+###  http://mediagraph.link/vndb/ont/aliasOriginal
+vndb:aliasOriginal rdf:type owl:DatatypeProperty ;
+                   rdfs:domain vndb:Staff ;
+                   rdfs:range rdfs:Literal ;
+                   jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                   rdfs:label "Alias original"@en ;
+                   skos:definition "Alias name or title in the original language."@en .
+
+
+###  http://mediagraph.link/vndb/ont/ani_ero
+vndb:ani_ero rdf:type owl:DatatypeProperty ;
+             jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+             rdfs:label "Ani ero"@en .
+
+
+###  http://mediagraph.link/vndb/ont/ani_story
+vndb:ani_story rdf:type owl:DatatypeProperty ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:label "Ani story"@en .
+
+
+###  http://mediagraph.link/vndb/ont/applicable
+vndb:applicable rdf:type owl:DatatypeProperty ;
+                rdfs:domain vndb:Tag ,
+                            vndb:Trait ;
+                rdfs:range xsd:boolean ;
+                jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                rdfs:label "Applicable"@en ;
+                skos:definition "Indicates whether a tag or trait is applicable"@en .
+
+
+###  http://mediagraph.link/vndb/ont/bDay
+vndb:bDay rdf:type owl:DatatypeProperty ;
+          rdfs:domain vndb:Character ;
+          rdfs:range xsd:integer ;
+          jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+          rdfs:label "Birth day"@en ;
+          skos:definition "Birth day of a character."@en .
+
+
+###  http://mediagraph.link/vndb/ont/bMonth
+vndb:bMonth rdf:type owl:DatatypeProperty ;
+            rdfs:domain vndb:Character ;
+            rdfs:range xsd:integer ;
+            jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+            rdfs:label "Birth month"@en ;
+            skos:definition "Birth month of a character."@en .
+
+
+###  http://mediagraph.link/vndb/ont/bloodt
+vndb:bloodt rdf:type owl:DatatypeProperty ;
+            rdfs:domain vndb:Character ;
+            rdfs:range rdfs:Literal ;
+            jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+            rdfs:label "Blood type"@en ;
+            skos:definition "Blood type of a character."@en .
+
+
+###  http://mediagraph.link/vndb/ont/cat
+vndb:cat rdf:type owl:DatatypeProperty ;
+         rdfs:domain vndb:Tag ;
+         rdfs:range rdfs:Literal ;
+         jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+         rdfs:label "Category"@en ;
+         skos:definition "Indicates the category of a visual novel"@en .
+
+
+###  http://mediagraph.link/vndb/ont/catalog
+vndb:catalog rdf:type owl:DatatypeProperty ;
+             rdfs:range rdfs:Literal ;
+             jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+             rdfs:label "Catalog ID"@en ;
+             skos:definition "Catalog identifier of a resource."@en .
+
+
+###  http://mediagraph.link/vndb/ont/cupSize
+vndb:cupSize rdf:type owl:DatatypeProperty ;
+             rdfs:domain vndb:Character ;
+             rdfs:range rdfs:Literal ;
+             jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+             rdfs:label "Cup size"@en ;
+             skos:definition "Cup size of a character"@en .
+
+
+###  http://mediagraph.link/vndb/ont/defaultspoil
+vndb:defaultspoil rdf:type owl:DatatypeProperty ;
+                  rdfs:domain vndb:Tag ,
+                              vndb:Trait ;
+                  rdfs:range rdfs:Literal ;
+                  jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                  rdfs:label "Default spoil status"@en ;
+                  skos:definition "Indicates the default spoiler status for tags and traits"@en .
+
+
+###  http://mediagraph.link/vndb/ont/desc
+vndb:desc rdf:type owl:DatatypeProperty ;
+          rdfs:domain vndb:Character ;
+          rdfs:range rdfs:Literal ;
+          jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+          rdfs:comment "A short description of the character. While it is advised to keep the spoilers to a minimum, you can use the usual formatting codes such as [spoiler] to include spoilers while hiding them by default. When using a description from external sources, check out the general editing guidelines for quoting rules.  [Source https://vndb.org/d12 ]"@en ;
+          rdfs:label "description"@en ;
+          skos:definition "Description of a given resource."@en .
+
+
+###  http://mediagraph.link/vndb/ont/developer
+vndb:developer rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:boolean ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:comment "The producer involved in the creation of the game itself, not necessarily of this specific release. Keep in mind that producers that have made modifications to a game but have not made the game itself should NOT be listed as developers.  [Source https://vndb.org/d3 ]"@en ;
+               rdfs:label "Developer role"@en .
+
+
+###  http://mediagraph.link/vndb/ont/doujin
+vndb:doujin rdf:type owl:DatatypeProperty ;
+            rdfs:domain vndb:VisualNovelRelease ;
+            rdfs:range xsd:boolean ;
+            jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+            rdfs:label "Doujin"@en ;
+            skos:definition "Indicates whether or not a resource was published by a doujin circle, amateur group, or individual, rather than a corporate body."@en .
+
+
+###  http://mediagraph.link/vndb/ont/engine
+vndb:engine rdf:type owl:DatatypeProperty ;
+            rdfs:domain vndb:VisualNovelRelease ;
+            rdfs:range rdfs:Literal ;
+            jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+            rdfs:label "Game engine"@en ;
+            skos:definition "Indentifies the game engine used for a release."@en .
+
+
+###  http://mediagraph.link/vndb/ont/externalLink
+vndb:externalLink rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:anyURI ;
+                  jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                  rdfs:label "External link"@en ;
+                  skos:definition "A link to a non-VNDB website."@en .
+
+
+###  http://mediagraph.link/vndb/ont/freeware
+vndb:freeware rdf:type owl:DatatypeProperty ;
+              rdfs:domain vndb:VisualNovelRelease ;
+              rdfs:range xsd:boolean ;
+              jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+              rdfs:label "Freeware"@en ;
+              skos:definition "Indicates whether or not a resource was released as freeware."@en .
+
+
+###  http://mediagraph.link/vndb/ont/gender
+vndb:gender rdf:type owl:DatatypeProperty ;
+            rdfs:domain vndb:Character ,
+                        vndb:Staff ;
+            rdfs:range rdfs:Literal ;
+            jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+            rdfs:label "Gender"@en ;
+            skos:definition "The gender of a character or staff member"@en .
+
+
+###  http://mediagraph.link/vndb/ont/gtin
+vndb:gtin rdf:type owl:DatatypeProperty ;
+          rdfs:range rdfs:Literal ;
+          jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+          rdfs:comment "The GTIN code of the product. Often called \"JAN\" for Japanese releases, \"UPC\" for USA and Canada and \"EAN\" for Europe. The system will automatically detect the type from the code and use the appropriate term on the release page. [Source: https://vndb.org/d3 ]"@en ;
+          rdfs:label "GTIN ID"@en ;
+          skos:definition "Global Trade Item Number or regional equivalent of a resource."@en .
+
+
+###  http://mediagraph.link/vndb/ont/height
+vndb:height rdf:type owl:DatatypeProperty ;
+            rdfs:domain vndb:Character ;
+            rdfs:range xsd:integer ;
+            jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+            rdfs:label "Height"@en ;
+            skos:definition "Character height in cm."@en .
+
+
+###  http://mediagraph.link/vndb/ont/id
+vndb:id rdf:type owl:DatatypeProperty ;
+        rdfs:range rdfs:Literal ;
+        jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+        rdfs:label "ID"@en ;
+        skos:definition "The identifier value of a given resource in VNDB."@en .
+
+
+###  http://mediagraph.link/vndb/ont/image
+vndb:image rdf:type owl:DatatypeProperty ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "image"@en .
+
+
+###  http://mediagraph.link/vndb/ont/img_nsfw
+vndb:img_nsfw rdf:type owl:DatatypeProperty ;
+              rdfs:range xsd:boolean ;
+              jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+              rdfs:label "image NSFW"@en ;
+              skos:definition "Indicates whether or not an image is 'not safe for work'."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_denpa
+vndb:l_denpa rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf vndb:externalLink ;
+             rdfs:range xsd:anyURI ;
+             jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+             rdfs:label "Denpasoft link"@en ;
+             skos:definition "A link to the resource on Denpasoft."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_digiket
+vndb:l_digiket rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf vndb:externalLink ;
+               rdfs:range xsd:anyURI ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:label "Digiket link"@en ;
+               skos:definition "A link to the resource on Digiket"@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_dlsite
+vndb:l_dlsite rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf vndb:externalLink ;
+              rdfs:range xsd:anyURI ;
+              jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+              rdfs:label "DLsite link"@en ;
+              skos:definition "A link to the resource on DLsite."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_dlsiteen
+vndb:l_dlsiteen rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf vndb:externalLink ;
+                rdfs:range xsd:anyURI ;
+                jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                rdfs:label "DLsite English link"@en ;
+                skos:definition "A link to the resource on DLsite English."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_dmm
+vndb:l_dmm rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf vndb:externalLink ;
+           rdfs:range xsd:anyURI ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "DMM link"@en ;
+           skos:definition "A link to the resource on DMM."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_egs
+vndb:l_egs rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf vndb:externalLink ;
+           rdfs:range xsd:anyURI ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "EGS link"@en ;
+           skos:definition "A link to the resource on EGS."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_encubed
+vndb:l_encubed rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf vndb:externalLink ;
+               rdfs:range xsd:anyURI ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:label "Encubed link"@en ;
+               skos:definition "A link to the resource on Encubed."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_erotrail
+vndb:l_erotrail rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf vndb:externalLink ;
+                rdfs:range xsd:anyURI ;
+                jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                rdfs:label "Erotrail link"@en ;
+                skos:definition "A link to the resource on Erotrail."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_getchu
+vndb:l_getchu rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf vndb:externalLink ;
+              rdfs:range xsd:anyURI ;
+              jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+              rdfs:label "Getchu link"@en ;
+              skos:definition "A link to the resource on Getchu."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_getchudl
+vndb:l_getchudl rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf vndb:externalLink ;
+                rdfs:range xsd:anyURI ;
+                jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                rdfs:label "DL Getchu link"@en ;
+                skos:definition "A link to the resource on DL Getchu."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_gog
+vndb:l_gog rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf vndb:externalLink ;
+           rdfs:range xsd:anyURI ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "GOG link"@en ;
+           skos:definition "A link to the resource on GOG."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_gyutto
+vndb:l_gyutto rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf vndb:externalLink ;
+              rdfs:range xsd:anyURI ;
+              jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+              rdfs:label "Gyutto link"@en ;
+              skos:definition "A link to the resource on Gyutto."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_itch
+vndb:l_itch rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf vndb:externalLink ;
+            rdfs:range xsd:anyURI ;
+            jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+            rdfs:label "Itch.io link"@en ;
+            skos:definition "A link to the resource on Itch.io."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_jastusa
+vndb:l_jastusa rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf vndb:externalLink ;
+               rdfs:range xsd:anyURI ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:label "JAST USA link"@en ;
+               skos:definition "A link to the resource on JAST USA."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_jlist
+vndb:l_jlist rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf vndb:externalLink ;
+             rdfs:range xsd:anyURI ;
+             jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+             rdfs:label "JList link"@en ;
+             skos:definition "A link to the resource on JList."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_melon
+vndb:l_melon rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf vndb:externalLink ;
+             rdfs:range xsd:anyURI ;
+             jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+             rdfs:label "Melon link"@en ;
+             skos:definition "A link to the resource on Melon."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_mg
+vndb:l_mg rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf vndb:externalLink ;
+          rdfs:range xsd:anyURI ;
+          jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+          rdfs:label "Manga gamer link"@en ;
+          skos:definition "A link to the resource on Manga Gamer."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_pixiv
+vndb:l_pixiv rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf vndb:externalLink ;
+             rdfs:range xsd:anyURI ;
+             jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+             rdfs:label "Pixiv link"@en ;
+             skos:definition "A link to the resource on Pixiv."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_renai
+vndb:l_renai rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf vndb:externalLink ;
+             rdfs:range xsd:anyURI ;
+             jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+             rdfs:label "Renai link"@en ;
+             skos:definition "A link to the resource on Renai."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_steam
+vndb:l_steam rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf vndb:externalLink ;
+             rdfs:range xsd:anyURI ;
+             jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+             rdfs:label "Steam link"@en ;
+             skos:definition "A link to the resource on Steam."@en .
+
+
+###  http://mediagraph.link/vndb/ont/l_twitter
+vndb:l_twitter rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf vndb:externalLink ;
+               rdfs:range xsd:anyURI ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:label "Twitter link"@en ;
+               skos:definition "A link to the relevant resource on Twitter."@en .
+
+
+###  http://mediagraph.link/vndb/ont/lang
+vndb:lang rdf:type owl:DatatypeProperty ;
+          rdfs:domain vndb:Producer ,
+                      vndb:Staff ;
+          rdfs:range rdfs:Literal ;
+          jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+          rdfs:label "Language"@en ;
+          skos:definition "Language of a resource or staff member"@en .
+
+
+###  http://mediagraph.link/vndb/ont/linkAnidb
+vndb:linkAnidb rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf vndb:externalLink ;
+               rdfs:domain vndb:Staff ;
+               rdfs:range xsd:anyURI ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:label "AniDB link"@en ;
+               skos:definition "A link to the resource on AniDB."@en .
+
+
+###  http://mediagraph.link/vndb/ont/linkWikidata
+vndb:linkWikidata rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf vndb:externalLink ;
+                  rdfs:domain vndb:Producer ,
+                              vndb:Staff ,
+                              vndb:VisualNovel ;
+                  rdfs:range xsd:anyURI ;
+                  jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                  rdfs:comment "A link to the resource on Wikidata."@en ;
+                  rdfs:label "wikidata link"@en .
+
+
+###  http://mediagraph.link/vndb/ont/mainSpoil
+vndb:mainSpoil rdf:type owl:DatatypeProperty ;
+               rdfs:domain vndb:Character ;
+               rdfs:range xsd:integer ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:label "Main spoil"@en ;
+               skos:definition "Indicates the main spoiler of a visual novel"@en .
+
+
+###  http://mediagraph.link/vndb/ont/mediaType
+vndb:mediaType rdf:type owl:DatatypeProperty ;
+               rdfs:domain vndb:Anime ;
+               rdfs:range rdfs:Literal ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:label "Media type"@en ;
+               skos:definition "Indicates a media type"@en .
+
+
+###  http://mediagraph.link/vndb/ont/minAge
+vndb:minAge rdf:type owl:DatatypeProperty ;
+            rdfs:domain vndb:VisualNovelRelease ;
+            rdfs:range xsd:integer ;
+            jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+            rdfs:label "Minimum age"@en ;
+            skos:definition "Minimum age rating for a release."@en .
+
+
+###  http://mediagraph.link/vndb/ont/name
+vndb:name rdf:type owl:DatatypeProperty ;
+          rdfs:domain vndb:Character ,
+                      vndb:Producer ,
+                      vndb:Tag ,
+                      vndb:Trait ,
+                      vndb:VisualNovelRelease ;
+          rdfs:range rdfs:Literal ;
+          jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+          rdfs:label "Name"@en ;
+          skos:definition "Base name property in VNDB, typically English."@en .
+
+
+###  http://mediagraph.link/vndb/ont/note
+vndb:note rdf:type owl:DatatypeProperty ;
+          rdfs:domain vndb:Role ,
+                      vndb:Staff ;
+          rdfs:range rdfs:Literal ;
+          jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+          rdfs:label "Note"@en ;
+          skos:definition "Additional information on the resource."@en .
+
+
+###  http://mediagraph.link/vndb/ont/nsfw
+vndb:nsfw rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:boolean ;
+          jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+          rdfs:comment "Indicates whether or not a resource is 'not safe for work'."@en ;
+          rdfs:label "NSFW"@en .
+
+
+###  http://mediagraph.link/vndb/ont/official
+vndb:official rdf:type owl:DatatypeProperty ;
+              jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+              rdfs:label "official"@en .
+
+
+###  http://mediagraph.link/vndb/ont/original
+vndb:original rdf:type owl:DatatypeProperty ;
+              rdfs:domain vndb:Character ,
+                          vndb:Producer ,
+                          vndb:VisualNovel ,
+                          vndb:VisualNovelRelease ;
+              rdfs:range rdfs:Literal ;
+              jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+              rdfs:label "Original"@en ;
+              skos:definition "Title or name in the original language."@en .
+
+
+###  http://mediagraph.link/vndb/ont/originalTitle
+vndb:originalTitle rdf:type owl:DatatypeProperty ;
+                   rdfs:domain vndb:VisualNovel ;
+                   rdfs:range rdfs:Literal ;
+                   jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                   rdfs:label "Original title"@en ;
+                   skos:definition "Title in the original language of the visual novel, typically Japanese."@en .
+
+
+###  http://mediagraph.link/vndb/ont/patch
+vndb:patch rdf:type owl:DatatypeProperty ;
+           rdfs:domain vndb:VisualNovelRelease ;
+           rdfs:range xsd:boolean ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "Patch"@en ;
+           skos:definition "Indicates whether or not the release is a translation patched to be used on an existing release."@en .
+
+
+###  http://mediagraph.link/vndb/ont/platform
+vndb:platform rdf:type owl:DatatypeProperty ;
+              rdfs:domain vndb:VisualNovelRelease ;
+              rdfs:range rdfs:Literal ;
+              jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+              rdfs:label "Platform"@en ;
+              skos:definition "Platform which a resource was released for."@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerType
+vndb:producerType rdf:type owl:DatatypeProperty ;
+                  rdfs:domain vndb:Producer ;
+                  rdfs:range rdfs:Literal ;
+                  jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                  rdfs:label "Producer type"@en ;
+                  skos:definition "Indicates a specific producer type"@en .
+
+
+###  http://mediagraph.link/vndb/ont/relation
+vndb:relation rdf:type owl:DatatypeProperty ;
+              rdfs:domain vndb:VisualNovel ;
+              rdfs:range rdfs:Literal ;
+              jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+              rdfs:label "Relation type"@en ;
+              skos:definition "Nature of the relationship between two visual novels."@en .
+
+
+###  http://mediagraph.link/vndb/ont/releaseDate
+vndb:releaseDate rdf:type owl:DatatypeProperty ;
+                 rdfs:domain vndb:VisualNovelRelease ;
+                 rdfs:range xsd:dateTime ;
+                 jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                 rdfs:label "Release date"@en ;
+                 skos:definition "Indicates the visual novel work which the release is connected to."@en .
+
+
+###  http://mediagraph.link/vndb/ont/releaseMedia
+vndb:releaseMedia rdf:type owl:DatatypeProperty ;
+                  rdfs:domain vndb:VisualNovelRelease ;
+                  rdfs:range rdfs:Literal ;
+                  jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                  rdfs:label "Release media"@en ;
+                  skos:definition "Indicates the format of the release (e.g. DVD)"@en .
+
+
+###  http://mediagraph.link/vndb/ont/releaseType
+vndb:releaseType rdf:type owl:DatatypeProperty ;
+                 rdfs:domain vndb:VisualNovelRelease ;
+                 rdfs:range rdfs:Literal ;
+                 jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                 rdfs:label "Release type"@en ;
+                 skos:definition "Indicates whether the release is a complete, partial, or trial version."@en .
+
+
+###  http://mediagraph.link/vndb/ont/resoX
+vndb:resoX rdf:type owl:DatatypeProperty ;
+           rdfs:domain vndb:VisualNovelRelease ;
+           rdfs:range xsd:integer ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "Horizontal resolution"@en ;
+           skos:definition "Horizontal resolution of a visual novel"@en .
+
+
+###  http://mediagraph.link/vndb/ont/resoY
+vndb:resoY rdf:type owl:DatatypeProperty ;
+           rdfs:domain vndb:VisualNovelRelease ;
+           rdfs:range xsd:integer ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "Vertical resolution"@en ;
+           skos:definition "Vertical resolution of a visual novel"@en .
+
+
+###  http://mediagraph.link/vndb/ont/resolution
+vndb:resolution rdf:type owl:DatatypeProperty ;
+                jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                rdfs:label "Resolution"@en ;
+                skos:definition "Native screen resolution."@en .
+
+
+###  http://mediagraph.link/vndb/ont/roleType
+vndb:roleType rdf:type owl:DatatypeProperty ;
+              rdfs:domain vndb:Role ;
+              rdfs:range rdfs:Literal ;
+              jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+              rdfs:label "Role type"@en ;
+              skos:definition "Indicates a role type"@en .
+
+
+###  http://mediagraph.link/vndb/ont/sBust
+vndb:sBust rdf:type owl:DatatypeProperty ;
+           rdfs:domain vndb:Character ;
+           rdfs:range xsd:integer ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "Bust size"@en ;
+           skos:definition "Bust size of a character."@en .
+
+
+###  http://mediagraph.link/vndb/ont/sHip
+vndb:sHip rdf:type owl:DatatypeProperty ;
+          rdfs:domain vndb:Character ;
+          rdfs:range xsd:integer ;
+          jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+          rdfs:label "Hip size"@en ;
+          skos:definition "Hip size of a character."@en .
+
+
+###  http://mediagraph.link/vndb/ont/sWaist
+vndb:sWaist rdf:type owl:DatatypeProperty ;
+            rdfs:domain vndb:Character ;
+            rdfs:range xsd:integer ;
+            jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+            rdfs:label "Waist size"@en ;
+            skos:definition "Waist size of a character."@en .
+
+
+###  http://mediagraph.link/vndb/ont/searchable
+vndb:searchable rdf:type owl:DatatypeProperty ;
+                rdfs:domain owl:Thing ;
+                rdfs:range xsd:boolean ;
+                jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                rdfs:label "Searchable"@en .
+
+
+###  http://mediagraph.link/vndb/ont/sexual
+vndb:sexual rdf:type owl:DatatypeProperty ;
+            rdfs:domain vndb:Trait ;
+            rdfs:range xsd:boolean ;
+            jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+            rdfs:label "sexual status"@en ;
+            skos:definition "Indicates sexual content."@en .
+
+
+###  http://mediagraph.link/vndb/ont/spoilGender
+vndb:spoilGender rdf:type owl:DatatypeProperty ;
+                 rdfs:domain vndb:Character ;
+                 rdfs:range rdfs:Literal ;
+                 jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                 rdfs:comment "Actual gender of a character"@en ;
+                 rdfs:label "Spoil gender"@en .
+
+
+###  http://mediagraph.link/vndb/ont/state
+vndb:state rdf:type owl:DatatypeProperty ;
+           rdfs:range rdfs:Literal ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "state"@en .
+
+
+###  http://mediagraph.link/vndb/ont/tagName
+vndb:tagName rdf:type owl:DatatypeProperty ;
+             rdfs:domain vndb:Tag ;
+             rdfs:range rdfs:Literal ;
+             jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+             rdfs:label "Tag name"@en ;
+             skos:definition "Tag name."@en .
+
+
+###  http://mediagraph.link/vndb/ont/title
+vndb:title rdf:type owl:DatatypeProperty ;
+           rdfs:domain vndb:VisualNovel ,
+                       vndb:VisualNovelRelease ;
+           rdfs:range rdfs:Literal ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "Title"@en ;
+           skos:definition "Title property in VNDB, typically English."@en .
+
+
+###  http://mediagraph.link/vndb/ont/titleKanji
+vndb:titleKanji rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain vndb:Anime ;
+                rdfs:range rdfs:Literal ;
+                jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                rdfs:label "Title kanji"@en ;
+                skos:definition "Kanji title of an anime"@en .
+
+
+###  http://mediagraph.link/vndb/ont/titleRomaji
+vndb:titleRomaji rdf:type owl:DatatypeProperty ;
+                 rdfs:domain vndb:Anime ;
+                 rdfs:range rdfs:Literal ;
+                 jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                 rdfs:label "Title romaji"@en ;
+                 skos:definition "Romaji title of an anime"@en .
+
+
+###  http://mediagraph.link/vndb/ont/traitName
+vndb:traitName rdf:type owl:DatatypeProperty ;
+               rdfs:domain vndb:Trait ;
+               rdfs:range rdfs:Literal ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:label "Trait name"@en ;
+               skos:definition "Trait name."@en .
+
+
+###  http://mediagraph.link/vndb/ont/uncensored
+vndb:uncensored rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:boolean ;
+                jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                rdfs:comment "A release with uncensored sexual content."@en ;
+                rdfs:label "Uncensored"@en .
+
+
+###  http://mediagraph.link/vndb/ont/vndbLink
+vndb:vndbLink rdf:type owl:DatatypeProperty ;
+              rdfs:domain vndb:Producer ,
+                          vndb:VisualNovelRelease ;
+              rdfs:range xsd:anyURI ;
+              jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+              rdfs:label "VNDB link"@en ;
+              skos:definition "Link to the resource on VNDB."@en .
+
+
+###  http://mediagraph.link/vndb/ont/website
+vndb:website rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf vndb:externalLink ;
+             rdfs:domain vndb:Producer ,
+                         vndb:VisualNovelRelease ;
+             rdfs:range xsd:anyURI ;
+             jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+             rdfs:label "website link"@en ;
+             skos:definition "A relevant website link."@en .
+
+
+###  http://mediagraph.link/vndb/ont/weight
+vndb:weight rdf:type owl:DatatypeProperty ;
+            rdfs:domain vndb:Character ;
+            rdfs:range xsd:integer ;
+            jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+            rdfs:label "Weight"@en ;
+            skos:definition "Weight of a character in kg."@en .
+
+
+###  http://mediagraph.link/vndb/ont/year
+vndb:year rdf:type owl:DatatypeProperty ;
+          rdfs:domain vndb:Anime ;
+          rdfs:range rdfs:Literal ;
+          jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+          rdfs:label "Year"@en ;
+          skos:definition "Release year of an anime"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://mediagraph.link/vndb/ont/Anime
+vndb:Anime rdf:type owl:Class ;
+           rdfs:subClassOf vndb:CreativeWork ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "Anime"@en ;
+           skos:definition "Indicates the anime of a visual novel"@en .
+
+
+###  http://mediagraph.link/vndb/ont/Character
+vndb:Character rdf:type owl:Class ;
+               rdfs:subClassOf vndb:VisualNovelContent ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:label "Character"@en ;
+               skos:definition "A visual novel character."@en .
+
+
+###  http://mediagraph.link/vndb/ont/Contributor
+vndb:Contributor rdf:type owl:Class ;
+                 jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                 rdfs:label "Contributor"@en ;
+                 skos:definition "An individual or group responsible for some part of the creation of a visual novel."@en .
+
+
+###  http://mediagraph.link/vndb/ont/CreativeWork
+vndb:CreativeWork rdf:type owl:Class ;
+                  jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                  rdfs:label "Creative work"@en ;
+                  skos:definition "A creative or intellectual work featured in the Visual Novel Database."@en .
+
+
+###  http://mediagraph.link/vndb/ont/Producer
+vndb:Producer rdf:type owl:Class ;
+              rdfs:subClassOf vndb:Contributor ;
+              jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+              rdfs:label "Producer"@en ;
+              skos:definition "A group such as a publisher or developer that has contributed to the creation of a visual novel."@en .
+
+
+###  http://mediagraph.link/vndb/ont/ProducerRole
+vndb:ProducerRole rdf:type owl:Class ;
+                  rdfs:subClassOf vndb:Producer ;
+                  jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                  rdfs:label "Producer role"@en ;
+                  skos:definition "A role performed by a Producer."@en .
+
+
+###  http://mediagraph.link/vndb/ont/Role
+vndb:Role rdf:type owl:Class ;
+          rdfs:subClassOf vndb:Contributor ;
+          jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+          rdfs:label "Role"@en ;
+          skos:definition "The role that a staff member can take on in the production of a visual novel. Roles can be, for example, script writer or voice actors"@en .
+
+
+###  http://mediagraph.link/vndb/ont/Staff
+vndb:Staff rdf:type owl:Class ;
+           rdfs:subClassOf vndb:Contributor ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "Staff"@en ;
+           skos:definition "An individual staff member that has contributed to the creation of a visual novel."@en .
+
+
+###  http://mediagraph.link/vndb/ont/StaffRole
+vndb:StaffRole rdf:type owl:Class ;
+               rdfs:subClassOf vndb:Staff ;
+               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+               rdfs:label "Staff role"@en ;
+               skos:definition "The role that a staff member can take on in the production of a visual novel. Roles can be, for example, script writer or voice actors"@en .
+
+
+###  http://mediagraph.link/vndb/ont/Tag
+vndb:Tag rdf:type owl:Class ;
+         rdfs:subClassOf vndb:VisualNovelContent ;
+         jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+         rdfs:label "Visual novel tag"@en ;
+         skos:definition "A descriptive visual novel tag found in VNDB."@en .
+
+
+###  http://mediagraph.link/vndb/ont/Trait
+vndb:Trait rdf:type owl:Class ;
+           rdfs:subClassOf vndb:VisualNovelContent ;
+           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+           rdfs:label "Character trait"@en ;
+           skos:definition "A descriptive character trait found in VNDB."@en .
+
+
+###  http://mediagraph.link/vndb/ont/VisualNovel
+vndb:VisualNovel rdf:type owl:Class ;
+                 rdfs:subClassOf vndb:CreativeWork ;
+                 jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                 rdfs:label "Visual novel"@en ;
+                 skos:definition "A specific visual novel."@en .
+
+
+###  http://mediagraph.link/vndb/ont/VisualNovelContent
+vndb:VisualNovelContent rdf:type owl:Class ;
+                        rdfs:subClassOf vndb:CreativeWork ;
+                        jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                        rdfs:label "Visual novel contents"@en ;
+                        skos:definition "The content of a visual novel."@en .
+
+
+###  http://mediagraph.link/vndb/ont/VisualNovelLength
+vndb:VisualNovelLength rdf:type owl:Class ;
+                       rdfs:subClassOf vndb:VisualNovelContent ;
+                       jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                       rdfs:label "Visual novel length"@en ;
+                       skos:definition "The length or total playtime of a visual novel."@en .
+
+
+###  http://mediagraph.link/vndb/ont/VisualNovelRelease
+vndb:VisualNovelRelease rdf:type owl:Class ;
+                        rdfs:subClassOf vndb:VisualNovelContent ;
+                        jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                        rdfs:label "Visual novel release"@en ;
+                        skos:definition "Physical or online release of a visual novel"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://mediagraph.link/vndb/ont/length/1
+<http://mediagraph.link/vndb/ont/length/1> rdf:type owl:NamedIndividual ,
+                                                    vndb:VisualNovelLength ;
+                                           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                           rdfs:label "Very short (< 2 hours)"@en .
+
+
+###  http://mediagraph.link/vndb/ont/length/2
+<http://mediagraph.link/vndb/ont/length/2> rdf:type owl:NamedIndividual ,
+                                                    vndb:VisualNovelLength ;
+                                           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                           rdfs:label "Short (2 - 10 hours)"@en .
+
+
+###  http://mediagraph.link/vndb/ont/length/3
+<http://mediagraph.link/vndb/ont/length/3> rdf:type owl:NamedIndividual ,
+                                                    vndb:VisualNovelLength ;
+                                           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                           rdfs:label "Medium (10 - 30 hours)"@en .
+
+
+###  http://mediagraph.link/vndb/ont/length/4
+<http://mediagraph.link/vndb/ont/length/4> rdf:type owl:NamedIndividual ,
+                                                    vndb:VisualNovelLength ;
+                                           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                           rdfs:label "Long (30 - 50 hours)"@en .
+
+
+###  http://mediagraph.link/vndb/ont/length/5
+<http://mediagraph.link/vndb/ont/length/5> rdf:type owl:NamedIndividual ,
+                                                    vndb:VisualNovelLength ;
+                                           jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                           rdfs:label "Very long (> 50 hours)"@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerRelation/imp
+<http://mediagraph.link/vndb/ont/producerRelation/imp> rdf:type owl:NamedIndividual ;
+                                                       jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                       rdfs:comment "Selected producer is an imprint of the current producer. Simply put, an \"imprint\" is a different name for the same group of people, used when publishing games. See http://en.wikipedia.org/wiki/Imprint for more info. Source: https://vndb.org/d4 ."@en ;
+                                                       rdfs:label "Imprint"@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerRelation/new
+<http://mediagraph.link/vndb/ont/producerRelation/new> rdf:type owl:NamedIndividual ;
+                                                       jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                       rdfs:comment "Reverse of Formerly - selected producer was formerly known as the current producer. From: https://vndb.org/d4 ."@en ;
+                                                       rdfs:label "Succeeded by"@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerRelation/old
+<http://mediagraph.link/vndb/ont/producerRelation/old> rdf:type owl:NamedIndividual ;
+                                                       jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                       rdfs:comment "The current producer was earlier known as the selected producer. This can be because of a name change, or when the earlier producer disbanded and the same people started again under a different name. Source: https://vndb.org/d4 ."@en ;
+                                                       rdfs:label "Formerly"@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerRelation/ori
+<http://mediagraph.link/vndb/ont/producerRelation/ori> rdf:type owl:NamedIndividual ;
+                                                       jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                       rdfs:comment "Reverse of Spawned - selected producer spawned the current producer. Source: https://vndb.org/d4 ."@en ;
+                                                       rdfs:label "Originated from"@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerRelation/par
+<http://mediagraph.link/vndb/ont/producerRelation/par> rdf:type owl:NamedIndividual ;
+                                                       jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                       rdfs:comment "Reverse of Subsidiary  / Imprint - current producer is a subsidiary / imprint of the selected producer. Source: https://vndb.org/d4 ."@en ;
+                                                       rdfs:label "Parent"@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerRelation/spa
+<http://mediagraph.link/vndb/ont/producerRelation/spa> rdf:type owl:NamedIndividual ;
+                                                       jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                       rdfs:comment "The selected producer was formed by former members of the current producers. The difference with the Formerly relation is that the producer where the members came from is still alive. Source: https://vndb.org/d4 ."@en ;
+                                                       rdfs:label "Spawned"@en .
+
+
+###  http://mediagraph.link/vndb/ont/producerRelation/sub
+<http://mediagraph.link/vndb/ont/producerRelation/sub> rdf:type owl:NamedIndividual ;
+                                                       jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                       rdfs:comment "Selected producer is a subsidiary of the current producer. Source: https://vndb.org/d4 ."@en ;
+                                                       rdfs:label "Subsidiary"@en .
+
+
+###  http://mediagraph.link/vndb/ont/releasetype/complete
+<http://mediagraph.link/vndb/ont/releasetype/complete> rdf:type owl:NamedIndividual ;
+                                                       jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                       rdfs:label "Complete"@en .
+
+
+###  http://mediagraph.link/vndb/ont/releasetype/partial
+<http://mediagraph.link/vndb/ont/releasetype/partial> rdf:type owl:NamedIndividual ;
+                                                      jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                      rdfs:label "Partial"@en .
+
+
+###  http://mediagraph.link/vndb/ont/releasetype/trial
+<http://mediagraph.link/vndb/ont/releasetype/trial> rdf:type owl:NamedIndividual ;
+                                                    jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                    rdfs:label "Trial"@en .
+
+
+###  http://mediagraph.link/vndb/ont/staffrole/art
+<http://mediagraph.link/vndb/ont/staffrole/art> rdf:type owl:NamedIndividual ,
+                                                         vndb:StaffRole ;
+                                                jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                rdfs:label "Art"@en .
+
+
+###  http://mediagraph.link/vndb/ont/staffrole/chardesign
+<http://mediagraph.link/vndb/ont/staffrole/chardesign> rdf:type owl:NamedIndividual ,
+                                                                vndb:StaffRole ;
+                                                       jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                       rdfs:label "Character design"@en .
+
+
+###  http://mediagraph.link/vndb/ont/staffrole/director
+<http://mediagraph.link/vndb/ont/staffrole/director> rdf:type owl:NamedIndividual ,
+                                                              vndb:StaffRole ;
+                                                     jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                     rdfs:label "Director"@en .
+
+
+###  http://mediagraph.link/vndb/ont/staffrole/music
+<http://mediagraph.link/vndb/ont/staffrole/music> rdf:type owl:NamedIndividual ,
+                                                           vndb:StaffRole ;
+                                                  jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                  rdfs:label "Music"@en .
+
+
+###  http://mediagraph.link/vndb/ont/staffrole/scenario
+<http://mediagraph.link/vndb/ont/staffrole/scenario> rdf:type owl:NamedIndividual ,
+                                                              vndb:StaffRole ;
+                                                     jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                     rdfs:label "Scenario"@en .
+
+
+###  http://mediagraph.link/vndb/ont/staffrole/seiyuu
+<http://mediagraph.link/vndb/ont/staffrole/seiyuu> rdf:type owl:NamedIndividual ,
+                                                            vndb:StaffRole ;
+                                                   jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                   rdfs:label "Seiyuu"@en .
+
+
+###  http://mediagraph.link/vndb/ont/staffrole/songs
+<http://mediagraph.link/vndb/ont/staffrole/songs> rdf:type owl:NamedIndividual ,
+                                                           vndb:StaffRole ;
+                                                  jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                  rdfs:label "Songs"@en .
+
+
+###  http://mediagraph.link/vndb/ont/staffrole/staff
+<http://mediagraph.link/vndb/ont/staffrole/staff> rdf:type owl:NamedIndividual ,
+                                                           vndb:StaffRole ;
+                                                  jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
+                                                  rdfs:label "Staff"@en .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

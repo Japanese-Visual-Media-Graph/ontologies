@@ -1,0 +1,6 @@
+@prefix jvmg: <http://mediagraph.link/jvmg/ont/> .
+
+<http://mediagraph.link/vndb/ont/VisualNovel> jvmg:searchable true .
+<http://mediagraph.link/vndb/ont/Character> jvmg:searchable true .
+<http://mediagraph.link/vndb/ont/Staff> jvmg:searchable true .
+<http://mediagraph.link/vndb/ont/Trait> jvmg:searchable true .

@@ -1,0 +1,47 @@
+@prefix : <http://mediagraph.link/graph/aclick/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix jvmg: <http://mediagraph.link/jvmg/ont/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfg: <http://www.w3.org/2004/03/trix/rdfg-1/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@base <http://mediagraph.link/graph/aclick/> .
+
+<http://mediagraph.link/graph/aclick> rdf:type dctype:Dataset  ;
+                                    dc:creator "Japanese Visual Media Graph" ;
+                                    dc:description "An RDF graph representation of data from the AnimeClick Database"@en ;
+                                    dc:title "AnimeClick Graph"@en ;
+                                    dcterms:modified "2021-10-15" ;
+                                    jvmg:shortLabel "aclick" ;                                    
+                                    vann:preferredNamespaceUri "http://mediagraph.link/graph/aclick"^^xsd:string ;
+                                    rdfs:comment "This file describes the RDF graph for AnimeClick (https://www.animeclick.it/) dataset."@en ;
+                                    owl:versionInfo "1.0"^^xsd:string ;
+                                    rdfs:label "AnimeClick Graph Description"@en ;
+                                    cc:license <https://creativecommons.org/licenses/by-nc-sa/4.0/> .
+
+:aclick_dataset
+   a prov:Entity;
+   dcterms:title "AnimeClick Dataset"^^xsd:string ;
+   prov:wasAttributedTo :jvmggroup ;
+   prov:wasDerivedFrom :aclickOrg .
+   
+
+:aclickOrg
+   a prov:Agent, prov:Organization;
+   foaf:givenName      "https://www.animeclick.it/"^^xsd:string ;
+   foaf:homePage       <https://www.animeclick.it/> .
+
+:jvmggroup
+   a prov:Agent, prov:Organization;
+   foaf:givenName      "JVMG Group"^^xsd:string ;
+   foaf:homePage       <http://mediagraph.link/> .
