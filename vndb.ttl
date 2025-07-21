@@ -1066,15 +1066,6 @@ vndb:state rdf:type owl:DatatypeProperty ;
            rdfs:label "state"@en .
 
 
-###  http://mediagraph.link/vndb/ont/tagName
-vndb:tagName rdf:type owl:DatatypeProperty ;
-             rdfs:domain vndb:Tag ;
-             rdfs:range rdfs:Literal ;
-             jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
-             rdfs:label "Tag name"@en ;
-             skos:definition "Tag name."@en .
-
-
 ###  http://mediagraph.link/vndb/ont/title
 vndb:title rdf:type owl:DatatypeProperty ;
            rdfs:domain vndb:VisualNovel ,
@@ -1102,15 +1093,6 @@ vndb:titleRomaji rdf:type owl:DatatypeProperty ;
                  jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
                  rdfs:label "Title romaji"@en ;
                  skos:definition "Romaji title of an anime"@en .
-
-
-###  http://mediagraph.link/vndb/ont/traitName
-vndb:traitName rdf:type owl:DatatypeProperty ;
-               rdfs:domain vndb:Trait ;
-               rdfs:range rdfs:Literal ;
-               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
-               rdfs:label "Trait name"@en ;
-               skos:definition "Trait name."@en .
 
 
 ###  http://mediagraph.link/vndb/ont/uncensored
