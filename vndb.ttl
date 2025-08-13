@@ -29,7 +29,8 @@
 #################################################################
 
 ###  http://mediagraph.link/jvmg/ont/sourceGraph
-jvmg:sourceGraph rdf:type owl:AnnotationProperty .
+jvmg:sourceGraph rdf:type owl:AnnotationProperty ;
+                 rdfs:label "Source Graph"@en .
 
 
 ###  http://purl.org/dc/elements/1.1/creator
@@ -898,15 +899,6 @@ vndb:original rdf:type owl:DatatypeProperty ;
               jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
               rdfs:label "Original"@en ;
               skos:definition "Title or name in the original language."@en .
-
-
-###  http://mediagraph.link/vndb/ont/originalTitle
-vndb:originalTitle rdf:type owl:DatatypeProperty ;
-                   rdfs:domain vndb:VisualNovel ;
-                   rdfs:range rdfs:Literal ;
-                   jvmg:sourceGraph <http://mediagraph.link/graph/vndb> ;
-                   rdfs:label "Original title"@en ;
-                   skos:definition "Title in the original language of the visual novel, typically Japanese."@en .
 
 
 ###  http://mediagraph.link/vndb/ont/patch

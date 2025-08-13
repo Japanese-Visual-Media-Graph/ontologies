@@ -9,7 +9,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://mediagraph.link/jvmg/ont> .
+@base <http://mediagraph.link/jvmg/ont#> .
 
 <http://mediagraph.link/jvmg/ont> rdf:type owl:Ontology ;
                                    dc:creator "Japanese Visual Media Graph"@en ;
@@ -57,196 +57,50 @@ skos:definition rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/elitebookhp840/ontologies/2024/0/untitled-ontology-27/member
-<http://www.semanticweb.org/elitebookhp840/ontologies/2024/0/untitled-ontology-27/member> rdf:type owl:ObjectProperty ;
-                                                                                          rdfs:label "member"@en .
+###  http://mediagraph.link/jvmg/ont/bridgeCharacter
+<http://mediagraph.link/jvmg/ont/bridgeCharacter> rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain <http://mediagraph.link/jvmg/ont/BridgeCharacter> ;
+                                                  rdfs:range <http://mediagraph.link/jvmg/ont/AbstractCharacter> ;
+                                                  rdfs:label "Bridge character relationship"@en .
 
 
-#################################################################
-#    Data properties
-#################################################################
-
-###  http://mediagraph.link/jvmg/ont/alias
-<http://mediagraph.link/jvmg/ont/alias> rdf:type owl:DatatypeProperty ;
-                                        rdfs:domain <http://mediagraph.link/jvmg/ont/Individual> ;
-                                        rdfs:range rdfs:Literal ;
-                                        rdfs:label "Alias"@en ;
-                                        skos:definition "Aliases from an individual"@en .
+###  http://mediagraph.link/jvmg/ont/character
+<http://mediagraph.link/jvmg/ont/character> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain <http://mediagraph.link/jvmg/ont/AbstractCharacter> ,
+                                                        <http://mediagraph.link/jvmg/ont/BridgeCharacter> ;
+                                            rdfs:range <http://mediagraph.link/jvmg/ont/CharacterWithWork> ;
+                                            rdfs:label "Character relationship"@en .
 
 
-###  http://mediagraph.link/jvmg/ont/alternativeName
-<http://mediagraph.link/jvmg/ont/alternativeName> rdf:type owl:DatatypeProperty ;
-                                                  rdfs:domain <http://mediagraph.link/jvmg/ont/Company> ;
-                                                  rdfs:range rdfs:Literal ;
-                                                  rdfs:label "Alternative name"@en ;
-                                                  skos:definition "Alternative names from a company."@en .
+###  http://mediagraph.link/jvmg/ont/contributor
+<http://mediagraph.link/jvmg/ont/contributor> rdf:type owl:ObjectProperty ;
+                                              rdfs:domain <http://mediagraph.link/jvmg/ont/Contributor> ;
+                                              rdfs:range <http://mediagraph.link/jvmg/ont/HumanToCharacter> ;
+                                              rdfs:label "Contributor relationship"@en .
 
 
-###  http://mediagraph.link/jvmg/ont/currentName
-<http://mediagraph.link/jvmg/ont/currentName> rdf:type owl:DatatypeProperty ;
-                                              rdfs:domain <http://mediagraph.link/jvmg/ont/Company> ;
-                                              rdfs:range rdfs:Literal ;
-                                              rdfs:label "Current name"@en ;
-                                              skos:definition "Current name of a company."@en .
+###  http://mediagraph.link/jvmg/ont/mediaWork
+<http://mediagraph.link/jvmg/ont/mediaWork> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain <http://mediagraph.link/jvmg/ont/MediaWork> ;
+                                            rdfs:range <http://mediagraph.link/jvmg/ont/HumanToWork> ;
+                                            rdfs:label "Media work relationship"@en .
 
 
-###  http://mediagraph.link/jvmg/ont/dateBirth
-<http://mediagraph.link/jvmg/ont/dateBirth> rdf:type owl:DatatypeProperty ;
-                                            rdfs:domain <http://mediagraph.link/jvmg/ont/Individual> ;
-                                            rdfs:range rdfs:Literal ;
-                                            rdfs:label "Date of birth"@en ;
-                                            skos:definition "Birth dates of an individual."@en .
-
-
-###  http://mediagraph.link/jvmg/ont/dateDeath
-<http://mediagraph.link/jvmg/ont/dateDeath> rdf:type owl:DatatypeProperty ;
-                                            rdfs:domain <http://mediagraph.link/jvmg/ont/Individual> ;
-                                            rdfs:range rdfs:Literal ;
-                                            rdfs:label "Date of death"@en ;
-                                            skos:definition "Date of death of an individual."@en .
-
-
-###  http://mediagraph.link/jvmg/ont/endYear
-<http://mediagraph.link/jvmg/ont/endYear> rdf:type owl:DatatypeProperty ;
-                                          rdfs:domain <http://mediagraph.link/jvmg/ont/Anime> ,
-                                                      <http://mediagraph.link/jvmg/ont/Manga> ;
-                                          rdfs:range xsd:integer ;
-                                          rdfs:label "End year"@en ;
-                                          skos:definition "End year of a episodic media work."@en .
-
-
-###  http://mediagraph.link/jvmg/ont/episodesNumber
-<http://mediagraph.link/jvmg/ont/episodesNumber> rdf:type owl:DatatypeProperty ;
-                                                 rdfs:domain <http://mediagraph.link/jvmg/ont/Anime> ;
-                                                 rdfs:range rdfs:Literal ;
-                                                 rdfs:label "Episodes number"@en ;
-                                                 skos:definition "Number of episodes from an Anime."@en .
-
-
-###  http://mediagraph.link/jvmg/ont/gender
-<http://mediagraph.link/jvmg/ont/gender> rdf:type owl:DatatypeProperty ;
-                                         rdfs:domain <http://mediagraph.link/jvmg/ont/Character> ,
-                                                     <http://mediagraph.link/jvmg/ont/Individual> ;
-                                         rdfs:range rdfs:Literal ;
-                                         rdfs:label "Gender"@en ;
-                                         skos:definition "Gender of an individual or a character"@en .
-
-
-###  http://mediagraph.link/jvmg/ont/genre
-<http://mediagraph.link/jvmg/ont/genre> rdf:type owl:DatatypeProperty ;
-                                        rdfs:domain <http://mediagraph.link/jvmg/ont/Anime> ,
-                                                    <http://mediagraph.link/jvmg/ont/Manga> ;
-                                        rdfs:range rdfs:Literal ;
-                                        rdfs:label "Genre"@en ;
-                                        skos:definition "Genre of a media work (especially Anime, Manga)."@en .
-
-
-###  http://mediagraph.link/jvmg/ont/mainNameJapanese
-<http://mediagraph.link/jvmg/ont/mainNameJapanese> rdf:type owl:DatatypeProperty ;
-                                                   rdfs:domain <http://mediagraph.link/jvmg/ont/Character> ;
-                                                   rdfs:range rdfs:Literal ;
-                                                   rdfs:label "Main name japanese"@en ;
-                                                   skos:definition "Main name of a character in Japanese."@en .
-
-
-###  http://mediagraph.link/jvmg/ont/mainNamenTranslated
-<http://mediagraph.link/jvmg/ont/mainNamenTranslated> rdf:type owl:DatatypeProperty ;
-                                                      rdfs:domain <http://mediagraph.link/jvmg/ont/Character> ;
-                                                      rdfs:range rdfs:Literal ;
-                                                      rdfs:label "Main name translated"@en ;
-                                                      skos:definition "Tranlation of the main namen of a character."@en .
-
-
-###  http://mediagraph.link/jvmg/ont/otherNames
-<http://mediagraph.link/jvmg/ont/otherNames> rdf:type owl:DatatypeProperty ;
-                                             rdfs:domain <http://mediagraph.link/jvmg/ont/Character> ;
-                                             rdfs:range rdfs:Literal ;
-                                             rdfs:label "Other names"@en ;
-                                             skos:definition "Name variants from a character."@en .
-
-
-###  http://mediagraph.link/jvmg/ont/preferredName
-<http://mediagraph.link/jvmg/ont/preferredName> rdf:type owl:DatatypeProperty ;
-                                                rdfs:domain <http://mediagraph.link/jvmg/ont/Individual> ;
-                                                rdfs:range rdfs:Literal ;
-                                                rdfs:label "Preferred name"@en ;
-                                                skos:definition "Preferred name of a person, mostly in Japanese"@en .
-
-
-###  http://mediagraph.link/jvmg/ont/preferredNameRomaji
-<http://mediagraph.link/jvmg/ont/preferredNameRomaji> rdf:type owl:DatatypeProperty ;
-                                                      rdfs:domain <http://mediagraph.link/jvmg/ont/Individual> ;
-                                                      rdfs:range rdfs:Literal ;
-                                                      rdfs:label "Preferred name romaji"@en ;
-                                                      skos:definition "Preferred name from an individual in Romaji"@en .
-
-
-###  http://mediagraph.link/jvmg/ont/publicationYear
-<http://mediagraph.link/jvmg/ont/publicationYear> rdf:type owl:DatatypeProperty ;
-                                                  rdfs:domain <http://mediagraph.link/jvmg/ont/Game> ;
-                                                  rdfs:range xsd:dateTime ;
-                                                  rdfs:label "Publication year"@en ;
-                                                  skos:definition "Publication year from a Game."@en .
-
-
-###  http://mediagraph.link/jvmg/ont/role
-<http://mediagraph.link/jvmg/ont/role> rdf:type owl:DatatypeProperty ;
-                                       rdfs:domain <http://mediagraph.link/jvmg/ont/Individual> ;
-                                       rdfs:range rdfs:Literal ;
-                                       rdfs:label "Role"@en ;
-                                       skos:definition "Role of an individual in the production of a media work."@en .
-
-
-###  http://mediagraph.link/jvmg/ont/startYear
-<http://mediagraph.link/jvmg/ont/startYear> rdf:type owl:DatatypeProperty ;
-                                            rdfs:domain <http://mediagraph.link/jvmg/ont/Anime> ,
-                                                        <http://mediagraph.link/jvmg/ont/Manga> ;
-                                            rdfs:range xsd:integer ;
-                                            rdfs:label "Start year"@en ;
-                                            skos:definition "Start year of a episodic media work."@en .
-
-
-###  http://mediagraph.link/jvmg/ont/titleOriginal
-<http://mediagraph.link/jvmg/ont/titleOriginal> rdf:type owl:DatatypeProperty ;
-                                                rdfs:domain <http://mediagraph.link/jvmg/ont/Anime> ,
-                                                            <http://mediagraph.link/jvmg/ont/Game> ,
-                                                            <http://mediagraph.link/jvmg/ont/Manga> ;
-                                                rdfs:range rdfs:Literal ;
-                                                rdfs:label "Title original"@en ;
-                                                skos:definition "Original title of a media work."@en .
-
-
-###  http://mediagraph.link/jvmg/ont/titleTranslated
-<http://mediagraph.link/jvmg/ont/titleTranslated> rdf:type owl:DatatypeProperty ;
-                                                  rdfs:domain <http://mediagraph.link/jvmg/ont/Anime> ,
-                                                              <http://mediagraph.link/jvmg/ont/Game> ,
-                                                              <http://mediagraph.link/jvmg/ont/Manga> ;
-                                                  rdfs:range rdfs:Literal ;
-                                                  rdfs:label "Title translated"@en ;
-                                                  skos:definition "Translated  title of a media work."@en .
-
-
-###  http://mediagraph.link/jvmg/ont/titleVariant
-<http://mediagraph.link/jvmg/ont/titleVariant> rdf:type owl:DatatypeProperty ;
-                                               rdfs:domain <http://mediagraph.link/jvmg/ont/Anime> ,
-                                                           <http://mediagraph.link/jvmg/ont/Game> ,
-                                                           <http://mediagraph.link/jvmg/ont/Manga> ;
-                                               rdfs:range rdfs:Literal ;
-                                               rdfs:label "Title variant"@en ;
-                                               skos:definition "Variants of the title of a media work."@en .
-
-
-###  http://mediagraph.link/jvmg/ont/volumesNumber
-<http://mediagraph.link/jvmg/ont/volumesNumber> rdf:type owl:DatatypeProperty ;
-                                                rdfs:domain <http://mediagraph.link/jvmg/ont/Manga> ;
-                                                rdfs:range rdfs:Literal ;
-                                                rdfs:label "Volume number"@en ;
-                                                skos:definition "Number of volumes of a manga."@en .
+###  http://mediagraph.link/jvmg/ont/sourceURI
+<http://mediagraph.link/jvmg/ont/sourceURI> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain <http://mediagraph.link/jvmg/ont/BridgeCharacter> ,
+                                                        <http://mediagraph.link/jvmg/ont/MediaWork> .
 
 
 #################################################################
 #    Classes
 #################################################################
+
+###  http://mediagraph.link/jvmg/ont/AbstractCharacter
+<http://mediagraph.link/jvmg/ont/AbstractCharacter> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://mediagraph.link/jvmg/ont/Character> ;
+                                                    rdfs:label "Abstract Character"@en .
+
 
 ###  http://mediagraph.link/jvmg/ont/Anime
 <http://mediagraph.link/jvmg/ont/Anime> rdf:type owl:Class ;
@@ -255,11 +109,23 @@ skos:definition rdf:type owl:AnnotationProperty .
                                         skos:definition "Different types of animation works (Film, TV series, OVA, other)."@en .
 
 
+###  http://mediagraph.link/jvmg/ont/BridgeCharacter
+<http://mediagraph.link/jvmg/ont/BridgeCharacter> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://mediagraph.link/jvmg/ont/Character> ;
+                                                  rdfs:label "Bridge Character"@en .
+
+
 ###  http://mediagraph.link/jvmg/ont/Character
 <http://mediagraph.link/jvmg/ont/Character> rdf:type owl:Class ;
-                                            rdfs:subClassOf <http://mediagraph.link/jvmg/ont/CreativeWork> ;
                                             rdfs:label "Character"@en ;
                                             skos:definition "A character from a creative work (e.g. Anime or Game)."@en .
+
+
+###  http://mediagraph.link/jvmg/ont/CharacterWithWork
+<http://mediagraph.link/jvmg/ont/CharacterWithWork> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://mediagraph.link/jvmg/ont/Relationship> ;
+                                                    rdfs:label "Character with work"@en ;
+                                                    skos:definition "Indicates a relationship between a character and a media work"@en .
 
 
 ###  http://mediagraph.link/jvmg/ont/Company
@@ -288,11 +154,31 @@ skos:definition rdf:type owl:AnnotationProperty .
                                        skos:definition "Games like computer games or visual novels."@en .
 
 
+###  http://mediagraph.link/jvmg/ont/HumanToCharacter
+<http://mediagraph.link/jvmg/ont/HumanToCharacter> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://mediagraph.link/jvmg/ont/Relationship> ;
+                                                   rdfs:label "Human to character"@en ;
+                                                   skos:definition "Indicates a relationship between a character and a human"@en .
+
+
+###  http://mediagraph.link/jvmg/ont/HumanToWork
+<http://mediagraph.link/jvmg/ont/HumanToWork> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://mediagraph.link/jvmg/ont/Relationship> ;
+                                              rdfs:label "Human to work"@en ;
+                                              skos:definition "Indicates a relationship between a human and a media work"@en .
+
+
 ###  http://mediagraph.link/jvmg/ont/Individual
 <http://mediagraph.link/jvmg/ont/Individual> rdf:type owl:Class ;
                                              rdfs:subClassOf <http://mediagraph.link/jvmg/ont/Contributor> ;
                                              rdfs:label "Individual"@en ;
                                              skos:definition "Real-world person who contributes to the production of media content."@en .
+
+
+###  http://mediagraph.link/jvmg/ont/InstantiatedCharacter
+<http://mediagraph.link/jvmg/ont/InstantiatedCharacter> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://mediagraph.link/jvmg/ont/Character> ;
+                                                        rdfs:label "Instantiated Character"@en .
 
 
 ###  http://mediagraph.link/jvmg/ont/Manga
@@ -309,32 +195,51 @@ skos:definition rdf:type owl:AnnotationProperty .
                                             skos:definition "Different media works like Anime, Manga or Games."@en .
 
 
+###  http://mediagraph.link/jvmg/ont/Relationship
+<http://mediagraph.link/jvmg/ont/Relationship> rdf:type owl:Class ;
+                                               rdfs:label "Relationship"@en ;
+                                               skos:definition "Indicates a relationship between media work, character or contributor."@en .
+
+
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://mediagraph.link/jvmg/ont/anime/1
-<http://mediagraph.link/jvmg/ont/anime/1> rdf:type owl:NamedIndividual ,
-                                                   <http://mediagraph.link/jvmg/ont/Anime> ;
-                                          rdfs:label "Film"@en .
+###  http://mediagraph.link/jvmg/ont/ona
+<http://mediagraph.link/jvmg/ont/ona> rdf:type owl:NamedIndividual ,
+                                               <http://mediagraph.link/jvmg/ont/Anime> ;
+                                      rdfs:label "ONA"@en .
 
 
-###  http://mediagraph.link/jvmg/ont/anime/2
-<http://mediagraph.link/jvmg/ont/anime/2> rdf:type owl:NamedIndividual ,
-                                                   <http://mediagraph.link/jvmg/ont/Anime> ;
-                                          rdfs:label "TV series"@en .
+###  http://mediagraph.link/jvmg/ont/anime/film
+<http://mediagraph.link/jvmg/ont/anime/film> rdf:type owl:NamedIndividual ,
+                                                      <http://mediagraph.link/jvmg/ont/Anime> ;
+                                             rdfs:label "Film"@en .
 
 
-###  http://mediagraph.link/jvmg/ont/anime/3
-<http://mediagraph.link/jvmg/ont/anime/3> rdf:type owl:NamedIndividual ,
-                                                   <http://mediagraph.link/jvmg/ont/Anime> ;
-                                          rdfs:label "OVA"@en .
+###  http://mediagraph.link/jvmg/ont/anime/other
+<http://mediagraph.link/jvmg/ont/anime/other> rdf:type owl:NamedIndividual ,
+                                                       <http://mediagraph.link/jvmg/ont/Anime> ;
+                                              rdfs:label "Other"@en .
 
 
-###  http://mediagraph.link/jvmg/ont/anime/4
-<http://mediagraph.link/jvmg/ont/anime/4> rdf:type owl:NamedIndividual ,
-                                                   <http://mediagraph.link/jvmg/ont/Anime> ;
-                                          rdfs:label "Other"@en .
+###  http://mediagraph.link/jvmg/ont/anime/ova
+<http://mediagraph.link/jvmg/ont/anime/ova> rdf:type owl:NamedIndividual ,
+                                                     <http://mediagraph.link/jvmg/ont/Anime> ;
+                                            rdfs:label "OVA"@en .
+
+
+###  http://mediagraph.link/jvmg/ont/anime/tvSeries
+<http://mediagraph.link/jvmg/ont/anime/tvSeries> rdf:type owl:NamedIndividual ,
+                                                          <http://mediagraph.link/jvmg/ont/Anime> ;
+                                                 rdfs:label "TV series"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<http://mediagraph.link/jvmg/ont/anime/ona> rdfs:label "ONA"@en .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
