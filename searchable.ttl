@@ -4,3 +4,31 @@
 <http://mediagraph.link/vndb/ont/Character> jvmg:searchable true .
 <http://mediagraph.link/vndb/ont/Staff> jvmg:searchable true .
 <http://mediagraph.link/vndb/ont/Trait> jvmg:searchable true .
+<http://mediagraph.link/vndb/ont/Tag> jvmg:searchable true .
+<http://mediagraph.link/vndb/ont/Role> jvmg:searchable true .
+<http://mediagraph.link/vndb/ont/VisualNovelRelease> jvmg:searchable true .
+
+<http://mediagraph.link/acdb/ont/Character> jvmg:searchable true .
+<http://mediagraph.link/acdb/ont/Publisher> jvmg:searchable true .
+<http://mediagraph.link/acdb/ont/Tag> jvmg:searchable true .
+<http://mediagraph.link/acdb/ont/CharacterTag> jvmg:searchable true .
+<http://mediagraph.link/acdb/ont/Individual> jvmg:searchable true .
+
+<http://mediagraph.link/aclick/ont/Character> jvmg:searchable true .
+<http://mediagraph.link/aclick/ont/Author> jvmg:searchable true .
+<http://mediagraph.link/aclick/ont/Staff> jvmg:searchable true .
+<http://mediagraph.link/aclick/ont/Episode> jvmg:searchable true .
+<http://mediagraph.link/aclick/ont/CreativeWork> jvmg:searchable true .
+<http://mediagraph.link/aclick/ont/Tag> jvmg:searchable true .
+<http://mediagraph.link/aclick/ont/Genre> jvmg:searchable true .
+<http://mediagraph.link/aclick/ont/Category> jvmg:searchable true .
+
+<http://mediagraph.link/madb/ont/Agent> jvmg:searchable true .
+<http://mediagraph.link/madb/ont/AnimationTVProgram> jvmg:searchable true .
+<http://mediagraph.link/madb/ont/AnimationVideoPackage> jvmg:searchable true .
+<http://mediagraph.link/madb/ont/GamePackage> jvmg:searchable true .
+<http://mediagraph.link/madb/ont/MangaBook> jvmg:searchable true .
+<http://mediagraph.link/madb/ont/MangaOther> jvmg:searchable true .
+<http://mediagraph.link/madb/ont/MediaArtExhibitionOrPerformance> jvmg:searchable true .
+
+
