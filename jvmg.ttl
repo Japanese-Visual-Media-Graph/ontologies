@@ -89,7 +89,9 @@ skos:definition rdf:type owl:AnnotationProperty .
 ###  http://mediagraph.link/jvmg/ont/sourceURI
 <http://mediagraph.link/jvmg/ont/sourceURI> rdf:type owl:ObjectProperty ;
                                             rdfs:domain <http://mediagraph.link/jvmg/ont/BridgeCharacter> ,
-                                                        <http://mediagraph.link/jvmg/ont/MediaWork> .
+                                                        <http://mediagraph.link/jvmg/ont/MediaWork> ;
+                                            rdfs:label "Source URI"@en ;
+                                            skos:definition "Backlink to the original database"@en .
 
 
 #################################################################
