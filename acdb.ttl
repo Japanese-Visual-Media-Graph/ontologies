@@ -75,6 +75,13 @@ acdb:age rdf:type owl:ObjectProperty ;
          skos:definition "Indicates the age of a character"@en .
 
 
+###  http://mediagraph.link/acdb/ont/appearsIn
+acdb:appearsIn rdf:type owl:ObjectProperty ;
+               rdfs:domain acdb:Character ;
+               rdfs:range acdb:Publisher ;
+               rdfs:label "Appears in"@en .
+
+
 ###  http://mediagraph.link/acdb/ont/characterTag
 acdb:characterTag rdf:type owl:ObjectProperty ;
                   rdfs:domain acdb:Character ;
